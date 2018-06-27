@@ -1,0 +1,145 @@
+<matisses-header></matisses-header>
+
+<div sticky-body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="title">
+          <h3>
+            <b>Blog</b>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-8">
+        <lujo-clasico *ngIf="blogNumber === 1"></lujo-clasico>
+        <blog-sofas *ngIf="blogNumber === 2"></blog-sofas>
+        <blog-vintage *ngIf="blogNumber === 3"></blog-vintage>
+      </div>
+      <div class="col-sm-4">
+        <h3>Blogs recientes</h3>
+        <hr>
+        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(3)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/vintage.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>ESTILO VINTAGE, DATOS CLAVES</b>
+              </p>
+              <span class="icon-clock"> 08/jun/2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(2)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/tu_sofa.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>COMO SELECCIONAR TU SOFÁ</b>
+              </p>
+              <span class="icon-clock"> 01/jun/2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(1)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/lujo_clasico.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>LUJO CLÁSICO</b>
+              </p>
+              <span class="icon-clock"> 25/may/2018</span>
+            </div>
+          </div>
+        </div>
+        <br>
+        <h3>Categorías</h3>
+        <hr>
+        <div class="categorias-blog" *ngIf="blogNumber === 1">
+          <ul>
+            <li>Mobiliario y accesorios</li>
+            <li>Tendencias</li>
+            <li>Espacios</li>
+            <li>Lifestyle</li>
+          </ul>
+        </div>
+        <div class="categorias-blog" *ngIf="blogNumber === 2">
+          <ul>
+            <li>Mobiliario y accesorios</li>
+            <li>Tendencias</li>
+            <li>Espacios</li>
+            <li>Lifestyle</li>
+          </ul>
+        </div>
+        <div class="categorias-blog" *ngIf="blogNumber === 3">
+          <ul>
+            <li>Mobiliario vintage</li>
+            <li>Vintage</li>
+            <li>Tendencias</li>
+            <li>Espacios</li>
+            <li>Lifestyle</li>
+          </ul>
+        </div>
+        <h3>Tags</h3>
+        <hr>
+        <div class="tags-filtros" *ngIf="blogNumber === 1">
+          <span class="active-filter">
+            Decoración
+          </span>
+          <span class="active-filter">
+            Diseño Clásico
+          </span>
+          <span class="active-filter">
+            Mobiliario
+          </span>
+          <span class="active-filter">
+            Diseño de interiores
+          </span>
+        </div>
+        <div class="tags-filtros" *ngIf="blogNumber === 2">
+          <span class="active-filter">
+            Decoración
+          </span>
+          <span class="active-filter">
+            Diseño Moderno
+          </span>
+
+          <span class="active-filter">
+            Mobiliario
+          </span>
+          <span class="active-filter">
+            Diseño de interiores
+          </span>
+        </div>
+        <div class="tags-filtros" *ngIf="blogNumber === 3">
+          <span class="active-filter">
+            Decoración
+          </span>
+          <span class="active-filter">
+            Diseño Vintage
+          </span>
+
+          <span class="active-filter">
+            Mobiliario
+          </span>
+          <span class="active-filter">
+            Diseño de interiores
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- <newsletter></newsletter> -->
+<matisses-footer></matisses-footer>

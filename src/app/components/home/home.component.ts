@@ -1,15 +1,28 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
+declare var $: any;
 
 @Component({
-  selector: 'app-home',
-  template: `<h3>{{ message }}</h3>`
+  selector: 'matisses-home',
+  templateUrl: 'home.html',
+  styleUrls: ['home.component.css']
 })
-export class HomeComponent implements OnInit {
-  public message: string;
 
-  constructor() {}
+export class HomeComponent implements OnInit {
+  public title: string;
+
+  constructor(private _route: ActivatedRoute, private _router: Router) {
+    this.title = 'Este es el cuerpo';
+  }
 
   ngOnInit() {
-    this.message = 'Hello';
   }
+
+  ngAfterViewInit() {
+    $(document).ready(function() {
+      $("html, body").animate({scrollTop: 0}, 1000);
+    });
+  }
+
 }

@@ -1,0 +1,49 @@
+<div class="container">
+  <!-- <hr> -->
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h2 class="bold grey">Tendencias</h2>
+    </div>
+  </div>
+  <br/>
+</div>
+
+<!-- principal -->
+<div class="container padding-0">
+  <div class="row">
+    <div class="col-xs-12">
+      <a href="javascript:void(0)" [routerLink]="['/producto/2090109']">
+        <!-- [queryParams]="{keywords: 'flexo'}" -->
+        <div class="tendencia-01">
+          <div class="container">
+            <div class="row">
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<br/>
+
+<div class="container">
+  <div class="row">
+    <!-- segundo -->
+    <div class="col-sm-6 col-xs-12">
+      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ brand: '0010', group: '027', pageSize: '10000' }">
+        <div class="sub-banner">
+          <img src="assets/images/tendencias/tendencias-02.jpg" class="img-responsive" alt="">
+        </div>
+      </a>
+    </div>
+    <!-- tercero -->
+    <div class="col-sm-6 col-xs-12">
+      <a href="javascript:void(0)" [routerLink]="['/producto/2640032']">
+        <!-- [queryParams]="{material: '66', group: '002', brand: '0001'}" -->
+        <div class="sub-banner">
+          <img src="assets/images/tendencias/tendencias-03.jpg" class="img-responsive" alt="">
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

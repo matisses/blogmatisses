@@ -18,7 +18,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-//import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { routing, appRoutingProviders } from './app.routing';
 
 @Component({

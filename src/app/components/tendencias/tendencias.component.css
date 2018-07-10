@@ -1,0 +1,215 @@
+hr {
+  border-color: #7C7C7C;
+  margin-bottom: 0;
+}
+
+h2::before {
+  content: '- ';
+  position: absolute;
+  top: 55px;
+  height: 5px;
+  width: 25px;
+  color: transparent;
+  background-color: #5B5B5B;
+}
+
+
+/* banner principal */
+
+.tendencia-01 {
+  background: url(../../../assets/images/tendencias/tendencias-011.jpg) no-repeat center top;
+  margin-top: 0px;
+  padding-top: 10px;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 480px;
+  width: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  /* background-size: cover; */
+  cursor: pointer;
+}
+
+
+/* Texto banner principal */
+
+.text {
+  font-size: 40px;
+  color: #FFF;
+  padding-left: 15px;
+  line-height: 1;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: -456px;
+  left: 0;
+}
+
+.p-principal {
+  margin-bottom: 0;
+}
+
+.p-secundario {
+  margin-bottom: 0;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.btn-comprar {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn-comprar::before {
+  content: '- ';
+  position: absolute;
+  bottom: 5px;
+  height: 5px;
+  width: 40px;
+  color: transparent;
+  background-color: #FFF;
+}
+
+
+/* Estilos de los sub-banner */
+
+.sub-banner {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.sub-banner-text {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: #FFF;
+  padding: 5px 15px;
+  width: 80%;
+  margin-top: 1%;
+  margin-left: 8%;
+  font-size: 20px;
+}
+
+.sub-banner-text p, .sub-banner .accion p {
+  margin: 0;
+}
+
+.sub-banner-text p::before {
+  content: '-';
+  color: transparent;
+  width: 56px;
+  height: 3px;
+  background-color: #FFF;
+  position: absolute;
+  bottom: 0;
+  left: 43%;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-principal {
+    font-size: 35px;
+  }
+  .sub-banner-text p::before {
+    left: 40%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .tendencia-01 {
+    min-height: 300px;
+  }
+  .text {
+    font-size: 30px;
+    position: initial;
+    width: 300px;
+    margin-top: 165px;
+  }
+  .p-principal {
+    font-size: 25px
+  }
+  .sub-banner-text {
+    margin-left: 15%;
+    width: 230px;
+    font-size: 15px;
+  }
+  .sub-banner-text p::before {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .tendencia-01 {
+    background-position: center;
+  }
+  .text {
+    padding-bottom: 3px;
+  }
+  .btn-comprar::before {
+    bottom: 2px;
+    margin-bottom: 5px;
+  }
+  .sub-banner {
+    border: 1px solid #EDEDED;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .tendencia-01 {
+    min-height: 250px;
+  }
+  .text {
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+  }
+  .p-principal {
+    font-size: 20px;
+    text-align: center;
+  }
+  .btn-comprar {
+    font-size: 10px;
+  }
+  .btn-comprar::before {
+    bottom: 4px;
+    height: 3px;
+    width: 20px;
+    right: 177px;
+  }
+  .sub-banner-text {
+    margin-left: 20%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .tendencia-01 {
+    min-height: 200px;
+  }
+  .p-principal {
+    font-size: 17px;
+  }
+  .sub-banner-text {
+    margin-left: 18%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .p-principal {
+    font-size: 15px;
+  }
+  .btn-comprar::before {
+    bottom: 4px;
+    height: 3px;
+    width: 20px;
+    right: 115px;
+  }
+  .sub-banner-text {
+    margin-left: 13%;
+    margin-top: 19%;
+  }
+}

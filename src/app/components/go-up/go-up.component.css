@@ -1,0 +1,31 @@
+.goup {
+  position: fixed;
+  bottom: 25%;
+  right: 0px;
+  background-color: #6D9791;
+  text-align: center;
+  color: #FFF;
+  cursor: pointer;
+  z-index: 6;
+  width: 35px;
+  height: 35px;
+  padding-top: 10px;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.goup:hover {
+  background-color: #5B5B5B;
+}
+
+.chat:hover .icon-chat::before {
+  color: #FFF;
+}
+
+p {
+  display: inline-block;
+  margin-left: 10px;
+}

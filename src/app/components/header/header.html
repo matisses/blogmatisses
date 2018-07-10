@@ -1,5 +1,232 @@
+<div class="modal fade" id="carritoModal" tabindex="-1" role="dialog" aria-labelledby="carritoLabel">
+  <div class="modal-dialog modal-lg" role="document" *ngIf="lastAddedItem">
+    <div class="modal-content modal-2">
+      <div class="modal-header">
+        <h4 class="modal-title text-center">Has añadido el artículo al carrito</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-7">
+              <div class="row">
+                <div class="col-sm-6">
+                  <img src="https://img.matisses.co/{{lastAddedItem.itemcode}}/images/{{lastAddedItem.itemcode}}_01.jpg" class="img-responsive" alt="{{lastAddedItem.itemname}}">
+                </div>
+                <div class="col-sm-6">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <p class="nombre-producto"><b>{{lastAddedItem.itemname}}</b></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12" *ngIf="!lastAddedItem.priceafterdiscount || lastAddedItem.priceafterdiscount === 0 || lastAddedItem.priceafterdiscount === lastAddedItem.pricebeforediscount || !carrito.validarItem(lastAddedItem.itemcode)">
+                      <h4 class="precio-producto">$ {{lastAddedItem.priceaftervatFormat}}</h4>
+                    </div>
+                    <div class="col-xs-12" *ngIf="lastAddedItem.priceafterdiscount && lastAddedItem.priceafterdiscount > 0 && lastAddedItem.itemcode != '24400000000000000121'">
+                      <h4 class="old-price">$ {{lastAddedItem.priceaftervatFormat}}</h4>
+                      <h3 class="percentage">-{{lastAddedItem.descuento}}%</h3>
+                      <h3 class="new-price">$ {{lastAddedItem.priceafterdiscountFormat}} <small>Iva incluido</small></h3>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="color">{{lastAddedItem.color.name}}</div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <!-- <p class="cantidad-agregada">Cantidad: <span>{{lastAddedItem.selectedQuantity | number}}</span></p> -->
+                      <p class="cantidad-agregada">Cantidad: <span>{{lastAddedItem.selectedQuantity}}</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 border-left">
+              <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0 resumen-carrito">
+                  <h4 class="total-items"><b>{{carrito.totalItems}}</b> ARTÍCULOS</h4>
+                  <p class="total-precio">Costo total de los productos: <span class="pull-right"><b>$ {{carrito.totalCarritoFormat}}</b></span></p>
+                  <p class="total-precio">Total impuestos: <span class="pull-right"><b>$ {{carrito.totalImpuestosFormat}}</b></span></p>
+                  <p class="total-precio">Total descuentos: <span class="pull-right"><b>$ {{carrito.totalDescuentosFormat}}</b></span></p>
+                  <hr/>
+                  <p class="total-precio">Total: <span class="pull-right"><b>$ {{formatNumber(carrito.totalCarrito - carrito.totalDescuentos)}}</b></span></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <button type="button" class="btn btn-seguir" data-dismiss="modal" aria-label="Close">
+                        Seguir comprando
+                      </button>
+                    </div>
+                    <div class="col-sm-6">
+                      <button type="button" class="btn btn-carrito" data-dismiss="modal" aria-label="Close" [routerLink]="['/resumen-carrito']">
+                        Ir al carrito
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalSinSaldo" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document" *ngIf="lastAddedItem">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center">Cantidad insuficiente</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-7">
+              <div class="row">
+                <div class="col-sm-6">
+                  <img src="https://img.matisses.co/{{lastAddedItem.itemcode}}/images/{{lastAddedItem.itemcode}}_01.jpg" class="img-responsive" alt="{{lastAddedItem.itemname}}">
+                </div>
+                <div class="col-sm-6">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <p class="nombre-producto"><b>{{lastAddedItem.itemname}}</b></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12" *ngIf="!lastAddedItem.priceafterdiscount || lastAddedItem.priceafterdiscount === 0 || lastAddedItem.priceafterdiscount === lastAddedItem.pricebeforediscount">
+                      <h4 class="precio-producto">$ {{lastAddedItem.priceaftervatFormat}}</h4>
+                    </div>
+                    <div class="col-xs-12" *ngIf="lastAddedItem.priceafterdiscount && lastAddedItem.priceafterdiscount > 0">
+                      <h4 class="old-price">$ {{lastAddedItem.priceaftervatFormat}}</h4>
+                      <h3 class="percentage">-{{lastAddedItem.descuento}}%</h3>
+                      <h3 class="new-price">$ {{lastAddedItem.priceafterdiscountFormat}} <small>Iva incluido</small></h3>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="color">{{lastAddedItem.color.name}}</div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <p class="cantidad-agregada">Cantidad: <span>{{lastAddedItem.selectedQuantity}}</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 border-left">
+              <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0 resumen-carrito">
+                  <p>No se encontró cantidad suficiente para el ítem seleccionado:</p>
+                  <br/>
+                  <p>Cantidad disponible: <b>{{lastAddedItem.availablestock}}</b></p>
+                  <p>Cantidad solicitada: <b>{{lastAddedItem.selectedQuantity}}</b></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <button type="button" class="btn btn-seguir" data-dismiss="modal" aria-label="Close">
+                    Seguir comprando
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalItemsSinSaldo" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document" *ngIf="itemsSinSaldo">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center">Cantidad insuficiente</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12">
+              <p>
+                No se encontro cantidad suficiente de los siguientes ítems:
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6" *ngFor="let item of itemsSinSaldo">
+              <div class="row">
+                <div class="col-md-3 col-xs-offset-0 col-xs-6 col-xs-offset-3">
+                  <img src="https://img.matisses.co/{{item.itemcode}}/images/{{item.itemcode}}_01.jpg" class="img-responsive" alt="{{item.itemname}}">
+                </div>
+                <div class="col-md-9 col-xs-12">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <p class="nombre-producto"><b>{{item.itemname}}</b></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <div class="color">{{item.color.name}}</div>
+                    </div>
+                    <div class="col-xs-6">
+                      <p>$ {{item.priceaftervatFormat}}</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <p>Disponibles: <b>{{item.availablestock}}</b></p>
+                    </div>
+                    <div class="col-xs-6">
+                      <p>Solicitados: <b>{{item.selectedQuantity}}</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-xs-12 col-sm-6 col-md-3" *ngFor="let item of itemsSinSaldo">
+              <div class="row">
+                <div class="col-xs-12">
+                  <img src="https://img.matisses.co/{{item.itemcode}}/images/{{item.itemcode}}_01.jpg" class="img-responsive" alt="{{item.itemname}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <p class="nombre-producto"><b>{{item.itemname}}</b></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="color">{{item.color.name}}</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <p>$ {{item.priceaftervat | number}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <p>Cantidad disponible: <b>{{item.availablestock}}</b></p>
+                  <p>Cantidad solicitada: <b>{{item.selectedQuantity}}</b></p>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <top-banner></top-banner>
-<!-- <matisses-menu></matisses-menu> -->
-<!-- <matisses-carrito-simple #carritoSimple></matisses-carrito-simple> -->
-<!-- <chat></chat>
-<go-up></go-up> -->
+<matisses-menu></matisses-menu>
+<matisses-carrito-simple #carritoSimple></matisses-carrito-simple>
+<chat></chat>
+<go-up></go-up>

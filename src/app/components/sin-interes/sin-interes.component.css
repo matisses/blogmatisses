@@ -1,0 +1,178 @@
+.stuck-body {
+  margin-top: 125px;
+}
+
+.jpg-responsive {
+  width: 100%;
+  height: 100%;
+}
+
+.padding-0 {
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden;
+}
+
+.principal-01 {
+  background: url(../../../assets/images/banner-sin-interes.jpg) no-repeat center center;
+  margin-top: 0px;
+  padding-top: 100px;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 500px;
+  width: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #747C79;
+  cursor: pointer;
+}
+
+.ir-comprar {
+  background-color: #6D9791;
+  color: #ECECEC;
+  z-index: 0 !important;
+  border-radius: 0;
+  margin-top: 10px;
+}
+
+.ir-comprar:hover {
+  background-color: #425E63 !important;
+}
+
+.img-banner .title {
+  position: absolute;
+  color: #6d9791;
+  left: 10%;
+  width: 350px;
+  margin-top: 8%;
+  font-size: 20px;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #6d9791;
+}
+
+.img-banner h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.title p {
+  color: #5b5b5b;
+}
+
+.title-bancos {
+  background-color: #7C7C7C;
+  color: #FFF;
+  padding: 5px 20px;
+  margin-top: 20px;
+}
+
+.title-bancos h4 {
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+.bancos {
+  border: 1px solid #EDEDED;
+  padding: 40px 15px 20px;
+  position: relative;
+  top: -20px;
+  z-index: -1;
+}
+
+.bancos .img-banco {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+iframe {
+  width: 560px;
+  height: 315px;
+}
+
+.bg-video {
+  background-color: rgba(220, 220, 220, 0.1);
+  padding: 25px 0;
+  margin: 20px 0;
+}
+
+.paso-paso h3 {
+  padding: 0 20px;
+}
+
+.paso-paso hr {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 4px dotted #7C7C7C;
+}
+
+.paso-paso li {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+  iframe {
+    width: 480px;
+    height: 270px;
+  }
+  .paso-paso {
+    margin: 55px 0;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .stuck-body {
+    margin-top: 0px;
+  }
+  .content {
+    margin-top: -10px;
+  }
+  .principal-01 {
+    min-height: 300px;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .principal-01 {
+    min-height: 300px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .principal-01 {
+    background: url(../../../assets/images/banner-sin-interes-mobile.jpg) no-repeat center;
+    background-position: center -35px;
+  }
+  iframe {
+    width: 100%;
+    height: 216px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  iframe {
+    height: 194px;
+  }
+  .principal-01 {
+    min-height: 270px;
+    background-position: center -75px;    
+  }
+}
+
+@media screen and (max-width: 320px) {
+  iframe {
+    height: 163px;
+  }
+  .principal-01 {
+    min-height: 240px;
+  }
+}

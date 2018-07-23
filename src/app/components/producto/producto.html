@@ -1,0 +1,413 @@
+<matisses-header></matisses-header>
+
+<!-- Modal Zoom -->
+<div class="modal fade modal" id="zoomModal" tabindex="-1" role="dialog" aria-labelledby="zoomLabel" *ngIf="item">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content modal-2">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div id="carousel-modal" class="carousel slide" data-ride="carousel">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item" [class.active]="i === 0" *ngFor="let image of item.images; let i = index">
+              <img src="https://img.matisses.co/{{item.itemcode}}/images/{{image}}" alt="{{item.itemname}}">
+            </div>
+          </div>
+
+          <!-- Wrapper for slides -->
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-modal" role="button" data-slide="prev">
+                <span class="icon icon-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+          <a class="right carousel-control" href="#carousel-modal" role="button" data-slide="next">
+                <span class="icon icon-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+          <!-- Controls -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Zoom -->
+
+<!-- Modal plantilla -->
+<div class="modal fade modal" id="plantillaModal" tabindex="-1" role="dialog" aria-labelledby="plantillaLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-2">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <img id="plantilla" width="100%" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal plantilla -->
+
+<!-- Modal 360 -->
+<div class="modal fade modal hidden-xs" id="360Modal" tabindex="-1" role="dialog" aria-labelledby="360Label">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content modal-2">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="animacion">
+          <iframe id="frame360" class="animacion-iframe" frameborder="0" vspace="0" hspace="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" scrolling="no"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal 360 -->
+
+<!-- Modal wow -->
+<div class="modal fade modal hidden-xs" id="wowModal" tabindex="-1" role="dialog" aria-labelledby="wowLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content modal-2">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="animacion">
+          <iframe id="frameWow" class="animacion-iframe" frameborder="0" vspace="0" hspace="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" scrolling="no"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal wow -->
+
+<!-- Modal cotización -->
+<div class="modal fade" id="modalSolicitud" tabindex="-1" role="dialog" aria-labelledby="modalSolicitudLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="modalSolicitudLabel">Solicitar Cotización</h4>
+      </div>
+      <form #ContactForm="ngForm">
+        <div class="modal-body">
+          <div class="row" *ngIf="mensajeError != null && mensajeError.length > 0">
+            <div class="col-xs-12">
+              <div class="alert alert-danger" role="alert">
+                <p>{{mensajeError}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row" *ngIf="pasoCotizacion == 1">
+            <div class="col-xs-12">
+              <p>Déjanos tus datos y recibirás un correo electrónico con toda la información solicitada.</p>
+            </div>
+            <div class="row">
+              <div class="col-xs-8 col-xs-offset-2">
+                <label for="name">Nombre*</label>
+                <input id="name" type="text" class="input-matisses" [class.required-field]="!valid" name="firstName" [(ngModel)]="nombreCotizacion" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-8 col-xs-offset-2">
+                <label for="mail">E-mail*</label>
+                <input id="mail" type="mail" class="input-matisses" [class.required-field]="!valid" name="mail" [email]="true" [(ngModel)]="emailCotizacion" required>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <p class="terminos">Acepto <a href="javascript:void(0);" [routerLink]="['/terminos-y-condiciones']">Términos y Condiciones</a> y autorizo el <a href="javascript:void(0);" [routerLink]="['/politica-manejo-de-datos']">Tratamiento de datos</a> personales.</p>
+            </div>
+          </div>
+          <div class="row" *ngIf="pasoCotizacion == 2">
+            <div class="col-xs-12">
+              <p>Se envio la cotización correctamente</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-carrito" (click)="solicitarCotizacion(ContactForm)" *ngIf="pasoCotizacion == 1">Solicitar</button>
+          <button type="button" class="btn btn-carrito" (click)="cerrarModalCotizacion()" *ngIf="pasoCotizacion == 2">Salir</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div sticky-body>
+  <div class="container padding-top">
+    <!--
+    <miga-de-pan></miga-de-pan>
+-->
+    <div class="row">
+      <div class="col-sm-7">
+        <div class="galeria" *ngIf="item && item.images && item.images.length > 0">
+          <div id="galeria-producto" class="carousel slide" data-ride="carousel" data-interval="2000000">
+            <div class="row">
+              <div class="col-md-2 hidden-sm hidden-xs">
+                <a class="up" (click)="botonUp()" *ngIf="item.images.length > 3">
+                  <span class="glyphicon glyphicon-menu-up"></span>
+                </a>
+                <a class="down" (click)="botonDown()" *ngIf="item.images.length > 3">
+                  <span class="glyphicon glyphicon-menu-down"></span>
+                </a>
+                <!-- Indicators -->
+                <div class="section">
+                  <div class="row">
+                    <div class="col-xs-12 cursor-pointer" data-target="#galeria-producto" [attr.data-slide-to]="i" *ngFor="let image of item.images; let i = index">
+                      <div class="mini">
+                        <img class="img-responsive" src="https://img.matisses.co/{{item.itemcode}}/mini/{{image}}" alt="...">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Indicators -->
+              </div>
+              <div class="col-md-10 col-sm-12">
+                <!-- Wrapper for slides -->
+                <div id="carousel" class="carousel-inner" role="listbox">
+                  <div class="item" [class.active]="i === 0" *ngFor="let image of item.images; let i = index">
+                    <img src="https://img.matisses.co/{{item.itemcode}}/images/{{image}}" alt="...">
+                  </div>
+                </div>
+                <!-- Wrapper for slides -->
+                <!-- Controls -->
+                <a class="left carousel-control" href="#galeria-producto" role="button" data-slide="prev" *ngIf="item.images.length > 1">
+                  <span class="icon icon-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#galeria-producto" role="button" data-slide="next" *ngIf="item.images.length > 1">
+                  <span class="icon icon-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+                <!-- Controls -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="extras">
+              <div class="col-xs-12">
+                <span *ngIf="existePlantilla" class="icon-size" data-toggle="modal" data-target="#plantillaModal"></span>
+                <span *ngIf="existe360" class="icon-360 hidden-sm hidden-xs" data-toggle="modal" data-target="#360Modal"></span>
+                <span *ngIf="existeWow" class="icon-producto hidden-sm hidden-xs" data-toggle="modal" data-target="#wowModal"></span>
+                <span class="zoom icon-zoom-04" data-toggle="modal" data-target="#zoomModal"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="info" *ngIf="item">
+          <div class="row">
+            <div class="col-xs-12">
+              <h4>{{item.itemname}}</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <p>Ref: {{item.shortitemcode}}</p>
+            </div>
+          </div>
+          <div class="row" *ngIf="item.showprice === 'true' || item.showprice">
+            <!-- boton normal -->
+            <div class="col-xs-12">
+              <div class="row">
+                <div class="col-xs-12" *ngIf="!item.priceafterdiscount || item.priceafterdiscount === 0 || item.priceafterdiscount === item.pricebeforediscount || !carrito.validarItem(item.itemcode) || item.itemcode == '24400000000000000121'">
+                  <!-- <h3>$ {{item.priceaftervat | number}} <small>IVA incluido</small></h3> -->
+                    <h3>$ {{formatNumber(item.priceaftervat)}} <small>IVA incluido</small></h3>
+                </div>
+              </div>
+              <div class="row" *ngIf="item.priceafterdiscount && item.priceafterdiscount > 0 && item.itemcode != '24400000000000000121'">
+                <div class="col-xs-12">
+                  <!-- <h4 class="old-price">$ {{item.priceaftervat | number}}</h4>
+                  <h3 class="percentage">-{{item.descuento | number}}%</h3>
+                  <h3 class="new-price">$ {{item.priceafterdiscount | number}} <small>IVA incluido</small></h3> -->
+                  <h4 class="old-price">$ {{formatNumber(item.priceaftervat)}}</h4>
+                  <h3 class="percentage">-{{formatNumber(item.descuento)}}%</h3>
+                  <h3 class="new-price">$ {{formatNumber(item.priceafterdiscount)}} <small>IVA incluido</small></h3>
+                </div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-md-3 col-xs-4">
+                  <div class="cantidad">
+                    <form>
+                      <div class="input-group">
+                        <span class="input-group-addon span-cantidad" (click)="reducirCantidad()">
+                          <button type="button" class="icon-minus btn-cantidad" name="button"></button>
+                        </span>
+                        <input class="input-cantidad form-control" type="tel" name="selectedQuantity" min="1" max="{{totalStock}}" [(ngModel)]="selectedQuantity" />
+                        <span class="input-group-addon span-cantidad" (click)="aumentarCantidad()">
+                          <button type="button" class="icon-plus btn-cantidad" name="button"></button>
+                        </span>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="col-md-9 col-xs-8 padding-left padding-right">
+                  <button type="button" class="btn btn-carrito" (click)="agregarCarrito()">
+                    Agregar al carrito
+                  </button>
+                  <button type="button" class="btn btn-like" (click)="toggleWishList(item)">
+                    <span class="glyphicon wish-list" [ngClass]="getCSSClassName(item)"></span>
+                  </button>
+                </div>
+              </div>
+              <div *ngIf="item.urlmercadolibre != null && item.urlmercadolibre.length > 0">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="link-mco">
+                      <a href="{{item.urlmercadolibre}}" target="_blank">
+                        <!-- <span class="icon-credit-card"></span>Ir a comprar hasta en 12 cuotas de $ {{cuotaMCO | number}} sin intereses. -->
+                        <span class="icon-credit-card"></span>Ir a comprar hasta en 12 cuotas de $ {{cuotaMCOFormat}} sin intereses.
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <p style="font-size:12px; margin:0;">*Aplican condiciones y restricciones</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <a href="javascript:void(0);" [routerLink]="['/sin-intereses']">
+                      Más información <span class="icon-info"></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" *ngIf="item.showprice === 'false' || !item.showprice">
+            <!-- boton cotizacion -->
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-carrito" data-toggle="modal" data-target="#modalSolicitud" [ngClass]="{'margin-cotizacion' : item.showprice === 'false' || !item.showprice}">
+                Solicitar cotización
+              </button>
+              <span class="icon-info info-cotizacion" data-toggle="tooltip" data-placement="bottom" title="Déjanos tus datos y recibirás un correo electrónico con toda la información y un paso a paso para la compra."></span>
+            </div>
+          </div>
+        </div>
+        <div class="detalles" *ngIf="item" [ngClass]="{'detalles-mco' : item.urlmercadolibre != null && item.urlmercadolibre.length > 0}">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="detalles-collapse" (click)="toggleClass('#colores')" data-toggle="collapse" href="#collapseColores" aria-expanded="true" aria-controls="collapseColores">
+                <p>Colores <span id="colores" class="icon-minus pull-right"></span></p>
+              </div>
+              <div class="collapse in" id="collapseColores">
+                <div class="color" [ngClass]="{'color-selected' : (item.shortitemcode === relacionado.shortitemcode)}" *ngFor="let relacionado of itemsRelacionados" [style.background-color]="relacionado.color.hexa" [routerLink]="['/producto', relacionado.shortitemcode]"
+                  data-toggle="tooltip" title="{{relacionado.color.name}}"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="detalles-collapse" (click)="toggleClass('#descripcion')" data-toggle="collapse" href="#collapseDescripcion" aria-expanded="false" aria-controls="collapseDescripcion">
+                <p>Descripción <span id="descripcion" class="icon-plus pull-right"></span></p>
+              </div>
+              <div class="collapse" id="collapseDescripcion">
+                <p style="padding: 0 10px; text-align: justify;" [innerHTML]="item.description"></p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="detalles-collapse" (click)="toggleClass('#materiales')" data-toggle="collapse" href="#collapseMateriales" aria-expanded="false" aria-controls="collapseMateriales">
+                <p>Materiales y cuidados <span id="materiales" class="icon-plus pull-right"></span></p>
+              </div>
+              <div class="collapse" id="collapseMateriales">
+                <div *ngFor="let material of item.materials">
+                  <h3 class="title-material" style="padding: 0 10px; margin-top:0;">{{material.name}}</h3>
+                  <p style="padding: 0 10px;">{{material.cares}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pull-bottom">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="disponibilidad">
+                <p><b>Disponible en:</b></p>
+                <span class="icon-web" *ngIf="totalStock > 0"></span>
+                <button id="popover1" type="button" class="btn-popover" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Conócelo en nuestra tienda física de Medellín">
+                  <span class="icon-med border-left" *ngIf="existenciaMedellin"></span>
+                </button>
+                <button id="popover2" type="button" class="btn-popover" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Conócelo en nuestra tienda física de Bogotá">
+                  <span class="icon-bog border-left" *ngIf="existenciaBogota"></span>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <!-- <div class="compartir">
+                <span class="icon-mail cursor-pointer"></span>
+                <span class="icon-print cursor-pointer" (click)="printProductInfo()"></span>
+                <span *ngIf="false" class="icon-facebook border-left"></span>
+                <span *ngIf="false" class="icon-instagram"></span>
+                <span *ngIf="false" class="icon-pinterest2"></span>
+                <span *ngIf="false" class="icon-houzz"></span>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <relacionados></relacionados> -->
+  <div class="container hidden-sm hidden-xs">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="politicas">
+          <div class="row">
+            <div class="col-md-3 col-sm-6">
+              <div class="content">
+                <div class="row">
+                  <div class="col-xs-12 text-center">
+                    <span class="icon-medal icon-garantia pull-left"> </span>
+                    <p class="text-garantia">1 año de<br/>garantía</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 border-left">
+              <div class="content">
+                <div class="row">
+                  <div class="col-xs-12 text-center">
+                    <span class="icon-box2 icon-garantia pull-left"> </span>
+                    <p class="text-garantia">Almacenamos<br/>tus productos por 1 año</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 border-left">
+              <div class="content">
+                <div class="row">
+                  <div class="col-xs-12 text-center">
+                    <span class="icon-mapa icon-envios pull-left"> </span>
+                    <p class="text-envios">Envíos solo dentro<br/>del territorio colombiano<br/>(Excepto San Andrés y Providencia)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 border-left">
+              <div class="content">
+                <div class="row">
+                  <div class="col-xs-12 text-center">
+                    <span class="icon-clock icon-garantia pull-left"> </span>
+                    <p class="text-garantia">Tiempo de entrega y<br/>envío. 8 días hábiles</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<newsletter></newsletter>
+<matisses-footer *ngIf="item"></matisses-footer>
+<matisses-carrito-simple #carritoSimple></matisses-carrito-simple>

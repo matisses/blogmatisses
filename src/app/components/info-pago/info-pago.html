@@ -1,0 +1,264 @@
+<matisses-header></matisses-header>
+
+<div id="cambioPrecio" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="refrescarValoresCarrito()" data-dismiss="modal" [routerLink]="['/resumen-carrito']">&times;</button>
+        <h4 class="modal-title">Lo sentimos</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{messageCambio}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="refrescarValoresCarrito(); carrito1.toggleResumen()" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div sticky-body>
+  <div class="container padding-top">
+    <div class="row" *ngIf="messageError != null && messageError.length > 0">
+      <div class="col-xs-12">
+        <div class="alert alert-danger" role="alert">
+          <p>{{messageError}}</p>
+        </div>
+      </div>
+    </div>
+    <form id="form_pagar" #infoPago="ngForm" (submit)="pagar()">
+      <div class="row" *ngIf="carrito.totalItems != null && carrito.totalItems > 0">
+        <div class="col-sm-4 border-both">
+          <div class="contenido">
+            <div class="titulo">
+              <p>Información de envío</p>
+            </div>
+            <div class="info-envio">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="tipo-D">Tipo de documento*</label>
+                  <select name="typeDoc" id="tipo-D" [disabled]="disabled" class="form-control" [class.ng-reflect-model]="!31" [class.required-field]="!valid"
+                    [(ngModel)]="customer.fiscalIdType" (change)="vaciarDocumento(customer.fiscalIdType)" required>
+                    <option style="display:none" disabled selected value>Seleccione uno</option>
+                    <option [selected]="customer.fiscalIdType == '13'" value="13">Cedula</option>
+                    <option [selected]="customer.fiscalIdType == '22'" value="22">Cedula extranjería</option>
+                    <option [selected]="customer.fiscalIdType == '31'" value="31">Nit</option>
+                    <option [selected]="customer.fiscalIdType == '41'" value="41">Pasaporte</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="docu">Documento*</label>
+                  <input id="docu" type="text" [maxlength]="maxlength" class="form-control" [class.required-field]="!valid" name="fiscalID"
+                    [(ngModel)]="customer.fiscalID" (change)="buscarCliente()" required>
+                </div>
+              </div>
+              <div class="row" *ngIf="customer.fiscalIdType == '31'">
+                <div class="col-md-12">
+                  <label for="razonSocial">Razón social*</label>
+                  <input id="razonSocial" type="text" [disabled]="disabled" class="form-control" [class.required-field]="!valid" name="razonSocial"
+                    [(ngModel)]="customer.cardName" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label for="name">Nombres*</label>
+                  <input id="name" type="text" [disabled]="disabled" class="form-control" [class.required-field]="!valid" name="name" [(ngModel)]="customer.firstName"
+                    required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="last1">Primer apellido*</label>
+                  <input id="last1" type="text" [disabled]="disabled" class="form-control" [class.required-field]="!valid" name="lastname1"
+                    [(ngModel)]="customer.lastName1" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="last2">Segundo apellido</label>
+                  <input id="last2" type="text" [disabled]="disabled" class="form-control" name="lastname2" [(ngModel)]="customer.lastName2">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="mail">Correo*</label>
+                <input id="mail" type="email" [disabled]="disabled" class="form-control" [class.required-field]="!valid" name="email" [email]="true"
+                  [(ngModel)]="customer.addresses[0].email" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="cel">Teléfono móvil*</label>
+                <input id="cel" type="text" [disabled]="disabled" class="form-control" [class.required-field]="!valid" name="phone" [(ngModel)]="customer.addresses[0].cellphone"
+                  required>
+              </div>
+              <div class="col-md-6">
+                <label for="city">Ciudad*</label>
+                <select id="city" name="city" [disabled]="disabled" class="form-control" [class.required-field]="!valid" [(ngModel)]="customer.addresses[0].cityCode"
+                  (change)="cambiarCiudad()" *ngIf="ciudadesPrincipales" required>
+                  <option style="display:none" disabled selected value>Seleccione una</option>
+                  <option disabled>─ Ciudades capitales</option>
+                  <option [selected]="customer.addresses[0].cityCode == principal.code" *ngFor="let principal of ciudadesPrincipales" [ngValue]="principal.code">{{principal.name}}</option>
+                  <option disabled>─ Otras ciudades</option>
+                  <option [selected]="customer.addresses[0].cityCode == otra.code" *ngFor="let otra of otrasCiudades" [ngValue]="otra.code">{{otra.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="address">Dirección*</label>
+                <input id="address" type="mail" [disabled]="disabled" class="form-control" [class.required-field]="!valid" name="address"
+                  [(ngModel)]="customer.addresses[0].address" required>
+              </div>
+            </div>
+            <br/>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="contenido">
+            <div class="titulo">
+              <p>Medios de envío</p>
+            </div>
+            <div class="medios-envio">
+              <p *ngIf="customer.addresses[0].cityCode == null">Debe seleccionar la ciudad para poder desplegar los medios de envío.</p>
+              <div class="row">
+                <div class="col-xs-12" *ngIf="customer.addresses[0].cityCode != null && customer.addresses[0].cityCode.length > 0">
+                  <div *ngFor="let metodo of metodosEnvio">
+                    <input id="metodo_{{metodo.code}}" type="radio" name="envio" (click)="seleccionarMetodoEnvio(metodo)" [checked]="metodoEnvioSeleccionado && metodoEnvioSeleccionado.code === metodo.code"
+                      class="cursor-pointer">
+                    <label for="metodo_{{metodo.code}}" class="cursor-pointer">{{metodo.name}}
+                      <span *ngIf="metodo.code !== 3">{{metodo.description}}</span>
+                      <span *ngIf="metodo.code == 3">
+                        <b>$ {{costoEnvioFormat}}</b>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <div class="row" *ngIf="metodoEnvioSeleccionado && metodoEnvioSeleccionado.code == 2">
+                <div class="col-xs-12">
+                  <p class="info_recoger_item">
+                    <b>Nota:</b> Nos pondremos en contacto para programar la entrega del producto en la tienda seleccionada.
+                    Espera la llamada de nuestro equipo de servicio al cliente.</p>
+                </div>
+              </div>
+              <div class="row" *ngIf="metodoEnvioSeleccionado && metodoEnvioSeleccionado.code == 4">
+                <div class="col-xs-12">
+                  <p class="info_recoger_item">
+                    Te recordamos que para tener envío gratis la compra debe ser igual o superior a:
+                    <br/><b> $ {{montoEnvioMinimo}}.</b>
+                    <br/>
+                    <!-- <br/>Aplica términos y condiciones. -->
+                    <br/>
+                    <b>Nota:</b> Nos pondremos en contacto de 1 a 3 días para acordar la entrega del producto. Espera la llamada
+                    de nuestro equipo de servicio al cliente.</p>
+                </div>
+              </div>
+              <div class="row" *ngIf="metodoEnvioSeleccionado && metodoEnvioSeleccionado.code == 1">
+                <div class="col-xs-12">
+                  <p class="info_recoger_item">
+                    <b>Nota:</b> Nos pondremos en contacto de 1 a 3 días para acordar la entrega del producto.
+                    <br> Espera la llamada de nuestro equipo de servicio al cliente.</p>
+                </div>
+              </div>
+              <div *ngIf="metodoEnvioSeleccionado && metodoEnvioSeleccionado.code == 2">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label for="tienda">Tienda*</label>
+                    <select name="tienda" id="tienda" class="form-control" [class.ng-reflect-model]="!31" [class.required-field]="!valid" [(ngModel)]="tiendaSeleccionada"
+                      required>
+                      <option style="display:none" disabled selected value>Seleccione una</option>
+                      <option [selected]="tiendaSeleccionada == 'Medellín'" value="Medellín">Medellín</option>
+                    </select>
+                  </div>
+                </div>
+                <br/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="contenido">
+            <div class="titulo">
+              <p>Resumen de factura</p>
+            </div>
+            <div class="resumen-pago" style="border-bottom: 1px dotted #D1D1D1;">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1 border-bottom">
+                      <h4>
+                        <b>{{carrito.totalItems}}</b> PRODUCTOS</h4>
+                      <p>Total de los productos:
+                        <span class="pull-right">
+                          <b>$ {{carrito.difTotalImpuestosFormat}}</b>
+                        </span>
+                      </p>
+                      <p>Total impuestos:
+                        <span class="pull-right">
+                          <b>$ {{carrito.totalImpuestosFormat}}</b>
+                        </span>
+                      </p>
+                      <p>Total descuentos:
+                        <span class="pull-right">
+                          <b>$ {{carrito.totalDescuentosFormat}}</b>
+                        </span>
+                      </p>
+                      <p>Envío estándar:
+                        <span class="pull-right">
+                          <b>$ {{totalEnvioFormat}}</b>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                      <p>Total:
+                        <span class="pull-right">
+                          <b>$ {{totalEnvioFinalFormat}}</b>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br/>
+            <div class="place2pay">
+              <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 text-center">
+                  <p class="text-left">El proceso de pago te redireccionará a un sitio seguro.</p>
+                  <img src="assets/images/logo-p2p.png" class="text-center" alt="">
+                  <p>
+                    <button *ngIf="!procesandoP2P" type="submit" class="btn-continuar" name="submit">Continuar</button>
+                  </p>
+                  <img *ngIf="procesandoP2P" src="assets/images/gif-cargando.gif" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div *ngIf="this.mostrarInfoEnvio">
+        <div class="row">
+          <div class="col-xs-12">
+            <p class="info_recoger_item">
+              Free shipping por compras mayores a $ {{montoEnvioMinimo}}. Aplica términos y condiciones.
+            </p>
+          </div>
+        </div>
+      </div> -->
+    </form>
+    <div class="row" *ngIf="carrito.totalItems == null || carrito.totalItems == 0">
+      <div class="col-xs-12 center">
+        <p>No hay ítems en el carrito</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<matisses-footer></matisses-footer>
+<matisses-carrito-simple #carritoSimple></matisses-carrito-simple>
+<div class="hidden-lg hidden-md hidden-sm hidden-xs">
+  <matisses-carrito></matisses-carrito>
+</div>

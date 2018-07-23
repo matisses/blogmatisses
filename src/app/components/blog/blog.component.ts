@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
+import { Meta ,Title} from '@angular/platform-browser';
 
 declare var $: any;
 
@@ -13,16 +13,16 @@ export class BlogComponent implements OnInit {
     public title: string;
     public blogNumber: number = 3;
 
-    constructor(private _route: ActivatedRoute, private _router: Router, private meta: Meta) {
-
+    constructor(private _route: ActivatedRoute, private _router: Router, private meta: Meta,private title1: Title) {
+    this.title1.setTitle('Blog Matisses');
     this.meta.addTag({ name: 'title', content: 'Blog Matisses' });
     this.meta.addTag({ name: 'keywords', content: 'blog, matisses, decoracion, tips' });
     this.meta.addTag({ name: 'description', content: 'Blog matisses-' });
-    this.meta.addTag({ name: 'twitter:card', content: 'summary_large_image' });
-    this.meta.addTag({ name: 'twitter:site', content: '@alligatorio' });
-    this.meta.addTag({ name: 'twitter:title', content: 'Front-end Web Development, Chewed Up' });
-    this.meta.addTag({ name: 'twitter:description', content: 'Learn frontend web development...' });
-    this.meta.addTag({ name: 'twitter:image', content: 'https://alligator.io/images/front-end-cover.png' });
+    this.meta.addTag({ name: 'image', content: 'https://www.matisses.co/assets/images/blog/aparadores.jpg' });
+    this.meta.addTag({ name: 'og:url', content: 'https://www.matisses.co/assets/images/blog/aparadores.jpg' });
+    this.meta.addTag({ name: 'og:title', content: 'Blog Matisses' });
+    this.meta.addTag({ name: 'og:image', content: 'https://www.matisses.co/assets/images/blog/aparadores.jpg' });
+    this.meta.addTag({ name: 'og:description', content: 'Blog Matisses' });
     }
 
     ngOnInit() {

@@ -1,0 +1,118 @@
+.jpg-responsive {
+  width: 100%;
+  height: 100%;
+}
+
+.banner-01 {
+  background: url(../../../../assets/images/planner.jpg) no-repeat left center;
+  margin-top: 0px;
+  padding-top: 100px;
+  background-attachment: relative;
+  background-position: left center;
+  min-height: 310px;
+  width: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #747C79;
+  cursor: pointer;
+}
+
+.banner-02 {
+  background: url(../../../../assets/images/planner-02.jpg) no-repeat center center;
+  margin-top: 0px;
+  padding-top: 100px;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 265px;
+  width: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #747C79;
+  cursor: pointer;
+}
+
+.registro {
+  background-color: #D6E0E5;
+}
+
+.registro p, .registro button {
+  display: inline-block;
+  margin: 10px 5px;
+}
+
+.baskerville {
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text";
+  font-size: 25px;
+  margin-bottom: 0px;
+}
+
+.btn-registrate {
+  background-color: #E07D7D;
+  color: #FFF;
+  border-radius: 0;
+}
+
+.title {
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text";
+  color: #6D9791;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.title::after {
+  content: ' ';
+  position: absolute;
+  width: 51px;
+  height: 1px;
+  border-bottom: 2px dotted #6D9791;
+  left: 32%;
+  bottom: 5px;
+}
+
+.text {
+  text-align: justify;
+}
+
+@media screen and (max-width: 991px) {
+  .banner-01 {
+    margin-top: 60px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .banner-01 {
+    min-height: 210px;
+  }
+  .registro p {
+    font-size: 18px !important;
+    margin-bottom: 0 !important;
+  }
+  .banner-02 {
+    background: url(../../../../assets/images/planner-02-mobile-01.jpg) no-repeat center center;
+    min-height: 250px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .banner-01 {
+    min-height: 195px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .banner-01 {
+    min-height: 170px;
+  }
+}

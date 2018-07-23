@@ -4,7 +4,7 @@ import { MetaGuard } from '@ngx-meta/core';
 import { HomeComponent } from './components/home/home.component';
 // import { CategoryComponent } from './components/category/category.component';
 // import { QuienesComponent } from './components/quienes-somos/quienes-somos.component';
-// import { TiendasComponent } from './components/tiendas/tiendas.component';
+import { TiendasComponent } from './components/tiendas/tiendas.component';
 // import { ErrorComponent } from './components/error/error.component';
 // import { TrabajaComponent } from './components/trabaja/trabaja.component';
 // import { GarantiasComponent } from './components/garantias/garantias.component';
@@ -134,11 +134,11 @@ const appRoutes: Routes = [
   // { path: 'confirm-user/:nuser', component: ConfirmarUsuarioComponent },
   //
   // // { path: '92-consola', redirectTo: 'categoria?group=002' },
-{ path: 'blog', component: BlogComponent }
+{ path: 'blog', component: BlogComponent },
   //
   // // { path: 'categoria', component: CategoryComponent, pathMatch: 'full' },
   // { path: 'quienes', component: QuienesComponent },
-  // { path: 'tiendas', component: TiendasComponent },
+{ path: 'tiendas', component: TiendasComponent },
   // { path: 'condiciones-complementos', component: CondicionesComplementosAlfComponent },
   // { path: 'sin-intereses', component: SinInteresComponent },
   // { path: 'compra-sin-intereses', component: CitibankComponent },

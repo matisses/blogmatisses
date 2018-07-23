@@ -6,6 +6,7 @@ import { FiltrosComponent } from './filtros/filtros.component';
 import { ItemService } from '../../services/item.service';
 import { DescuentosService } from '../../services/descuentos.service';
 import { Item } from '../../models/item';
+import { Meta } from '@angular/platform-browser';
 
 declare var $: any;
 
@@ -30,8 +31,17 @@ export class CategoryComponent implements OnInit {
   public urlCategoria: any;
   public tieneCategoria: number = 0;
 
-  constructor(private _itemService: ItemService, private _route: ActivatedRoute, private _router: Router, private _descuentosService: DescuentosService) {
+  constructor(private _itemService: ItemService, private _route: ActivatedRoute, private _router: Router, private _descuentosService: DescuentosService, private meta: Meta) {
     this.queryParams = new Map<string, string>();
+
+    this.meta.addTag({ name: 'title', content: 'Categoria Matisses' });
+    this.meta.addTag({ name: 'keywords', content: 'categorias, sofas, sillas, camas' });
+    this.meta.addTag({ name: 'description', content: 'Categoria Matisses' });
+    this.meta.addTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.addTag({ name: 'twitter:site', content: '@alligatorio' });
+    this.meta.addTag({ name: 'twitter:title', content: 'Categoria Matisses' });
+    this.meta.addTag({ name: 'twitter:description', content: 'Categoria Matisses' });
+    this.meta.addTag({ name: 'twitter:image', content: 'https://alligator.io/images/front-end-cover.png' });
   }
 
   ngOnInit() {

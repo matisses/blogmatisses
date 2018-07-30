@@ -19,10 +19,10 @@ export class BlogComponent implements OnInit {
     this.meta.addTag({ name: 'keywords', content: 'blog, matisses, decoracion, tips' });
     this.meta.addTag({ name: 'description', content: 'Blog matisses-' });
     this.meta.addTag({ name: 'image', content: 'https://www.matisses.co/assets/images/blog/aparadores.jpg' });
-    this.meta.addTag({ name: 'og:url', content: 'https://www.matisses.co/assets/images/blog/aparadores.jpg' });
-    this.meta.addTag({ name: 'og:title', content: 'Blog Matisses' });
-    this.meta.addTag({ name: 'og:image', content: 'https://www.matisses.co/assets/images/blog/aparadores.jpg' });
-    this.meta.addTag({ name: 'og:description', content: 'Blog Matisses' });
+    this.meta.addTag({ property: 'og:url', content: 'https://www.matisses.co/assets/images/blog/aparadores.jpg' });
+    this.meta.addTag({ property: 'og:title', content: 'Blog Matisses' });
+    this.meta.addTag({ property: 'og:image', content: 'https://www.matisses.co/assets/images/blog/aparadores.jpg' });
+    this.meta.addTag({ property: 'og:description', content: 'Blog Matisses' });
     }
 
     ngOnInit() {

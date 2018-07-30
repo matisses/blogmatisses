@@ -45,16 +45,19 @@ export class ProductoComponent implements OnInit, AfterViewInit {
   public cuotaMCOFormat: string = "0";
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _itemService: ItemService, private _stockService: StockService,
-    private _http: Http, private _descuentosService: DescuentosService, private _cotizacionService: CotizacionService,private meta: Meta, private title: Title) {
+    private _http: Http, private _descuentosService: DescuentosService, private _cotizacionService: CotizacionService,private meta: Meta, private title1: Title) {
     this.quantityOptions = new Array<number>();
     this.images = new Array<string>();
     this.itemsRelacionados = new Array<any>();
-    this.meta.addTag({ name: 'description', content: 'Producto Matisses' });
-    this.meta.addTag({ name: 'twitter:card', content: 'Producto Matisses' });
-    this.meta.addTag({ name: 'twitter:site', content: 'Producto Matisses' });
-    this.meta.addTag({ name: 'twitter:title', content: 'Producto Matisses' });
-    this.meta.addTag({ name: 'twitter:description', content: 'Producto Matisses' });
-    this.meta.addTag({ name: 'twitter:image', content: 'https://alligator.io/images/front-end-cover.png' });
+
+    this.meta.updateTag({ name: 'title', content: 'Producto-Matisses' });
+    this.meta.updateTag({ name: 'keywords', content: 'matisses, sofas, decoracion' });
+    this.meta.updateTag({ name: 'description', content: 'Producto-Matisses' });
+    this.meta.updateTag({ name: 'image', content: 'http://blog.matisses.co:4000/assets/images/medellin.jpg' });
+    this.meta.addTag({ property: 'og:url', content: 'http://blog.matisses.co/producto' });
+    this.meta.addTag({ property: 'og:title', content: 'Producto-Matisses' });
+    this.meta.addTag({ property: 'og:image', content: 'http://blog.matisses.co:4000/assets/images/medellin.jpg' });
+    this.meta.addTag({ property: 'og:description', content: 'Producto-Matisses' });
 
   }
 
@@ -111,9 +114,8 @@ export class ProductoComponent implements OnInit, AfterViewInit {
           this.item = response.result[0];
           nombreItem=response.result[0].itemcode;
           let urlImage: string = 'https://img.matisses.co/' + this.item.itemcode + '/images/' + this.item.itemcode + '_01.jpg';
-          // this.title.setTitle('Matisses - Producto '+ this.item.itemname);
-          this.meta.addTag({name:'og:image', content:urlImage});
-          this.meta.addTag({name:'image', content:urlImage});
+          this.title1.setTitle('Matisses - Producto '+ this.item.itemname);
+          this.meta.updateTag({property:'og:image', content:urlImage});
           if(this.item.priceaftervat){
             this.item.priceaftervatFormat=this.formatNumber(this.item.priceaftervat);
           }
@@ -311,7 +313,7 @@ export class ProductoComponent implements OnInit, AfterViewInit {
     let nombreItem=this.item.itemname;
     console.log('el itemcode es '+nombreItem);
     this.meta.addTag({ name: 'keywords', content: 'productos, matisses, decoracion, tips' });
-    this.title.setTitle('Matisses - Producto '+ nombreItem);
+    this.title1.setTitle('Matisses - Producto '+ nombreItem);
     this.meta.updateTag({ name: 'description', content: 'Descripcion actualizada' });
     // this.meta.addTag({ name: 'twitter:card', content: 'Producto Matisses' });
     // this.meta.addTag({ name: 'twitter:site', content: 'Producto Matisses' });

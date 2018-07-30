@@ -1,13 +1,13 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, Injectable} from '@angular/core';
 import {RouterModule} from '@angular/router';
+import { MetaModule } from '@ngx-meta/core';
 // import { HttpClientModule } from '@angular/common/http';
 // import { HttpModule } from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MetaModule } from '@ngx-meta/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
@@ -17,7 +17,7 @@ import { BlogVintageComponent } from './components/blog/vintage/vintage.componen
 import { FooterComponent } from './components/footer/footer.component';
 import { NewsletterComponent } from './components/footer/newsletter/newsletter.component';
 import { TopBannerComponent } from './components/header/top-banner/top-banner.component';
-
+import { BrowserTransferStateModule } from '@angular/platform-browser';
 
 
 import { HeaderComponent } from './components/header/header.component';
@@ -229,7 +229,7 @@ import { ModalComponent } from './components/modal/modal.component';
       { path: 'blog', component: BlogComponent, pathMatch: 'full'},
         { path: 'tiendas', component: TiendasComponent, pathMatch: 'full'},
         { path: 'categoria', component: CategoryComponent, pathMatch: 'full' },
-        { path: 'producto/:item', component: ProductoComponent},
+        { path: 'producto/:item', component: ProductoComponent, pathMatch: 'full'},
         //Modulos mi cuenta
         { path: 'login', component: LoginComponent },
         { path: 'mi-cuenta', component: ResumenMiCuentaComponent },
@@ -271,10 +271,11 @@ import { ModalComponent } from './components/modal/modal.component';
         { path: 'lazy/nested', loadChildren: './components/lazy/lazy.module#LazyModule'}
     ]),
     FormsModule,
-    MetaModule.forRoot(),
+     MetaModule.forRoot(),
     BrowserAnimationsModule,
     // ReactiveFormsModule,
-    TransferHttpCacheModule
+    TransferHttpCacheModule,
+    BrowserTransferStateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

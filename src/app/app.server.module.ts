@@ -12,7 +12,7 @@ import {AppComponent} from './app.component';
     AppModule,
     ServerModule,
     ModuleMapLoaderModule,
-    ServerTransferStateModule,
+    ServerTransferStateModule
   ],
   // Since the bootstrapped component is not inherited from your
   // imported AppModule, it needs to be repeated here.

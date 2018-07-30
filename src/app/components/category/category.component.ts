@@ -6,7 +6,7 @@ import { FiltrosComponent } from './filtros/filtros.component';
 import { ItemService } from '../../services/item.service';
 import { DescuentosService } from '../../services/descuentos.service';
 import { Item } from '../../models/item';
-import { Meta } from '@angular/platform-browser';
+import { Meta ,Title} from '@angular/platform-browser';
 
 declare var $: any;
 
@@ -31,21 +31,23 @@ export class CategoryComponent implements OnInit {
   public urlCategoria: any;
   public tieneCategoria: number = 0;
 
-  constructor(private _itemService: ItemService, private _route: ActivatedRoute, private _router: Router, private _descuentosService: DescuentosService, private meta: Meta) {
+  constructor(private _itemService: ItemService, private _route: ActivatedRoute, private _router: Router, private _descuentosService: DescuentosService,private meta: Meta,private title1: Title) {
     this.queryParams = new Map<string, string>();
 
-    this.meta.addTag({ name: 'title', content: 'Categoria Matisses' });
-    this.meta.addTag({ name: 'keywords', content: 'categorias, sofas, sillas, camas' });
-    this.meta.addTag({ name: 'description', content: 'Categoria Matisses' });
-    this.meta.addTag({ name: 'twitter:card', content: 'summary_large_image' });
-    this.meta.addTag({ name: 'twitter:site', content: '@alligatorio' });
-    this.meta.addTag({ name: 'twitter:title', content: 'Categoria Matisses' });
-    this.meta.addTag({ name: 'twitter:description', content: 'Categoria Matisses' });
-    this.meta.addTag({ name: 'twitter:image', content: 'https://alligator.io/images/front-end-cover.png' });
+    this.title1.setTitle('Categorias-Matisses');
+    this.meta.updateTag({ name: 'title', content: 'Categorias-Matisses' });
+    this.meta.updateTag({ name: 'keywords', content: 'mobiliario, cocina, decorativos, iluminacion, libros' });
+    this.meta.updateTag({ name: 'description', content: 'Categorias-Matisses' });
+    this.meta.updateTag({ name: 'image', content: 'http://blog.matisses.co:4000/assets/images/categorias/img-category.jpg' });
+    this.meta.addTag({ property: 'og:url', content: 'http://blog.matisses.co/categoria' });
+    this.meta.addTag({ property: 'og:title', content: 'Categorias-Matisses' });
+    this.meta.addTag({ property: 'og:image', content: 'http://blog.matisses.co:4000/assets/images/categorias/img-category.jpg' });
+    this.meta.addTag({ property: 'og:description', content: '!Escoge de una gran variedad de productos exclusivos!' });
   }
 
   ngOnInit() {
     this.cargarItems();
+    console.log("que lleva en el meta tag "+this.meta.getTag("og:image"));
   }
 
   ngAfterViewInit() {
@@ -140,6 +142,11 @@ export class CategoryComponent implements OnInit {
 
             //Cambiar imagen categoria
             $('.img-category').css('background', 'url(/assets/images/categorias/' + response.result[0].group.code.substring(0, 3) + '.jpg) no-repeat center top');
+            this.meta.updateTag({ property: 'og:url', content: 'http://blog.matisses.co/categoria?group='+response.result[0].group.code.substring(0, 3) });
+            this.meta.updateTag({ property: 'og:title', content: 'Planners-Matisses' });
+            this.meta.updateTag({ property: 'og:image', content: 'http://blog.matisses.co:4000/assets/images/categorias/' + response.result[0].group.code.substring(0, 3) + '.jpg' });
+            this.meta.updateTag({ property: 'og:description', content: 'Categoria '+this.nombreGrupo });
+            console.log("que lleva en el meta tag servicio "+this.meta.getTag("og:image"));
           } catch (e) {
             console.error(e);
           }

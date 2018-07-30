@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
+import { Meta ,Title} from '@angular/platform-browser';
 declare var $: any;
 
 @Component({
@@ -11,19 +11,19 @@ declare var $: any;
 export class TiendasComponent implements OnInit {
     public title: string;
 
-    constructor(private _route: ActivatedRoute, private _router: Router, private meta: Meta) {
+    constructor(private _route: ActivatedRoute, private _router: Router, private meta: Meta,private title1: Title) {
+      this.title1.setTitle('Tiendas-Matisses');
+      this.meta.updateTag({ name: 'title', content: 'Tiendas-Matisses' });
+      this.meta.updateTag({ name: 'keywords', content: 'tiendas, mobiliario, hogar' });
+      this.meta.updateTag({ name: 'description', content: 'Tiendas-Matisses' });
+      this.meta.updateTag({ name: 'image', content: 'http://blog.matisses.co:4000/assets/images/medellin.jpg' });
+      this.meta.addTag({ property: 'og:url', content: 'http://blog.matisses.co/tiendas' });
+      this.meta.addTag({ property: 'og:title', content: 'Tiendas-Matisses' });
+      this.meta.addTag({ property: 'og:image', content: 'http://blog.matisses.co:4000/assets/images/medellin.jpg' });
+      this.meta.addTag({ property: 'og:description', content: 'Encuentra la tienda más cercana' });
     }
 
     ngOnInit() {
-
-      this.meta.addTag({ name: 'title', content: 'Tiendas Matisses' });
-      this.meta.addTag({ name: 'keywords', content: 'tiendas, matisses, decoracion, tips' });
-      this.meta.addTag({ name: 'description', content: 'Tiendas Matisses' });
-      this.meta.addTag({ name: 'twitter:card', content: 'summary_large_image' });
-      this.meta.addTag({ name: 'twitter:site', content: '@alligatorio' });
-      this.meta.addTag({ name: 'twitter:title', content: 'Tiendas Matisses' });
-      this.meta.addTag({ name: 'twitter:description', content: 'Tiendas Matisses' });
-      this.meta.addTag({ name: 'twitter:image', content: 'https://alligator.io/images/front-end-cover.png' });
       $(window).scroll(function() {
         var scroll = $(window).scrollTop();
         if (scroll > 1) {

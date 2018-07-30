@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Meta ,Title} from '@angular/platform-browser';
-import { MetaService } from 'ngx-meta';
+import { MetaService } from '@ngx-meta/core';
 declare var $: any;
 
 @Component({

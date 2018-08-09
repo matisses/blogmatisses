@@ -2,9 +2,6 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-// import * as $ from '$';
-// import * as $ from '$';
-
 import { StickyMenuDirective } from '../../../directives/sticky.directive';
 import { MenuItem } from '../../../models/menu-item';
 import { CarritoComponent } from './carrito/carrito.component';
@@ -12,7 +9,7 @@ import { SessionUsuarioService } from '../../../services/session-usuario.service
 
 import { MenuItemService } from '../../../services/menu.service';
 import { JWTService } from '../../../services/jwt.service';
-// declare var $: any;
+
 declare var $: any;
 
 @Component({
@@ -100,14 +97,14 @@ export class MenuComponent implements OnInit, AfterViewInit {
     this.inicializarMenu();
     document.getElementById("myNav").style.width = "0%";
     this.cargarDatosMenu();
-    <any>$('#collapseSearch').on('shown.bs.collapse', function () {
-      <any>$('#searchField').focus();
+    $('#collapseSearch').on('shown.bs.collapse', function () {
+      $('#searchField').focus();
     });
-    <any>$('#collapseSearchMovil').on('shown.bs.collapse', function () {
-      <any>$('#searchFieldMobile').focus();
+    $('#collapseSearchMovil').on('shown.bs.collapse', function () {
+      $('#searchFieldMobile').focus();
     });
-    <any>$(function () {
-      <any>$('[data-toggle="tooltip"]').tooltip()
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
     });
     if (localStorage.getItem('matisses.session-token') != null) {
       this.tieneSesion = true;
@@ -131,12 +128,12 @@ export class MenuComponent implements OnInit, AfterViewInit {
     this.urlMenu = window.location.pathname;
     this.sinMenu();
 
-    <any>$(window).scroll(function () {
+    $(window).scroll(function () {
       var scroll = $(window).scrollTop();
       if (scroll >= 5) {
-        <any>$(".fondo-menu").addClass("top-50");
+        $(".fondo-menu").addClass("top-50");
       } else {
-        <any>$(".fondo-menu").removeClass("top-50")
+        $(".fondo-menu").removeClass("top-50")
       }
     });
 
@@ -757,7 +754,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
   }
 
   public toggleClass(idComponent, class1, class2) {
-    <any>$(idComponent).toggleClass(class1 + " " + class2);
+    $(idComponent).toggleClass(class1 + " " + class2);
   }
 
   public openAccordion(idComponent) {
@@ -786,7 +783,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
       response => {
         this.inicializarMenu();
         //this.nuevoMenuItem = new MenuItem();
-        <any>$("#agregarMenuItem").modal({
+        $("#agregarMenuItem").modal({
           backdrop: false,
           show: false
         });
@@ -836,30 +833,30 @@ export class MenuComponent implements OnInit, AfterViewInit {
   public showSearch() {
     if (this.mostrarBuscador) {
       this.mostrarBuscador = false;
-      <any>$("#menu").removeClass('top-204');
+      $("#menu").removeClass('top-204');
     } else {
       this.mostrarBuscador = true;
-      <any>$("#menu").addClass('top-204');
+      $("#menu").addClass('top-204');
     }
   }
 
   public getBgMenuClass() {
-    if (<any>$("#bg-menu").hasClass('stuck-bg') && this.mostrarBuscador) {
-      <any>$("#bg-menu").addClass('height-190');
+    if ($("#bg-menu").hasClass('stuck-bg') && this.mostrarBuscador) {
+      $("#bg-menu").addClass('height-190');
     } else {
-      <any>$("#bg-menu").removeClass('height-190');
+      $("#bg-menu").removeClass('height-190');
     }
   }
 
   public getMenuClass() {
-    if (<any>$("#menu").hasClass('stuck-submenu') && this.mostrarBuscador) {
-      <any>$("#menu").removeClass('top-204');
-      <any>$("#menu").addClass('top-164');
+    if ($("#menu").hasClass('stuck-submenu') && this.mostrarBuscador) {
+      $("#menu").removeClass('top-204');
+      $("#menu").addClass('top-164');
     } else if (this.mostrarBuscador) {
-      <any>$("#menu").addClass('top-204');
-      <any>$("#menu").removeClass('top-164');
+      $("#menu").addClass('top-204');
+      $("#menu").removeClass('top-164');
     } else {
-      <any>$("#menu").removeClass('top-164');
+      $("#menu").removeClass('top-164');
     }
   }
 

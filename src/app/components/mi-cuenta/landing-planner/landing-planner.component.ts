@@ -21,10 +21,10 @@ export class LandingPlannerComponent implements OnInit {
     this.meta.updateTag({ name: 'title', content: 'Planners-Matisses' });
     this.meta.updateTag({ name: 'keywords', content: 'planners, planificadores, boda, matrimonio' });
     this.meta.updateTag({ name: 'description', content: 'Planners-Matisses' });
-    this.meta.updateTag({ name: 'image', content: 'http://blog.matisses.co:4000/assets/images/planner.jpg' });
-    this.meta.addTag({ property: 'og:url', content: 'http://blog.matisses.co/planners' });
+    this.meta.updateTag({ name: 'image', content: 'http://www.matisses.co/assets/images/planner.jpg' });
+    this.meta.addTag({ property: 'og:url', content: 'http://www.matisses.co/planners' });
     this.meta.addTag({ property: 'og:title', content: 'Planners-Matisses' });
-    this.meta.addTag({ property: 'og:image', content: 'http://blog.matisses.co:4000/assets/images/planner.jpg' });
+    this.meta.addTag({ property: 'og:image', content: 'http://www.matisses.co/assets/images/planner.jpg' });
     this.meta.addTag({ property: 'og:description', content: '!Simplifica la boda de tus novios!' });
   }
 

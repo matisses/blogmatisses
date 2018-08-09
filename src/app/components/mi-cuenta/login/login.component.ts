@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SessionUsuarioService } from '../../../services/session-usuario.service';
 import { JWTService } from '../../../services/jwt.service';
 import { DigitoVerificacionService } from '../../../services/digitoVerificacion.service'
+import { Meta ,Title} from '@angular/platform-browser';
 
 import { Customer } from '../../../models/customer';
 import { City } from '../../../models/city';
@@ -60,15 +61,27 @@ export class LoginComponent implements OnInit {
   public decorador: boolean = false;
   public planificador: boolean = false;
   public maxlength: number;
+  public RegistermessageError: string;
+  public RegistersuccessMessage: string;
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _userService: SessionUsuarioService, private _jwt: JWTService,
-    private _customerService: CustomerService, private _cityService: CityService, private _digitoVerificacionService: DigitoVerificacionService) {
+    private _customerService: CustomerService, private _cityService: CityService, private _digitoVerificacionService: DigitoVerificacionService,private meta: Meta,private title1: Title) {
     this.title = 'Este es el cuerpo de login';
+    this.title1.setTitle('Inicio de Sesion/Registro-Matisses');
+    this.meta.updateTag({ name: 'title', content: 'Inicio de Sesion/Registro-Matisses' });
+    this.meta.updateTag({ name: 'keywords', content: 'login, inicio, sesion, registro, cuenta' });
+    this.meta.updateTag({ name: 'description', content: 'Inicio de Sesion/Registro-Matisses' });
+    this.meta.updateTag({ name: 'image', content: 'http://www.matisses.co/assets/images/medellin.jpg' });
+    this.meta.addTag({ property: 'og:url', content: 'http://www.matisses.co/login' });
+    this.meta.addTag({ property: 'og:title', content: 'Inicio de Sesion/Registro-Matisses' });
+    this.meta.addTag({ property: 'og:image', content: 'http://www.matisses.co/assets/images/medellin.jpg' });
+    this.meta.addTag({ property: 'og:description', content: 'Inicio de Sesion/Registro-Matisses' });
     this.customer = new Customer();
     this.ciudadesPrincipales = new Array<City>();
     this.otrasCiudades = new Array<City>();
     this.fileUploadRut = null;
     this.inicializarCliente();
+
   }
 
   ngOnInit() {
@@ -96,13 +109,13 @@ export class LoginComponent implements OnInit {
     this.messageError = '';
     if (this.nombreUsuario == null || this.nombreUsuario.length <= 0) {
       this.messageError = 'Ingresa tu dirección de correo principal.';
-      $('#messageUser').modal('show');
+      // $('#messageUser').modal('show');
       return;
     }
 
     if (this.password == null || this.password.length <= 0) {
       this.messageError = 'Debes ingresar tu clave.';
-      $('#messageUser').modal('show');
+      // $('#messageUser').modal('show');
       return;
     }
 
@@ -115,7 +128,7 @@ export class LoginComponent implements OnInit {
       response => {
         if (response.codigo == '-1') {
           this.messageError = "Error de sesión, datos inválidos.";
-          $('#messageUser').modal('show');
+          // $('#messageUser').modal('show');
           return;
         }
 
@@ -160,7 +173,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.messageError = "Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.";
-        $('#messageUser').modal('show');
+        // $('#messageUser').modal('show');
         console.error(error);
       }
     );
@@ -215,7 +228,7 @@ export class LoginComponent implements OnInit {
                 if (response != null || response.length > 0) {
                   this.customer.fiscalID = this.customer.fiscalID + '-' + response;
                 } else {
-                  this.messageError = "Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.";
+                  this.RegistermessageError = "Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.";
                 }
               },
               error => { console.error(error); }
@@ -239,6 +252,7 @@ export class LoginComponent implements OnInit {
   }
 
   public limpiarCampos() {
+    this.RegistermessageError='';
     this.messageError = '';
     this.validCustomer = true;
   }
@@ -360,19 +374,19 @@ export class LoginComponent implements OnInit {
       response => {
       },
       error => {
-        this.messageError = 'Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.'
+        this.RegistermessageError = 'Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.'
         console.error(error);
       }
     );
   }
 
   public registrar() {
-    this.messageError = '';
+    this.RegistermessageError = '';
 
     if (this.claveNueva != this.claveConfirmacion) {
-      this.messageError = 'Ambas contraseñas deben ser iguales.';
-      this.successMessage = '';
-      $('#messageUser').modal('show');
+      this.RegistermessageError = 'Ambas contraseñas deben ser iguales.';
+      this.RegistersuccessMessage = '';
+      // $('#messageUser').modal('show');
       return;
     }
 
@@ -382,15 +396,15 @@ export class LoginComponent implements OnInit {
     let fechaFormulario = new Date(this.customer.birthDate.toString());
 
     if (fechaFormulario.toString() == 'Invalid Date') {
-      this.messageError = 'Fecha inválida, ingrese una fecha correcta';
-      this.successMessage = '';
-      $('#messageUser').modal('show');
+      this.RegistermessageError = 'Fecha inválida, ingrese una fecha correcta';
+      this.RegistersuccessMessage = '';
+      // $('#messageUser').modal('show');
       return;
     }
     if (fechaFormulario > myDate) {
-      this.messageError = 'La fecha de nacimiento es superior a la fecha actual.';
+      this.RegistermessageError = 'La fecha de nacimiento es superior a la fecha actual.';
       this.valid = false;
-      $('#messageUser').modal('show');
+      // $('#messageUser').modal('show');
       return;
     }
 
@@ -399,9 +413,9 @@ export class LoginComponent implements OnInit {
         || this.fileUploadCc == null || this.fileUploadCc.length <= 0
         || this.fileUploadCert == null || this.fileUploadCert.length <= 0) {
 
-        this.messageError = 'Debes adjuntar los documentos solicitados.';
+        this.RegistermessageError = 'Debes adjuntar los documentos solicitados.';
         this.valid = false;
-        $('#messageUser').modal('show');
+        // $('#messageUser').modal('show');
         return;
       }
     }
@@ -416,16 +430,16 @@ export class LoginComponent implements OnInit {
       || this.customer.addresses[0].email == null || this.customer.addresses[0].email.length <= 0
       || this.claveNueva == null || this.claveNueva == ''
       || this.claveConfirmacion == null || this.claveConfirmacion == '') {
-      this.messageError = 'Debes llenar todos los campos obligatorios para poder proceder con el pago.';
+      this.RegistermessageError = 'Debes llenar todos los campos obligatorios para poder proceder con el registro.';
       this.valid = false;
-      $('#messageUser').modal('show');
+      // $('#messageUser').modal('show');
       return;
     }
 
     //Validar si el usuario ya existe
     if (!this.aceptaTerminos) {
-      this.messageError = "Debe aceptar los términos y condiciones.";
-      $('#messageUser').modal('show');
+      this.RegistermessageError = "Debe aceptar los términos y condiciones.";
+      // $('#messageUser').modal('show');
       return;
     }
 
@@ -449,8 +463,8 @@ export class LoginComponent implements OnInit {
             this._userService.editarCliente(this.customerEdit).subscribe(
               response => {
                 if (response.estado == 0) {
-                  this.messageError = 'Tu usuario se editó exitosamente.';
-                  $('#messageUser').modal('show');
+                  this.RegistermessageError = 'Tu usuario se editó exitosamente.';
+                  // $('#messageUser').modal('show');
                   return;
                 }
               },
@@ -466,17 +480,17 @@ export class LoginComponent implements OnInit {
       this._userService.validarUsuario(this.customer.addresses[0].email, this.customer.fiscalID).subscribe(
         response => {
           if (response.estado === 0) {
-            this.successMessage = ''
-            this.messageError = 'Su correo ya se encuentra registrado en nuestro sitio web.';
+            this.RegistersuccessMessage = ''
+            this.RegistermessageError = 'Su correo ya se encuentra registrado en nuestro sitio web.';
 
-            $('#messageUser').modal('show');
+            // $('#messageUser').modal('show');
             return;
           } else {
-            this.messageError = '';
+            this.RegistermessageError = '';
           }
         },
         error => {
-          this.messageError = 'Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.';
+          this.RegistermessageError = 'Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.';
           console.error(error);
         }
       );
@@ -487,6 +501,7 @@ export class LoginComponent implements OnInit {
       let pendientePlanificador=false;
 
       if (this.registroDecorador != null) {
+        console.log("entro en registro decorador");
         esDecorador = true;
         pendienteDecorador=true;
       }
@@ -512,24 +527,24 @@ export class LoginComponent implements OnInit {
 
 
       }
-
+      console.log('pendiente decorador '+pendienteDecorador);
       this._userService.createUser(usuarioDTO).subscribe(
         response => {
           if (response.estado == '0') {
-            this.messageError = '';
-            this.successMessage = 'Tu usuario se creó exitosamente.';
-            $('#messageUser').modal('show');
+            this.RegistermessageError = '';
+            this.RegistersuccessMessage = 'Tu usuario se creó exitosamente.';
+            // $('#messageUser').modal('show');
           } else {
-            this.messageError = response.mensaje;
+            this.RegistermessageError = response.mensaje;
           }
         },
         error => {
-          this.messageError = 'Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.';
+          this.RegistermessageError = 'Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.';
           console.error(error);
         }
       );
     } else {
-      this.messageError = "Debe aceptar los términos y condiciones.";
+      this.RegistermessageError = "Debe aceptar los términos y condiciones.";
     }
   }
 
@@ -542,13 +557,13 @@ export class LoginComponent implements OnInit {
         response => {
           if (response.estado === 0) {
             this.updateMessage = response.mensaje;
-            $('#forgotPassword').modal('show');
+            // $('#forgotPassword').modal('show');
           } else {
-            this.messageError = response.mensaje;
+            this.RegistermessageError = response.mensaje;
           }
         },
         error => {
-          this.messageError = 'Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.';
+          this.RegistermessageError = 'Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.';
           console.error(error);
         }
       );
@@ -936,7 +951,7 @@ export class LoginComponent implements OnInit {
     }
 
     if (this.customer.fiscalID == null || this.customer.fiscalID == '' || this.customer.fiscalID == 'undefined') {
-      this.messageError = 'Debes cargar el documento de identidad del usuario.';
+      this.RegistermessageError = 'Debes cargar el documento de identidad del usuario.';
       $('#messageUser').modal('show');
     } else {
       if (fileList.length > 0) {
@@ -963,13 +978,17 @@ export class LoginComponent implements OnInit {
             formData.append('planificador', 'planificador');
             formData.append('decorador', '');
           }
-
+          if (this.customer.fiscalID == null || this.customer.fiscalID == '' || this.customer.fiscalID == 'undefined') {
           this._userService.subirImagen(formData).subscribe(
             response => {
               let respuesta = JSON.parse(JSON.stringify(response));
             },
             error => { console.error(error); }
           );
+          }
+          else{
+            this.RegistermessageError = 'Debe adjuntar el documento de identidad';
+          }
         }
 
         // if (fileSize <= 10485760) {
@@ -992,7 +1011,7 @@ export class LoginComponent implements OnInit {
         // }
       }
       else {
-        this.messageError = 'Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.';
+        this.RegistermessageError = 'Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.';
       }
     }
   }

@@ -15,14 +15,139 @@
     <br>
     <div class="row">
       <div class="col-sm-8">
-        <lujo-clasico *ngIf="blogNumber === 1"></lujo-clasico>
+        <!-- <lujo-clasico *ngIf="blogNumber === 1"></lujo-clasico> -->
         <blog-sofas *ngIf="blogNumber === 2"></blog-sofas>
         <blog-vintage *ngIf="blogNumber === 3"></blog-vintage>
+        <blog-ocasionales *ngIf="blogNumber === 4"></blog-ocasionales>
+        <experiencias *ngIf="blogNumber === 5"></experiencias>
+        <espejos *ngIf="blogNumber === 6"></espejos>
+        <coming-soon *ngIf="blogNumber === 7"></coming-soon>
+        <aparadores *ngIf="blogNumber === 8"></aparadores>
+        <cuero *ngIf="blogNumber === 9"></cuero>
+        <aromas *ngIf="blogNumber === 10"></aromas>
+        <blog-plantas *ngIf="blogNumber === 11"></blog-plantas>
+        <blog-floreros *ngIf="blogNumber === 12"></blog-floreros>
       </div>
       <div class="col-sm-4">
         <h3>Blogs recientes</h3>
-        <hr>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(3)">
+        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(12)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/floreros-deco.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>DISEÑOS DE FLOREROS DIFERENTES PARA DARLE VIDA A TUS ESPACIOS</b>
+              </p>
+              <span class="icon-clock">03/ago/2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(11)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/plantas-artificiales.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>ESPACIOS PARA DECORAR CON PLANTAS ARTIFICIALES</b>
+              </p>
+              <span class="icon-clock">27/jul/2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(10)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/aromas-que-transportan.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>AROMAS QUE TRANSPORTAN</b>
+              </p>
+              <span class="icon-clock">25/jul/2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(9)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/muebles-cuero.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>TENDENCIAS EN CUERO</b>
+              </p>
+              <span class="icon-clock"> 19/jul/2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(8)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/aparadores.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>MUEBLES CON ALMACENAMIENTO</b>
+              </p>
+              <span class="icon-clock"> 13/jul/2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(7)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/calia-soon-01.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>MOBILIARIO ITALIANO, TODO UN DISEÑO EXQUISITO</b>
+              </p>
+              <span class="icon-clock"> 06/jul/2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(6)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/espejos-01.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>TRADICIÓN Y ELEGANCIA ITALIANA... ESPEJOS ÚNICOS</b>
+              </p>
+              <span class="icon-clock"> 29/jun/2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(5)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/experiencias.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>EL ESTILO MATISSES</b>
+              </p>
+              <span class="icon-clock"> 22/jun/2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(4)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/ocasionales-01.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>COMO COMPLETAR CADA ESPACIO DE TU SALA</b>
+              </p>
+              <span class="icon-clock"> 15/jun/2018</span>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(3)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/vintage.jpg" class="jpg-responsive" alt="">
@@ -34,8 +159,8 @@
               <span class="icon-clock"> 08/jun/2018</span>
             </div>
           </div>
-        </div>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(2)">
+        </div> -->
+        <!-- <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(2)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/tu_sofa.jpg" class="jpg-responsive" alt="">
@@ -47,8 +172,8 @@
               <span class="icon-clock"> 01/jun/2018</span>
             </div>
           </div>
-        </div>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(1)">
+        </div> -->
+        <!-- <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(1)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/lujo_clasico.jpg" class="jpg-responsive" alt="">
@@ -60,11 +185,11 @@
               <span class="icon-clock"> 25/may/2018</span>
             </div>
           </div>
-        </div>
+        </div> -->
         <br>
         <h3>Categorías</h3>
         <hr>
-        <div class="categorias-blog" *ngIf="blogNumber === 1">
+        <!-- <div class="categorias-blog" *ngIf="blogNumber === 1">
           <ul>
             <li>Mobiliario y accesorios</li>
             <li>Tendencias</li>
@@ -88,10 +213,85 @@
             <li>Espacios</li>
             <li>Lifestyle</li>
           </ul>
+        </div> -->
+        <div class="categorias-blog" *ngIf="blogNumber === 4">
+          <ul>
+            <li>Sillas ocasionales</li>
+            <li>Mobiliario y accesorios</li>
+            <li>Tendencias</li>
+            <li>Espacios</li>
+            <li>Lifestyle</li>
+          </ul>
+        </div>
+        <div class="categorias-blog" *ngIf="blogNumber === 5">
+          <ul>
+            <li>Decoración de interiores</li>
+            <li>Mobiliario y accesorios</li>
+            <li>Tendencias</li>
+            <li>Espacios Matisses</li>
+            <li>Lifestyle</li>
+          </ul>
+        </div>
+        <div class="categorias-blog" *ngIf="blogNumber === 6">
+          <ul>
+            <li>Tradición y elegancia</li>
+            <li>Espejos y accesorios</li>
+            <li>Tendencias</li>
+            <li>Espacios Matisses</li>
+            <li>Lifestyle</li>
+          </ul>
+        </div>
+        <div class="categorias-blog" *ngIf="blogNumber === 7">
+          <ul>
+            <li>Mobiliario italiano</li>
+            <li>Piel top grain</li>
+            <li>Capitoneado </li>
+            <li>Espacios Matisses</li>
+            <li>Lifestyle</li>
+          </ul>
+        </div>
+        <div class="categorias-blog" *ngIf="blogNumber === 8">
+          <ul>
+            <li>Modulares</li>
+            <li>Organizadores</li>
+            <li>Muebles con almacenamiento</li>
+            <li>Estanterias</li>
+          </ul>
+        </div>
+        <div class="categorias-blog" *ngIf="blogNumber === 9">
+          <ul>
+            <li>Mobiliario en cuero</li>
+            <li>Piel top grain</li>
+            <li>Capitoneado</li>
+            <li>Espacios Matisses</li>
+            <li>Lifestyle</li>
+          </ul>
+        </div>
+        <div class="categorias-blog" *ngIf="blogNumber === 10">
+          <ul>
+            <li>Velas</li>
+            <li>Fragancias</li>
+            <li>Velas Aromáticas</li>
+          </ul>
+        </div>
+        <div class="categorias-blog" *ngIf="blogNumber === 11">
+          <ul>
+            <li>Plantas artificiales</li>
+            <li>Decoración</li>
+            <li>Espacios</li>
+          </ul>
+        </div>
+        <div class="categorias-blog" *ngIf="blogNumber === 12">
+          <ul>
+            <li>floreros</li>
+            <li>Decoración</li>
+            <li>Espacios</li>
+            <li>Diseño interior</li>
+          </ul>
         </div>
         <h3>Tags</h3>
         <hr>
-        <div class="tags-filtros" *ngIf="blogNumber === 1">
+        <!-- <div class="tags-filtros" *ngIf="blogNumber === 1">
           <span class="active-filter">
             Decoración
           </span>
@@ -134,12 +334,138 @@
           <span class="active-filter">
             Diseño de interiores
           </span>
+        </div> -->
+        <div class="tags-filtros" *ngIf="blogNumber === 4">
+          <span class="active-filter">
+            Decoración
+          </span>
+          <span class="active-filter">
+            Diseño Clásico
+          </span>
+          <span class="active-filter">
+            Mobiliario
+          </span>
+          <span class="active-filter">
+            Diseño de interiores
+          </span>
         </div>
+        <div class="tags-filtros" *ngIf="blogNumber === 5">
+          <span class="active-filter">
+            Decoración de interiores
+          </span>
+          <span class="active-filter">
+            Diseño Matisses
+          </span>
+          <span class="active-filter">
+            Mobiliario
+          </span>
+          <span class="active-filter">
+            Espacios
+          </span>
+        </div>
+        <div class="tags-filtros" *ngIf="blogNumber === 6">
+          <span class="active-filter">
+            Decoración de interiores
+          </span>
+          <span class="active-filter">
+            Diseño Matisses
+          </span>
+          <span class="active-filter">
+            Mobiliario
+          </span>
+          <span class="active-filter">
+            Espacios
+          </span>
+        </div>
+        <div class="tags-filtros" *ngIf="blogNumber === 7">
+          <span class="active-filter">
+            Sofás italianos
+          </span>
+          <span class="active-filter">
+            Diseño Matisses
+          </span>
+          <span class="active-filter">
+            Mobiliario
+          </span>
+          <span class="active-filter">
+            Espacios
+          </span>
+        </div>
+        <div class="tags-filtros" *ngIf="blogNumber === 8">
+          <span class="active-filter">
+            Muebles con almacenamiento
+          </span>
+          <span class="active-filter">
+            Buffets
+          </span>
+          <span class="active-filter">
+            Modulares
+          </span>
+          <span class="active-filter">
+            Ahorrador de espacio
+          </span>
+        </div>
+        <div class="tags-filtros" *ngIf="blogNumber === 9">
+          <span class="active-filter">
+            Sofás italianos
+          </span>
+          <span class="active-filter">
+            Diseño Matisses
+          </span>
+          <span class="active-filter">
+            Mobiliario
+          </span>
+          <span class="active-filter">
+            Espacios
+          </span>
+        </div>
+        <div class="tags-filtros" *ngIf="blogNumber === 10">
+          <span class="active-filter">
+            Aromas
+          </span>
+          <span class="active-filter">
+            Diseño
+          </span>
+          <span class="active-filter">
+            Velas
+          </span>
+          <span class="active-filter">
+            Cosmopolitan
+          </span>
+        </div>
+        <div class="tags-filtros" *ngIf="blogNumber === 11">
+          <span class="active-filter">
+            Plantas
+          </span>
+          <span class="active-filter">
+            Espacios
+          </span>
+          <span class="active-filter">
+            Espacios verdes
+          </span>
+          <span class="active-filter">
+            Plantas artificiales
+          </span>
+        </div>
+        <div class="tags-filtros" *ngIf="blogNumber === 12">
+            <span class="active-filter">
+              Floreros
+            </span>
+            <span class="active-filter">
+              Espacios
+            </span>
+            <span class="active-filter">
+              Espacios verdes
+            </span>
+            <span class="active-filter">
+              Diseño de interiores
+            </span>
+          </div>
       </div>
     </div>
   </div>
 
 </div>
 
-<!-- <newsletter></newsletter> -->
+<newsletter></newsletter>
 <matisses-footer></matisses-footer>

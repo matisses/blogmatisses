@@ -16,10 +16,10 @@ export class TiendasComponent implements OnInit {
       this.meta.updateTag({ name: 'title', content: 'Tiendas-Matisses' });
       this.meta.updateTag({ name: 'keywords', content: 'tiendas, mobiliario, hogar' });
       this.meta.updateTag({ name: 'description', content: 'Tiendas-Matisses' });
-      this.meta.updateTag({ name: 'image', content: 'http://blog.matisses.co:4000/assets/images/medellin.jpg' });
-      this.meta.addTag({ property: 'og:url', content: 'http://blog.matisses.co/tiendas' });
+      this.meta.updateTag({ name: 'image', content: 'http://www.matisses.co/assets/images/medellin.jpg' });
+      this.meta.addTag({ property: 'og:url', content: 'http://www.matisses.co/tiendas' });
       this.meta.addTag({ property: 'og:title', content: 'Tiendas-Matisses' });
-      this.meta.addTag({ property: 'og:image', content: 'http://blog.matisses.co:4000/assets/images/medellin.jpg' });
+      this.meta.addTag({ property: 'og:image', content: 'http://www.matisses.co/assets/images/medellin.jpg' });
       this.meta.addTag({ property: 'og:description', content: 'Encuentra la tienda más cercana' });
     }
 

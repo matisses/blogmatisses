@@ -50,19 +50,22 @@ export class ProductoComponent implements OnInit, AfterViewInit {
     this.images = new Array<string>();
     this.itemsRelacionados = new Array<any>();
 
-    this.meta.updateTag({ name: 'title', content: 'Producto-Matisses' });
-    this.meta.updateTag({ name: 'keywords', content: 'matisses, sofas, decoracion' });
-    this.meta.updateTag({ name: 'description', content: 'Producto-Matisses' });
-    this.meta.updateTag({ name: 'image', content: 'http://blog.matisses.co:4000/assets/images/medellin.jpg' });
-    this.meta.addTag({ property: 'og:url', content: 'http://blog.matisses.co/producto' });
-    this.meta.addTag({ property: 'og:title', content: 'Producto-Matisses' });
-    this.meta.addTag({ property: 'og:image', content: 'http://blog.matisses.co:4000/assets/images/medellin.jpg' });
-    this.meta.addTag({ property: 'og:description', content: 'Producto-Matisses' });
+    // this.meta.updateTag({ name: 'title', content: 'Producto-Matisses' });
+    // this.meta.updateTag({ name: 'keywords', content: 'matisses, sofas, decoracion' });
+    // this.meta.updateTag({ name: 'description', content: 'Producto-Matisses' });
+    // this.meta.updateTag({ name: 'image', content: 'http://www.matisses.co/assets/images/medellin.jpg' });
+    // this.meta.addTag({ property: 'og:url', content: 'http://www.matisses.co/producto' });
+    // this.meta.addTag({ property: 'og:title', content: 'Producto-Matisses' });
+    // this.meta.addTag({ property: 'og:image', content: 'http://www.matisses.co/assets/images/medellin.jpg' });
+    // this.meta.addTag({ property: 'og:description', content: 'Producto-Matisses' });
 
   }
 
   ngOnInit() {
+    console.log('entra en el init antes cargarInfoItem');
     this.cargarInfoItem();
+    this.asignarTag();
+    console.log('entra en el init');
     this._itemService.inicializarWishlist();
     $(function () {
       $('[data-toggle="popover"]').popover()
@@ -82,7 +85,6 @@ export class ProductoComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log('after '+this.item.itemcode);
     this.carrito.cargarCarrito();
     $(document).ready(function () {
       $("html, body").animate({ scrollTop: 0 }, 1000);
@@ -103,8 +105,6 @@ export class ProductoComponent implements OnInit, AfterViewInit {
 }
 
   private cargarInfoItem() {
-    let nombreItem="";
-    console.log('cargarInfoItem');
     this.selectedQuantity = 1;
     this.quantityOptions = new Array<number>();
     this._route.params.forEach((params: Params) => {
@@ -112,10 +112,6 @@ export class ProductoComponent implements OnInit, AfterViewInit {
       this._itemService.find(itemCode).subscribe(
         response => {
           this.item = response.result[0];
-          nombreItem=response.result[0].itemcode;
-          let urlImage: string = 'https://img.matisses.co/' + this.item.itemcode + '/images/' + this.item.itemcode + '_01.jpg';
-          this.title1.setTitle('Matisses - Producto '+ this.item.itemname);
-          this.meta.updateTag({property:'og:image', content:urlImage});
           if(this.item.priceaftervat){
             this.item.priceaftervatFormat=this.formatNumber(this.item.priceaftervat);
           }
@@ -125,20 +121,17 @@ export class ProductoComponent implements OnInit, AfterViewInit {
           if(this.item.priceBeforeVAT){
           this.item.priceBeforeVATFormat=this.formatNumber(this.item.priceBeforeVAT);
           }
-          // let urlImage: string = 'https://img.matisses.co/' + this.item.itemcode + '/images/' + this.item.itemcode + '_01.jpg';
-          // // this.title.setTitle('Matisses - Producto '+ this.item.itemname);
-          // //this.meta.setTitle(`Matisses - Producto {{this.item.shortitemcode}}`);
-          // this.meta.addTag({name:'og:image', content:urlImage});
-          // this.meta.addTag({name:'image', content:urlImage});
-          // this.meta.addTag('og:description', this.item.description);
-          // this.meta.addTag('og:title', this.item.itemname);
-
+          let urlImage: string = 'https://img.matisses.co/' + this.item.itemcode + '/images/' + this.item.itemcode + '_01.jpg';
+          //this.meta.setTitle(`Matisses - Producto {{this.item.shortitemcode}}`);
+          // this.meta.setTag('og:image', urlImage);
+          // this.meta.setTag('og:description', this.item.description);
+          // this.meta.setTag('og:title', this.item.itemname);
+          this.asignarTag();
           this.validar360();
           this.validarWow();
           this.validarPlantilla();
           this.cargarInventario();
           this.obtenerRelacionados();
-          this.asignarTag();
 
           this.cuotaMCO = Math.round(this.item.priceaftervat / 12);
           if(this.cuotaMCO){
@@ -164,7 +157,6 @@ export class ProductoComponent implements OnInit, AfterViewInit {
         }
       );
     });
-
   }
 
   public botonDown() {
@@ -313,13 +305,13 @@ export class ProductoComponent implements OnInit, AfterViewInit {
     let nombreItem=this.item.itemname;
     console.log('el itemcode es '+nombreItem);
     this.meta.addTag({ name: 'keywords', content: 'productos, matisses, decoracion, tips' });
-    this.title1.setTitle('Matisses - Producto '+ nombreItem);
+    this.title1.setTitle('Matisses - '+ nombreItem);
+    let urlImage: string = 'https://img.matisses.co/' + this.item.itemcode + '/images/' + this.item.itemcode + '_01.jpg';
     this.meta.updateTag({ name: 'description', content: 'Descripcion actualizada' });
-    // this.meta.addTag({ name: 'twitter:card', content: 'Producto Matisses' });
-    // this.meta.addTag({ name: 'twitter:site', content: 'Producto Matisses' });
-    // this.meta.addTag({ name: 'twitter:title', content: 'Producto Matisses' });
-    // this.meta.addTag({ name: 'twitter:description', content: 'Producto Matisses' });
-    // this.meta.addTag({ name: 'twitter:image', content: 'https://alligator.io/images/front-end-cover.png' });
+    this.meta.addTag({ property: 'og:url', content: 'http://www.matisses.co/producto' });
+    this.meta.addTag({ property: 'og:title', content: 'Matisses - '+ nombreItem});
+    this.meta.addTag({ property: 'og:image', content: urlImage });
+    this.meta.addTag({ property: 'og:description', content: 'Producto-Matisses' });
   }
 
   public reducirCantidad() {

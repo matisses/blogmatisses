@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SessionUsuarioService } from '../../services/session-usuario.service';
 import { JWTService } from '../../services/jwt.service';
 import { ListaRegalosService } from '../../services/lista-regalos.service';
+import { Meta ,Title} from '@angular/platform-browser';
 //declare var jquery: any;
 declare var $: any;
 
@@ -38,12 +39,22 @@ export class ListaRegalosComponent implements OnInit {
   public isAdmin:string;
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _userService: SessionUsuarioService, private _jwt: JWTService,
-    private _listaRegalosService: ListaRegalosService) {
+    private _listaRegalosService: ListaRegalosService,private meta: Meta,private title1: Title) {
     this.nombresNovios = '';
     this.apellidosNovios = '';
     this.codigoLista = '';
     this.messageErrorSearch = '';
     this.updateMessage=null;
+
+    this.title1.setTitle('Lista de Regalos-Matisses');
+    this.meta.updateTag({ name: 'title', content: 'Lista de Regalos-Matisses' });
+    this.meta.updateTag({ name: 'keywords', content: 'regalos, bodas, cumpleaños, eventos, matrimonio' });
+    this.meta.updateTag({ name: 'description', content: 'Lista de regalos Matisses te permite elegir entre todos los productos que tenemos en nuestro amplio catálogo, puedes compartirla con tus invitados, ellos podrán elegir de tu lista lo que quieren regalarte, pagar en línea y nosotros te lo entregamos en el lugar que elijas. También podrás activar las Gift Card para comprar lo que mas te guste.' });
+    this.meta.updateTag({ name: 'image', content: 'http://www.matisses.co/assets/images/beneficios-header.jpg' });
+    this.meta.addTag({ property: 'og:url', content: 'http://www.matisses.co/lista-de-regalos' });
+    this.meta.addTag({ property: 'og:title', content: 'Lista de Regalos-Matisses' });
+    this.meta.addTag({ property: 'og:image', content: 'http://www.matisses.co/assets/images/beneficios-header.jpg' });
+    this.meta.addTag({ property: 'og:description', content: 'Lista de regalos Matisses te permite elegir entre todos los productos que tenemos en nuestro amplio catálogo, puedes compartirla con tus invitados, ellos podrán elegir de tu lista lo que quieren regalarte, pagar en línea y nosotros te lo entregamos en el lugar que elijas' });
   }
 
   ngOnInit() {

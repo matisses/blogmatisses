@@ -1,1 +1,90 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.light {
+  font-weight: 300;
+}
+.medium {
+  font-weight: 500;
+}
+.bold {
+  font-weight: 700;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.grey {
+  color: #5b5b5b;
+}
+
+#lhnContainerDone {
+  display: none;
+}
+
+.anpersan {
+  color: #D77D7D !important;
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text";
+  font-weight: bold;
+}
+
+input:focus, button:focus, span:focus, p:focus, li:focus, div:focus, textarea:focus, img:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.end-footer {
+  margin: 20px 0px 10px 0px;
+}
+
+.end-footer p {
+  display: inline-block;
+  padding: 0px 9px;
+}
+
+.end-footer .border-left {
+  border-left: 1px solid;
+}
+
+.sello-seguridad img {
+  width: 130px;
+}
+
+.text-end-footer {
+  margin-top: 6px;
+  text-align: center;
+}
+
+.text-end-footer a {
+  color: #5B5B5B;
+  text-decoration: none;
+}
+
+.visibility-0 {
+  visibility: hidden;
+}
+
+.no-selector {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+}
+
+@media screen and (max-width: 991px) {
+  .padding-top {
+    padding-top: 60px;
+  }
+  .footer {
+    background-color: #EDEDED;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  button, textarea, select {
+    -webkit-appearance: none;
+  }
+}

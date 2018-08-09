@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GLOBAL } from '../../services/global';
 import { SendEmailService } from '../../services/send-email.service';
+import { Meta ,Title} from '@angular/platform-browser';
 
 declare var $: any;
 declare var grecaptcha: any;
@@ -26,9 +27,18 @@ export class ContactanosComponent implements OnInit {
   public recaptchaSiteKey = GLOBAL.recaptchaSiteKey;
   public toMail = GLOBAL.toMail;
 
-  constructor(private _route: ActivatedRoute, private _router: Router, private _sendEmailService: SendEmailService) {
+  constructor(private _route: ActivatedRoute, private _router: Router, private _sendEmailService: SendEmailService, private meta: Meta,private title1: Title) {
     this.messageError = '';
     this.messageExit = '';
+    this.title1.setTitle('Contáctanos Matisses');
+    this.meta.addTag({ name: 'title', content: 'Contáctanos Matisses' });
+    this.meta.addTag({ name: 'keywords', content: 'contacto, matisses' });
+    this.meta.addTag({ name: 'description', content: 'Contáctanos Matisses' });
+    this.meta.addTag({ name: 'image', content: 'http://www.matisses.co/assets/images/medellin.jpg' });
+    this.meta.addTag({ property: 'og:url', content: 'http://www.matisses.co/assets/images/medellin.jpg' });
+    this.meta.addTag({ property: 'og:title', content: 'Contáctanos Matisses' });
+    this.meta.addTag({ property: 'og:image', content: 'http://www.matisses.co/assets/images/medellin.jpg' });
+    this.meta.addTag({ property: 'og:description', content: 'Contáctanos Matisses' });
   }
 
   ngOnInit() {

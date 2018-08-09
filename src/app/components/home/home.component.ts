@@ -18,10 +18,10 @@ export class HomeComponent implements OnInit {
     this.meta.updateTag({ name: 'title', content: 'Sitio Oficial-Matisses' });
     this.meta.updateTag({ name: 'keywords', content: 'matisses, sofas, decoracion' });
     this.meta.updateTag({ name: 'description', content: 'Sitio Oficial-Matisses' });
-    this.meta.updateTag({ name: 'image', content: 'http://blog.matisses.co:4000/assets/images/medellin.jpg' });
-    this.meta.addTag({ property: 'og:url', content: 'http://blog.matisses.co:4000/' });
+    this.meta.updateTag({ name: 'image', content: 'http://www.matisses.co/assets/images/medellin.jpg' });
+    this.meta.addTag({ property: 'og:url', content: 'http://www.matisses.co/' });
     this.meta.addTag({ property: 'og:title', content: 'Sitio Oficial-Matisses' });
-    this.meta.addTag({ property: 'og:image', content: 'http://blog.matisses.co:4000/assets/images/medellin.jpg' });
+    this.meta.addTag({ property: 'og:image', content: 'http://www.matisses.co/assets/images/medellin.jpg' });
     this.meta.addTag({ property: 'og:description', content: 'Sitio Oficial-Matisses' });
   }
 

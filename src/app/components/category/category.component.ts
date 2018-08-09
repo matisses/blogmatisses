@@ -34,15 +34,15 @@ export class CategoryComponent implements OnInit {
   constructor(private _itemService: ItemService, private _route: ActivatedRoute, private _router: Router, private _descuentosService: DescuentosService,private meta: Meta,private title1: Title) {
     this.queryParams = new Map<string, string>();
 
-    this.title1.setTitle('Categorias-Matisses');
-    this.meta.updateTag({ name: 'title', content: 'Categorias-Matisses' });
-    this.meta.updateTag({ name: 'keywords', content: 'mobiliario, cocina, decorativos, iluminacion, libros' });
-    this.meta.updateTag({ name: 'description', content: 'Categorias-Matisses' });
-    this.meta.updateTag({ name: 'image', content: 'http://blog.matisses.co:4000/assets/images/categorias/img-category.jpg' });
-    this.meta.addTag({ property: 'og:url', content: 'http://blog.matisses.co/categoria' });
-    this.meta.addTag({ property: 'og:title', content: 'Categorias-Matisses' });
-    this.meta.addTag({ property: 'og:image', content: 'http://blog.matisses.co:4000/assets/images/categorias/img-category.jpg' });
-    this.meta.addTag({ property: 'og:description', content: '!Escoge de una gran variedad de productos exclusivos!' });
+    // this.title1.setTitle('Categorias-Matisses');
+    // this.meta.updateTag({ name: 'title', content: 'Categorias-Matisses' });
+    // this.meta.updateTag({ name: 'keywords', content: 'mobiliario, cocina, decorativos, iluminacion, libros' });
+    // this.meta.updateTag({ name: 'description', content: 'Categorias-Matisses' });
+    // this.meta.updateTag({ name: 'image', content: 'http://www.matisses.co/assets/images/categorias/img-category.jpg' });
+    // this.meta.addTag({ property: 'og:url', content: 'http://www.matisses.co/categoria' });
+    // this.meta.addTag({ property: 'og:title', content: 'Categorias-Matisses' });
+    // this.meta.addTag({ property: 'og:image', content: 'http://www.matisses.co/assets/images/categorias/img-category.jpg' });
+    // this.meta.addTag({ property: 'og:description', content: '!Escoge de una gran variedad de productos exclusivos!' });
   }
 
   ngOnInit() {
@@ -139,14 +139,19 @@ export class CategoryComponent implements OnInit {
         response => {
           try {
             this.nombreGrupo = response.result[0].group.name;
-
+            console.log('entra en servicio');
             //Cambiar imagen categoria
             $('.img-category').css('background', 'url(/assets/images/categorias/' + response.result[0].group.code.substring(0, 3) + '.jpg) no-repeat center top');
-            this.meta.updateTag({ property: 'og:url', content: 'http://blog.matisses.co/categoria?group='+response.result[0].group.code.substring(0, 3) });
-            this.meta.updateTag({ property: 'og:title', content: 'Planners-Matisses' });
-            this.meta.updateTag({ property: 'og:image', content: 'http://blog.matisses.co:4000/assets/images/categorias/' + response.result[0].group.code.substring(0, 3) + '.jpg' });
-            this.meta.updateTag({ property: 'og:description', content: 'Categoria '+this.nombreGrupo });
-            console.log("que lleva en el meta tag servicio "+this.meta.getTag("og:image"));
+            this.title1.setTitle('Matisses- '+this.nombreGrupo);
+            this.meta.updateTag({ name: 'title', content: 'Matisses- '+this.nombreGrupo });
+            this.meta.updateTag({ name: 'keywords', content: this.nombreGrupo });
+            this.meta.updateTag({ name: 'description', content: 'Matisses- '+this.nombreGrupo });
+            this.meta.updateTag({ name: 'image', content: 'http://www.matisses.co/assets/images/categorias/' + response.result[0].group.code.substring(0, 3) + '.jpg' });
+            this.meta.updateTag({ property: 'og:url', content: 'http://www.matisses.co/categoria' });
+            this.meta.updateTag({ property: 'og:title', content: 'Matisses- '+this.nombreGrupo });
+            this.meta.updateTag({ property: 'og:image', content: 'http://www.matisses.co/assets/images/categorias/' + response.result[0].group.code.substring(0, 3) + '.jpg' });
+            this.meta.updateTag({ property: 'og:description', content: '!Escoge de una gran variedad de productos exclusivos!' });
+            console.log('pasa por la asignacion de tags');
           } catch (e) {
             console.error(e);
           }

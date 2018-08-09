@@ -14,10 +14,24 @@ import { BlogComponent } from './components/blog/blog.component';
 import { BlogLujoComponent } from './components/blog/lujo/lujo.component';
 import { BlogSofasComponent } from './components/blog/sofas/sofas.component';
 import { BlogVintageComponent } from './components/blog/vintage/vintage.component';
+import { BlogOcasionalesComponent } from './components/blog/ocasionales/ocasionales.component';
+import { BlogFlorerosComponent } from './components/blog/floreros/floreros.component';
+import { BlogAparadoresComponent } from './components/blog/aparadores/aparadores.component';
+import { BlogExperienciasComponent } from './components/blog/Experiencias/experiencias.component';
+import { BlogAromasComponent } from './components/blog/aromas/aromas.component';
+import { BlogComingSoonComponent } from './components/blog/coming soon/coming-soon.component';
+import { BlogEspejosComponent } from './components/blog/espejos/espejos.component';
+import { BlogCueroComponent } from './components/blog/cuero/cuero.component';
+import { BlogPlantasComponent } from './components/blog/plantas/plantas.component';
+import { PromocionAlfComponent } from './components/promocion-alf/promocion-alf.component';
+
+
 import { FooterComponent } from './components/footer/footer.component';
 import { NewsletterComponent } from './components/footer/newsletter/newsletter.component';
 import { TopBannerComponent } from './components/header/top-banner/top-banner.component';
 import { BrowserTransferStateModule } from '@angular/platform-browser';
+// Import library module
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 
 import { HeaderComponent } from './components/header/header.component';
@@ -119,6 +133,10 @@ import { RedirectComponent } from './components/redirect/redirect.component';
 import { SinInteresComponent } from './components/sin-interes/sin-interes.component';
 import { RecomendadosComponent } from './components/sin-interes/recomendados/recomendados.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { ConfirmDecoComponent } from './components/confirmacion-decorador/confirmacion-decorador.component';
+import { JsonLdComponent } from './components/jsonld/jsonld.component';
+import { TerminosComponent } from './components/terminos/terminos.component';
+
 
 
 @NgModule({
@@ -219,7 +237,20 @@ import { ModalComponent } from './components/modal/modal.component';
     RedirectComponent,
     SinInteresComponent,
     RecomendadosComponent,
-    ModalComponent
+    ModalComponent,
+    BlogOcasionalesComponent,
+    BlogFlorerosComponent,
+    BlogAparadoresComponent,
+    BlogExperienciasComponent,
+    BlogAromasComponent,
+    BlogComingSoonComponent,
+    BlogEspejosComponent,
+    BlogCueroComponent,
+    BlogPlantasComponent,
+    ConfirmDecoComponent,
+    JsonLdComponent,
+    PromocionAlfComponent,
+    TerminosComponent
   ],
   imports: [
       HttpModule,
@@ -229,7 +260,7 @@ import { ModalComponent } from './components/modal/modal.component';
       { path: 'blog', component: BlogComponent, pathMatch: 'full'},
         { path: 'tiendas', component: TiendasComponent, pathMatch: 'full'},
         { path: 'categoria', component: CategoryComponent, pathMatch: 'full' },
-        { path: 'producto/:item', component: ProductoComponent, pathMatch: 'full'},
+        { path: 'producto/:item', component: ProductoComponent},
         //Modulos mi cuenta
         { path: 'login', component: LoginComponent },
         { path: 'mi-cuenta', component: ResumenMiCuentaComponent },
@@ -275,7 +306,9 @@ import { ModalComponent } from './components/modal/modal.component';
     BrowserAnimationsModule,
     // ReactiveFormsModule,
     TransferHttpCacheModule,
-    BrowserTransferStateModule
+    BrowserTransferStateModule,
+    // Register module
+    // NgxJsonLdModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

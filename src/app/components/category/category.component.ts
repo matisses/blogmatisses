@@ -34,15 +34,15 @@ export class CategoryComponent implements OnInit {
   constructor(private _itemService: ItemService, private _route: ActivatedRoute, private _router: Router, private _descuentosService: DescuentosService,private meta: Meta,private title1: Title) {
     this.queryParams = new Map<string, string>();
 
-    // this.title1.setTitle('Categorias-Matisses');
-    // this.meta.updateTag({ name: 'title', content: 'Categorias-Matisses' });
-    // this.meta.updateTag({ name: 'keywords', content: 'mobiliario, cocina, decorativos, iluminacion, libros' });
-    // this.meta.updateTag({ name: 'description', content: 'Categorias-Matisses' });
-    // this.meta.updateTag({ name: 'image', content: 'http://www.matisses.co/assets/images/categorias/img-category.jpg' });
-    // this.meta.addTag({ property: 'og:url', content: 'http://www.matisses.co/categoria' });
-    // this.meta.addTag({ property: 'og:title', content: 'Categorias-Matisses' });
-    // this.meta.addTag({ property: 'og:image', content: 'http://www.matisses.co/assets/images/categorias/img-category.jpg' });
-    // this.meta.addTag({ property: 'og:description', content: '!Escoge de una gran variedad de productos exclusivos!' });
+    this.title1.setTitle('Categorias-Matisses');
+    this.meta.updateTag({ name: 'title', content: 'Categorias-Matisses' });
+    this.meta.updateTag({ name: 'keywords', content: 'mobiliario, cocina, decorativos, iluminacion, libros' });
+    this.meta.updateTag({ name: 'description', content: 'Categorias-Matisses' });
+    this.meta.updateTag({ name: 'image', content: 'http://www.matisses.co/assets/images/categorias/img-category.jpg' });
+    this.meta.addTag({ property: 'og:url', content: 'http://www.matisses.co/categoria' });
+    this.meta.addTag({ property: 'og:title', content: 'Categorias-Matisses' });
+    this.meta.addTag({ property: 'og:image', content: 'http://www.matisses.co/assets/images/categorias/img-category.jpg' });
+    this.meta.addTag({ property: 'og:description', content: '!Escoge de una gran variedad de productos exclusivos!' });
   }
 
   ngOnInit() {

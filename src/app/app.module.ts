@@ -136,6 +136,8 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ConfirmDecoComponent } from './components/confirmacion-decorador/confirmacion-decorador.component';
 import { JsonLdComponent } from './components/jsonld/jsonld.component';
 import { TerminosComponent } from './components/terminos/terminos.component';
+import { BlogCubiertosComponent } from './components/blog/cubiertos/cubiertos.component';
+
 
 
 
@@ -250,7 +252,8 @@ import { TerminosComponent } from './components/terminos/terminos.component';
     ConfirmDecoComponent,
     JsonLdComponent,
     PromocionAlfComponent,
-    TerminosComponent
+    TerminosComponent,
+    BlogCubiertosComponent
   ],
   imports: [
       HttpModule,

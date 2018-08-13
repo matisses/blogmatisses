@@ -1,12 +1,12 @@
 .chat, .whatsapp {
   position: fixed;
-  bottom: 0px;
+  bottom: 24px;
   background-color: #5B5B5B;
   text-align: center;
   color: #FFF;
   cursor: pointer;
-  height: 35px;
-  padding-top: 10px;
+  height: 60px;
+  padding: 17px 12px;
 }
 
 .chat {
@@ -16,9 +16,11 @@
 }
 
 .whatsapp {
-  right: 236px;
+  right: 70pt;
   z-index: 5;
-  width: 135px;
+  width: 60px;
+  border-radius: 50%;
+  font-size: 20px;
   background-color: #075e54;
 }
 
@@ -45,7 +47,7 @@ p {
 
 @media screen and (max-width: 426px) {
   .whatsapp {
-    right: 0;
+    right: 18pt;
     width: 60px;
     height: 60px;
     font-size: 30px;

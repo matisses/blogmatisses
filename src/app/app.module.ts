@@ -23,6 +23,8 @@ import { BlogComingSoonComponent } from './components/blog/coming soon/coming-so
 import { BlogEspejosComponent } from './components/blog/espejos/espejos.component';
 import { BlogCueroComponent } from './components/blog/cuero/cuero.component';
 import { BlogPlantasComponent } from './components/blog/plantas/plantas.component';
+import { BlogQuesosComponent } from './components/blog/quesos/quesos.component';
+
 import { PromocionAlfComponent } from './components/promocion-alf/promocion-alf.component';
 
 
@@ -253,7 +255,8 @@ import { BlogCubiertosComponent } from './components/blog/cubiertos/cubiertos.co
     JsonLdComponent,
     PromocionAlfComponent,
     TerminosComponent,
-    BlogCubiertosComponent
+    BlogCubiertosComponent,
+    BlogQuesosComponent
   ],
   imports: [
       HttpModule,

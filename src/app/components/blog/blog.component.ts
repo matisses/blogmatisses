@@ -11,7 +11,7 @@ declare var $: any;
 
 export class BlogComponent implements OnInit {
     public title: string;
-    public blogNumber: number = 13;
+    public blogNumber: number = 14;
 
     constructor(private _route: ActivatedRoute, private _router: Router, private meta: Meta,private title1: Title) {
     this.title1.setTitle('Blog Matisses');
@@ -33,9 +33,9 @@ export class BlogComponent implements OnInit {
       $(document).ready(function() {
         $("html, body").animate({scrollTop: 0}, 1000);
       });
-
+      
     }
-
+  
     public seleccionarBlog(id) {
       this.blogNumber = id;
     }

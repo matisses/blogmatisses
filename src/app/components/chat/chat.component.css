@@ -1,56 +1,31 @@
-.chat, .whatsapp {
+.whatsapp {
   position: fixed;
-  bottom: 0px;
+  bottom: 24px;
   background-color: #5B5B5B;
   text-align: center;
   color: #FFF;
   cursor: pointer;
-  height: 35px;
-  padding-top: 10px;
-}
-
-.chat {
-  right: 35px;
-  z-index: 6;
-  width: 200px;
+  height: 60px;
+  padding: 17px 12px;
 }
 
 .whatsapp {
-  right: 236px;
+  right: 70pt;
   z-index: 5;
-  width: 135px;
+  width: 60px;
+  border-radius: 50%;
+  font-size: 20px;
   background-color: #075e54;
-}
-
-.chat:hover {
-  background-color: #6D9791;
 }
 
 .whatsapp:hover {
   background-color: #25d366;
 }
 
-.icon-chat {
-  display: inline-block;
-}
-
-.chat:hover .icon-chat::before {
-  color: #FFF;
-}
-
-p {
-  display: inline-block;
-  margin-left: 10px;
-}
-
 @media screen and (max-width: 426px) {
   .whatsapp {
-    right: 0;
-    width: 60px;
-    height: 60px;
-    font-size: 30px;
-    padding-top: 10px;
-    top: 80%;
+    right: 18pt;
+    bottom: 70pt;
   }
 }
 

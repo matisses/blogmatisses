@@ -56,8 +56,6 @@ import { RecommendedComponent } from './components/recommended/recommended.compo
 import { Seccion1Component } from './components/secciones/seccion-1/seccion-1.component';
 import { Seccion2Component } from './components/secciones/seccion-2/seccion-2.component';
 import { Seccion3Component } from './components/secciones/seccion-3/seccion-3.component';
-import { Seccion4Component } from './components/secciones/seccion-4/seccion-4.component';
-import { Seccion5Component } from './components/secciones/seccion-5/seccion-5.component';
 import { TendenciasComponent } from './components/tendencias/tendencias.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { GoUpComponent } from './components/go-up/go-up.component';
@@ -176,8 +174,6 @@ import { BlogCubiertosComponent } from './components/blog/cubiertos/cubiertos.co
     Seccion1Component,
     Seccion2Component,
     Seccion3Component,
-    Seccion4Component,
-    Seccion5Component,
     TendenciasComponent,
     ChatComponent,
     GoUpComponent,

@@ -11,7 +11,7 @@ declare var $: any;
 
 export class BlogComponent implements OnInit {
     public title: string;
-    public blogNumber: number = 14;
+    public blogNumber: number = 15;
 
     constructor(private _route: ActivatedRoute, private _router: Router, private meta: Meta,private title1: Title) {
     this.title1.setTitle('Blog Matisses');

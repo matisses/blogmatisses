@@ -29,10 +29,24 @@
         <blog-floreros *ngIf="blogNumber === 12"></blog-floreros>
         <blog-cubiertos *ngIf="blogNumber === 13"></blog-cubiertos>
         <blog-quesos *ngIf="blogNumber === 14"></blog-quesos>
+        <blog-comedores *ngIf="blogNumber === 15"></blog-comedores>
       </div>
       <div class="col-sm-4">
         <h3>Blogs recientes</h3>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(14)">
+        <div class="blogs-recientes cursor-pointer" [ngClass]="{'active' : blogNumber === 15}" (click)="seleccionarBlog(15)">
+          <div class="row">
+            <div class="col-xs-4">
+              <img src="../../../assets/images/blog/comedores.jpg" class="jpg-responsive" alt="">
+            </div>
+            <div class="col-xs-8">
+              <p>
+                <b>TENDENCIAS PARA TU ESPACIO DE COMEDOR.</b>
+              </p>
+              <span class="icon-clock">17/ago/2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-recientes cursor-pointer" [ngClass]="{'active' : blogNumber === 14}" (click)="seleccionarBlog(14)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/quesos.jpg" class="jpg-responsive" alt="">
@@ -45,7 +59,7 @@
             </div>
           </div>
         </div>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(13)">
+        <div class="blogs-recientes cursor-pointer" [ngClass]="{'active' : blogNumber === 13}" (click)="seleccionarBlog(13)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/butterfly.jpg" class="jpg-responsive" alt="">
@@ -58,7 +72,7 @@
             </div>
           </div>
         </div>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(12)">
+        <div class="blogs-recientes cursor-pointer" [ngClass]="{'active' : blogNumber === 12}" (click)="seleccionarBlog(12)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/floreros-deco.jpg" class="jpg-responsive" alt="">
@@ -71,7 +85,7 @@
             </div>
           </div>
         </div>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(11)">
+        <div class="blogs-recientes cursor-pointer" [ngClass]="{'active' : blogNumber === 11}" (click)="seleccionarBlog(11)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/plantas-artificiales.jpg" class="jpg-responsive" alt="">
@@ -84,7 +98,7 @@
             </div>
           </div>
         </div>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(10)">
+        <div class="blogs-recientes cursor-pointer" [ngClass]="{'active' : blogNumber === 10}" (click)="seleccionarBlog(10)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/aromas-que-transportan.jpg" class="jpg-responsive" alt="">
@@ -97,7 +111,7 @@
             </div>
           </div>
         </div>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(9)">
+        <div class="blogs-recientes cursor-pointer" [ngClass]="{'active' : blogNumber === 9}" (click)="seleccionarBlog(9)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/muebles-cuero.jpg" class="jpg-responsive" alt="">
@@ -110,7 +124,7 @@
             </div>
           </div>
         </div>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(8)">
+        <div class="blogs-recientes cursor-pointer" [ngClass]="{'active' : blogNumber === 8}" (click)="seleccionarBlog(8)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/aparadores.jpg" class="jpg-responsive" alt="">
@@ -123,7 +137,7 @@
             </div>
           </div>
         </div>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(7)">
+        <div class="blogs-recientes cursor-pointer" [ngClass]="{'active' : blogNumber === 7}" (click)="seleccionarBlog(7)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/calia-soon-01.jpg" class="jpg-responsive" alt="">
@@ -136,7 +150,7 @@
             </div>
           </div>
         </div>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(6)">
+        <div class="blogs-recientes cursor-pointer" [ngClass]="{'active' : blogNumber === 6}" (click)="seleccionarBlog(6)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/espejos-01.jpg" class="jpg-responsive" alt="">
@@ -149,7 +163,7 @@
             </div>
           </div>
         </div>
-        <div class="blogs-recientes cursor-pointer" (click)="seleccionarBlog(5)">
+        <div class="blogs-recientes cursor-pointer" [ngClass]="{'active' : blogNumber === 5}" (click)="seleccionarBlog(5)">
           <div class="row">
             <div class="col-xs-4">
               <img src="../../../assets/images/blog/experiencias.jpg" class="jpg-responsive" alt="">
@@ -330,6 +344,13 @@
             <li>Cuchillos</li>
             <li>Quesos</li>
             <li>Superficies para cortar</li>
+          </ul>
+        </div>
+        <div class="categorias-blog" *ngIf="blogNumber === 15">
+          <ul>
+            <li>Mesas de comedor</li>
+            <li>Comedores</li>
+            <li>Espacios modernos</li>
           </ul>
         </div>
         <h3>Tags</h3>
@@ -527,6 +548,17 @@
           </span>
           <span class="active-filter">
             Quesos blandos
+          </span>
+        </div>
+        <div class="tags-filtros" *ngIf="blogNumber === 15">
+          <span class="active-filter">
+            Mesas de comedor
+          </span>
+          <span class="active-filter">
+            Mesas
+          </span>
+          <span class="active-filter">
+            Espacios de comedor
           </span>
         </div>
       </div>

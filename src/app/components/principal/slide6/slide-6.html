@@ -10,7 +10,8 @@
           <span class="glyphicon glyphicon-menu-right"></span>
           <span class="sr-only">Next</span>
         </a>
-        <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ group: '015', subgroup: '126', pageSize: '36' }">
+        <a href="javascript:void(0)" [routerLink]="['/producto/2630007']">
+          <!-- [queryParams]="{ group: '015', subgroup: '126', pageSize: '36' }" -->
           <div class="principal-01">
             <div class="container">
               <div class="row">
@@ -29,7 +30,7 @@
     <div class="row" *ngIf="items && items.length > 0">
       <div class="col-sm-3 col-xs-6 text-center">
         <div class="recomendaciones">
-          <p class="name">FLORERO BLANCO<br><b>CALABASH</b></p>
+          <p class="name">SILLA DE COMEDOR<br><b>CATTELAN</b></p>
           <a href="javascript:void(0)" [routerLink]="['/producto', items[0].shortitemcode]">
             <img src="https://img.matisses.co/{{items[0].itemcode}}/parrilla/{{items[0].itemcode}}_01.jpg" class="img-responsive cursor-pointer" alt="{{items[0].itemname}}">
           </a>
@@ -41,7 +42,7 @@
       </div>
       <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 2">
         <div class="recomendaciones">
-          <p class="name">FLORERO<br><b>ORCA</b></p>
+          <p class="name">MESA RALPH BISTROT<br><b>CATTELAN</b></p>
           <a href="javascript:void(0)" [routerLink]="['/producto', items[1].shortitemcode]">
             <img src="https://img.matisses.co/{{items[1].itemcode}}/parrilla/{{items[1].itemcode}}_01.jpg" class="img-responsive cursor-pointer" alt="{{items[1].itemname}}">
           </a>
@@ -54,15 +55,15 @@
 
       <div class="col-sm-6 col-xs-12" *ngIf="items && items.length >= 3">
         <div class="sub-banner text-center">
-          <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ group: '015', collection: 'Jaro' }">
+          <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
             <img src="assets/images/banner/slide-6/banner-03.jpg" class="img-responsive" alt="">
           </a>
         </div>
         <div class="row">
-          <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ group: '015', collection: 'Jaro' }">
+          <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
             <div class="col-xs-12">
               <div class="sub-banner-footer">
-                <p><b>FLOREROS DESDE</b> $ {{formatNumber(items[2].priceaftervat)}}</p>
+                <p><b>SILLA DE COMEDOR</b> $ {{formatNumber(items[2].priceaftervat)}}</p>
                 <button type="submit" class="ir-comprar" name="comprar-ya">ir a comprar</button>
               </div>
             </div>

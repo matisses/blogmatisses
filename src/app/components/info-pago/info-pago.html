@@ -81,19 +81,19 @@
             <div class="row">
               <div class="col-md-12">
                 <label for="mail">Correo*</label>
-                <input id="mail" type="email" [disabled]="disabled" class="form-control" [class.required-field]="!valid" name="email" [email]="true"
+                <input id="mail" type="email"  class="form-control" [class.required-field]="!valid" name="email" [email]="true"
                   [(ngModel)]="customer.addresses[0].email" required>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
                 <label for="cel">Teléfono móvil*</label>
-                <input id="cel" type="text" [disabled]="disabled" class="form-control" [class.required-field]="!valid" name="phone" [(ngModel)]="customer.addresses[0].cellphone"
+                <input id="cel" type="text"  class="form-control" [class.required-field]="!valid" name="phone" [(ngModel)]="customer.addresses[0].cellphone"
                   required>
               </div>
               <div class="col-md-6">
                 <label for="city">Ciudad*</label>
-                <select id="city" name="city" [disabled]="disabled" class="form-control" [class.required-field]="!valid" [(ngModel)]="customer.addresses[0].cityCode"
+                <select id="city" name="city" class="form-control" [class.required-field]="!valid" [(ngModel)]="customer.addresses[0].cityCode"
                   (change)="cambiarCiudad()" *ngIf="ciudadesPrincipales" required>
                   <option style="display:none" disabled selected value>Seleccione una</option>
                   <option disabled>─ Ciudades capitales</option>
@@ -106,7 +106,7 @@
             <div class="row">
               <div class="col-md-12">
                 <label for="address">Dirección*</label>
-                <input id="address" type="mail" [disabled]="disabled" class="form-control" [class.required-field]="!valid" name="address"
+                <input id="address" type="mail"  class="form-control" [class.required-field]="!valid" name="address"
                   [(ngModel)]="customer.addresses[0].address" required>
               </div>
             </div>
@@ -256,7 +256,6 @@
     </div>
   </div>
 </div>
-
 <matisses-footer></matisses-footer>
 <matisses-carrito-simple #carritoSimple></matisses-carrito-simple>
 <div class="hidden-lg hidden-md hidden-sm hidden-xs">

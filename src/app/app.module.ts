@@ -10,20 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { BlogComponent } from './components/blog/blog.component';
-import { BlogLujoComponent } from './components/blog/lujo/lujo.component';
-import { BlogSofasComponent } from './components/blog/sofas/sofas.component';
-import { BlogVintageComponent } from './components/blog/vintage/vintage.component';
-import { BlogOcasionalesComponent } from './components/blog/ocasionales/ocasionales.component';
-import { BlogFlorerosComponent } from './components/blog/floreros/floreros.component';
-import { BlogAparadoresComponent } from './components/blog/aparadores/aparadores.component';
-import { BlogExperienciasComponent } from './components/blog/Experiencias/experiencias.component';
-import { BlogAromasComponent } from './components/blog/aromas/aromas.component';
-import { BlogComingSoonComponent } from './components/blog/coming soon/coming-soon.component';
-import { BlogEspejosComponent } from './components/blog/espejos/espejos.component';
-import { BlogCueroComponent } from './components/blog/cuero/cuero.component';
-import { BlogPlantasComponent } from './components/blog/plantas/plantas.component';
-import { BlogQuesosComponent } from './components/blog/quesos/quesos.component';
 
 import { PromocionAlfComponent } from './components/promocion-alf/promocion-alf.component';
 
@@ -56,8 +42,6 @@ import { RecommendedComponent } from './components/recommended/recommended.compo
 import { Seccion1Component } from './components/secciones/seccion-1/seccion-1.component';
 import { Seccion2Component } from './components/secciones/seccion-2/seccion-2.component';
 import { Seccion3Component } from './components/secciones/seccion-3/seccion-3.component';
-import { Seccion4Component } from './components/secciones/seccion-4/seccion-4.component';
-import { Seccion5Component } from './components/secciones/seccion-5/seccion-5.component';
 import { TendenciasComponent } from './components/tendencias/tendencias.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { GoUpComponent } from './components/go-up/go-up.component';
@@ -97,6 +81,23 @@ import { GarantiasComponent } from './components/garantias/garantias.component';
 import { QuienesComponent } from './components/quienes-somos/quienes-somos.component';
 import { TrabajaComponent } from './components/trabaja/trabaja.component';
 import { ContactanosComponent } from './components/contactanos/contactanos.component';
+// Blog
+import { BlogComponent } from './components/blog/blog.component';
+import { BlogLujoComponent } from './components/blog/lujo/lujo.component';
+import { BlogSofasComponent } from './components/blog/sofas/sofas.component';
+import { BlogVintageComponent } from './components/blog/vintage/vintage.component';
+import { BlogOcasionalesComponent } from './components/blog/ocasionales/ocasionales.component';
+import { BlogFlorerosComponent } from './components/blog/floreros/floreros.component';
+import { BlogAparadoresComponent } from './components/blog/aparadores/aparadores.component';
+import { BlogExperienciasComponent } from './components/blog/Experiencias/experiencias.component';
+import { BlogAromasComponent } from './components/blog/aromas/aromas.component';
+import { BlogComingSoonComponent } from './components/blog/coming soon/coming-soon.component';
+import { BlogEspejosComponent } from './components/blog/espejos/espejos.component';
+import { BlogCueroComponent } from './components/blog/cuero/cuero.component';
+import { BlogPlantasComponent } from './components/blog/plantas/plantas.component';
+import { BlogQuesosComponent } from './components/blog/quesos/quesos.component';
+import { BlogCubiertosComponent } from './components/blog/cubiertos/cubiertos.component';
+import { BlogComedoresComponent } from './components/blog/comedores/comedores.component';
 //Lista de regalos
 import { ListaRegalosComponent } from './components/lista-de-regalos/lista-regalos.component';
 import { MenuListaComponent } from './components/lista-de-regalos/menu-lista/menu-lista.component';
@@ -138,9 +139,6 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ConfirmDecoComponent } from './components/confirmacion-decorador/confirmacion-decorador.component';
 import { JsonLdComponent } from './components/jsonld/jsonld.component';
 import { TerminosComponent } from './components/terminos/terminos.component';
-import { BlogCubiertosComponent } from './components/blog/cubiertos/cubiertos.component';
-
-
 
 
 @NgModule({
@@ -176,8 +174,6 @@ import { BlogCubiertosComponent } from './components/blog/cubiertos/cubiertos.co
     Seccion1Component,
     Seccion2Component,
     Seccion3Component,
-    Seccion4Component,
-    Seccion5Component,
     TendenciasComponent,
     ChatComponent,
     GoUpComponent,
@@ -242,6 +238,11 @@ import { BlogCubiertosComponent } from './components/blog/cubiertos/cubiertos.co
     SinInteresComponent,
     RecomendadosComponent,
     ModalComponent,
+    ConfirmDecoComponent,
+    JsonLdComponent,
+    PromocionAlfComponent,
+    TerminosComponent,  
+    // Blog
     BlogOcasionalesComponent,
     BlogFlorerosComponent,
     BlogAparadoresComponent,
@@ -251,12 +252,9 @@ import { BlogCubiertosComponent } from './components/blog/cubiertos/cubiertos.co
     BlogEspejosComponent,
     BlogCueroComponent,
     BlogPlantasComponent,
-    ConfirmDecoComponent,
-    JsonLdComponent,
-    PromocionAlfComponent,
-    TerminosComponent,
     BlogCubiertosComponent,
-    BlogQuesosComponent
+    BlogQuesosComponent,
+    BlogComedoresComponent
   ],
   imports: [
       HttpModule,

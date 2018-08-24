@@ -126,6 +126,8 @@ ul label {
   border: 1px solid #D1D1D1;
   display: inline-block;
   font-size: 12px;
+  max-width: 240px;
+  overflow: hidden;
 }
 
 .active-filter:hover {

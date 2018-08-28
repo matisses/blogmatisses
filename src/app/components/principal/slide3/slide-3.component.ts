@@ -26,13 +26,13 @@ export class Slide3Component implements OnInit {
 
   private inicializarItems() {
     this.items = new Array<Item>();
-    this._itemService.find('2240161').subscribe(
+    this._itemService.find('2130055').subscribe(
       response => {
         this.items.push(response.result[0]);
-        this._itemService.find('2260220').subscribe(
+        this._itemService.find('2640040').subscribe(
           response => {
             this.items.push(response.result[0]);
-            this._itemService.find('2270114').subscribe(
+            this._itemService.find('1590024').subscribe(
               response => {
                 this.items.push(response.result[0]);
               }, error => { console.error(); }
@@ -47,4 +47,6 @@ export class Slide3Component implements OnInit {
 
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
+
+
 }

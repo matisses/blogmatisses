@@ -33,9 +33,6 @@ import { HomePrincipalComponent } from './components/principal/principal.compone
 import { Slide1Component } from './components/principal/slide1/slide-1.component';
 import { Slide2Component } from './components/principal/slide2/slide-2.component';
 import { Slide3Component } from './components/principal/slide3/slide-3.component';
-import { Slide4Component } from './components/principal/slide4/slide-4.component';
-import { Slide5Component } from './components/principal/slide5/slide-5.component';
-import { Slide6Component } from './components/principal/slide6/slide-6.component';
 
 import { NewProductsComponent } from './components/new-products/new-products.component';
 import { RecommendedComponent } from './components/recommended/recommended.component';
@@ -166,9 +163,6 @@ import { TerminosComponent } from './components/terminos/terminos.component';
     Slide1Component,
     Slide2Component,
     Slide3Component,
-    Slide4Component,
-    Slide5Component,
-    Slide6Component,
     NewProductsComponent,
     RecommendedComponent,
     Seccion1Component,

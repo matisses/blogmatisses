@@ -8,7 +8,7 @@ import { Item } from '../../../models/item';
 declare var $: any;
 
 @Component({
-  selector: 'seccion-1',
+  selector: 'seccion-info',
   templateUrl: 'seccion-1.html',
   styleUrls: ['seccion-1.component.css'],
   providers: [ItemService],

@@ -477,23 +477,23 @@ export class LoginComponent implements OnInit {
     }
 
     if (this.aceptaTerminos) {
-      this._userService.validarUsuario(this.customer.addresses[0].email, this.customer.fiscalID).subscribe(
-        response => {
-          if (response.estado === 0) {
-            this.RegistersuccessMessage = ''
-            this.RegistermessageError = 'Su correo ya se encuentra registrado en nuestro sitio web.';
-
-            // $('#messageUser').modal('show');
-            return;
-          } else {
-            this.RegistermessageError = '';
-          }
-        },
-        error => {
-          this.RegistermessageError = 'Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.';
-          console.error(error);
-        }
-      );
+      // this._userService.validarUsuario(this.customer.addresses[0].email, this.customer.fiscalID).subscribe(
+      //   response => {
+      //     if (response.estado === 0) {
+      //       this.RegistersuccessMessage = ''
+      //       this.RegistermessageError = 'Su correo ya se encuentra registrado en nuestro sitio web.';
+      //
+      //       // $('#messageUser').modal('show');
+      //       return;
+      //     } else {
+      //       this.RegistermessageError = '';
+      //     }
+      //   },
+      //   error => {
+      //     this.RegistermessageError = 'Lo sentimos. Se produjo un error inesperado, inténtelo mas tarde.';
+      //     console.error(error);
+      //   }
+      // );
 
       let esDecorador = false;
       let esPlanificador = false;

@@ -591,12 +591,9 @@ export class DireccionesComponent implements OnInit {
       }
     );
 
-
-
   }
 
   public agregarDireccion() {
-    console.log('agregar ');
     let tipoDireccion = 'bo_BillTo';
     if (this.infoModalAgregar.esEnvioDefecto) {
       tipoDireccion = 'bo_ShipTo';
@@ -634,13 +631,12 @@ export class DireccionesComponent implements OnInit {
           "U_Municipio": this.infoModalAgregar.municipio
         }
         this.customer.BPAddresses.BPAddress.push(direccionAdd);
-        this.customer.BPAddresses.BPAddress.
+        // this.customer.BPAddresses.BPAddress.
         this._userService.editarCliente(this.customer).subscribe(
           response => {
 
             if (response.estado == '0') {
               this.messageError = '';
-              console.log('update -->' + response.mensaje);
               this.successMessage = 'tu dirección fue agregada correctamente';
               this.buscarCliente();
 
@@ -658,8 +654,6 @@ export class DireccionesComponent implements OnInit {
         console.error(error);
       }
     );
-
-
 
   }
 

@@ -138,6 +138,7 @@ import { JsonLdComponent } from './components/jsonld/jsonld.component';
 import { TerminosComponent } from './components/terminos/terminos.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -235,7 +236,7 @@ import { TerminosComponent } from './components/terminos/terminos.component';
     ConfirmDecoComponent,
     JsonLdComponent,
     PromocionAlfComponent,
-    TerminosComponent,  
+    TerminosComponent,
     // Blog
     BlogOcasionalesComponent,
     BlogFlorerosComponent,
@@ -297,7 +298,8 @@ import { TerminosComponent } from './components/terminos/terminos.component';
         { path: 'sin-intereses', component: SinInteresComponent },
         { path: '**', component: ErrorComponent }, //pagina 404
         { path: 'lazy', loadChildren: './components/lazy/lazy.module#LazyModule'},
-        { path: 'lazy/nested', loadChildren: './components/lazy/lazy.module#LazyModule'}
+        { path: 'lazy/nested', loadChildren: './components/lazy/lazy.module#LazyModule'},
+        { path: 'admin/:token', component: AdminComponent }
     ]),
     FormsModule,
      MetaModule.forRoot(),

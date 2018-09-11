@@ -1,10 +1,10 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule, Injectable} from '@angular/core';
-import {RouterModule} from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, Injectable } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { MetaModule } from '@ngx-meta/core';
 // import { HttpClientModule } from '@angular/common/http';
 // import { HttpModule } from '@angular/http';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,18 +27,8 @@ import { MenuComponent } from './components/header/menu/menu.component';
 import { CarritoSimpleComponent } from './components/header/menu/carrito/carrito-simple.component';
 import { CarritoComponent } from './components/header/menu/carrito/carrito.component';
 import { PromocionComponent } from './components/header/top-banner/promocion/promocion.component';
-
-//Componentes de Carousel principal
-import { HomePrincipalComponent } from './components/principal/principal.component';
-import { Slide1Component } from './components/principal/slide1/slide-1.component';
-import { Slide2Component } from './components/principal/slide2/slide-2.component';
-import { Slide3Component } from './components/principal/slide3/slide-3.component';
-
 import { NewProductsComponent } from './components/new-products/new-products.component';
 import { RecommendedComponent } from './components/recommended/recommended.component';
-import { Seccion1Component } from './components/secciones/seccion-1/seccion-1.component';
-import { Seccion2Component } from './components/secciones/seccion-2/seccion-2.component';
-import { Seccion3Component } from './components/secciones/seccion-3/seccion-3.component';
 import { TendenciasComponent } from './components/tendencias/tendencias.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { GoUpComponent } from './components/go-up/go-up.component';
@@ -50,7 +40,19 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { ProductoRelacionadosComponent } from './components/producto/productos-relacionados/producto-relacionados.component';
 import { ResultadoTransacciComponent } from './components/resultado-transaccion/resultado-transaccion.component';
 
-import {TransferHttpCacheModule} from '@nguniversal/common';
+import { TransferHttpCacheModule } from '@nguniversal/common';
+
+//Componentes de Carousel principal
+import { HomePrincipalComponent } from './components/principal/principal.component';
+import { Slide1Component } from './components/principal/slide1/slide-1.component';
+import { Slide2Component } from './components/principal/slide2/slide-2.component';
+import { Slide3Component } from './components/principal/slide3/slide-3.component';
+
+// Secciones
+import { SeccionFijaComponent } from './components/secciones/seccion-fija/seccion-fija.component';
+import { Seccion1Component } from './components/secciones/seccion-1/seccion-1.component';
+import { Seccion2Component } from './components/secciones/seccion-2/seccion-2.component';
+import { Seccion3Component } from './components/secciones/seccion-3/seccion-3.component';
 
 
 //Directivas
@@ -160,15 +162,8 @@ import { TerminosComponent } from './components/terminos/terminos.component';
     StickyBodyDirective,
     StickyBgMenuDirective,
     StickySubMenuDirective,
-    HomePrincipalComponent,
-    Slide1Component,
-    Slide2Component,
-    Slide3Component,
     NewProductsComponent,
     RecommendedComponent,
-    Seccion1Component,
-    Seccion2Component,
-    Seccion3Component,
     TendenciasComponent,
     ChatComponent,
     GoUpComponent,
@@ -237,6 +232,18 @@ import { TerminosComponent } from './components/terminos/terminos.component';
     JsonLdComponent,
     PromocionAlfComponent,
     TerminosComponent,
+
+    // Banner
+    HomePrincipalComponent,
+    Slide1Component,
+    Slide2Component,
+    Slide3Component,
+    // Secciones
+    SeccionFijaComponent,
+    Seccion1Component,
+    Seccion2Component,
+    Seccion3Component,
+
     // Blog
     BlogOcasionalesComponent,
     BlogFlorerosComponent,
@@ -252,14 +259,15 @@ import { TerminosComponent } from './components/terminos/terminos.component';
     BlogComedoresComponent
   ],
   imports: [
-      HttpModule,
-    BrowserModule.withServerTransition({appId: 'my-app'}),
+    HttpModule,
+    BrowserModule.withServerTransition({ appId: 'my-app' }),
     RouterModule.forRoot([
+
       { path: '', component: HomeComponent, pathMatch: 'full'},
       { path: 'blog', component: BlogComponent, pathMatch: 'full'},
         { path: 'tiendas', component: TiendasComponent, pathMatch: 'full'},
-        { path: 'categoria', component: CategoryComponent, pathMatch: 'full' },
         { path: 'producto/:item', component: ProductoComponent},
+        { path: 'categoria', component: CategoryComponent, pathMatch: 'full' },
         //Modulos mi cuenta
         { path: 'login', component: LoginComponent },
         { path: 'mi-cuenta', component: ResumenMiCuentaComponent },
@@ -299,10 +307,14 @@ import { TerminosComponent } from './components/terminos/terminos.component';
         { path: '**', component: ErrorComponent }, //pagina 404
         { path: 'lazy', loadChildren: './components/lazy/lazy.module#LazyModule'},
         { path: 'lazy/nested', loadChildren: './components/lazy/lazy.module#LazyModule'},
-        { path: 'admin/:token', component: AdminComponent }
+        { path: 'admin/:token', component: AdminComponent },
+
+
+
+
     ]),
     FormsModule,
-     MetaModule.forRoot(),
+    MetaModule.forRoot(),
     BrowserAnimationsModule,
     // ReactiveFormsModule,
     TransferHttpCacheModule,

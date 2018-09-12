@@ -55,6 +55,16 @@ label {
   border: 0;
 }
 
+.btn-cancelar {
+  background-color: #D77D7D;
+  padding: 10px 0px;
+  color: #FFF;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  border: 0;
+}
+
 .arrow {
   position: absolute;
   top: 27%;
@@ -62,8 +72,12 @@ label {
   transition: 0.5s;
 }
 
-.btn-continuar:hover>.arrow {
+.btn-continuar:hover .btn-cancelar:hover>.arrow {
   margin-left: 15px;
+}
+
+.btn-cancelar:hover {
+  background-color: #AB4646;
 }
 
 .btn-continuar:hover {

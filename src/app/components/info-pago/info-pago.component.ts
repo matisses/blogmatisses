@@ -19,7 +19,6 @@ import { CoordinadoraService } from '../../services/coordinadora.service';
 import { ShoppingCartValidatorService } from '../../services/shopping-cart-validator.service';
 import { DescuentosService } from '../../services/descuentos.service';
 import { DigitoVerificacionService } from '../../services/digitoVerificacion.service';
-import { SessionUsuarioService } from '../../services/session-usuario.service';
 
 import { CarritoSimpleComponent } from '../header/menu/carrito/carrito-simple.component';
 import { CarritoComponent } from '../header/menu/carrito/carrito.component';
@@ -31,7 +30,7 @@ declare var $: any;
   templateUrl: 'info-pago.html',
   styleUrls: ['info-pago.component.css'],
   providers: [CustomerService, CityService, ShippingMethodService, PlacetoPayService, ShoppingCartService, ItemService, CoordinadoraService,
-    ShoppingCartValidatorService, DescuentosService, DigitoVerificacionService,SessionUsuarioService]
+    ShoppingCartValidatorService, DescuentosService, DigitoVerificacionService]
 })
 
 export class InfoPagoComponent implements OnInit {
@@ -52,7 +51,6 @@ export class InfoPagoComponent implements OnInit {
   public valid: boolean = true;
   public disabled: boolean = false;
   public customer: Customer;
-  public customerOriginal: Customer;
   public metodoEnvioSeleccionado: ShippingMethod = null;
   public datosPago: DatosPagoPlaceToPay = null;
   public ciudadesPrincipales: Array<City>;
@@ -67,12 +65,11 @@ export class InfoPagoComponent implements OnInit {
   public totalEnvioFinalFormat: string = "0";
   public montoEnvioMinimo: string = "0";
   public mostrarInfoEnvio: boolean = false;
-  public correoOriginal:string="";
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _customerService: CustomerService, private _cityService: CityService,
     private _shippingMethodService: ShippingMethodService, private _placetopayService: PlacetoPayService, private _shoppingCartService: ShoppingCartService,
     private _itemService: ItemService, private _coordinadoraService: CoordinadoraService, private _shoppingCartValidatorService: ShoppingCartValidatorService,
-    private _descuentosService: DescuentosService, private _digitoVerificacionService: DigitoVerificacionService,private _userService: SessionUsuarioService) {
+    private _descuentosService: DescuentosService, private _digitoVerificacionService: DigitoVerificacionService) {
     this.messageError = '';
     this.urlReturn = GLOBAL.urlTransactionResult;
     this.limpiar();
@@ -211,7 +208,6 @@ export class InfoPagoComponent implements OnInit {
             this.customer.lastName2 = response.contacts.lastName2 == null ? "" : response.contacts.lastName2;
             this.customer.birthDate = response.birthDate;
             this.customer.addresses[0].email = response.addresses[0].email;
-            this.correoOriginal=this.customer.addresses[0].email;
             this.customer.addresses[0].cellphone = response.addresses[0].cellphone;
             this.customer.addresses[0].address = response.addresses[0].address;
             this.customer.addresses[0].cityCode = response.addresses[0].cityCode;
@@ -222,7 +218,6 @@ export class InfoPagoComponent implements OnInit {
           }
 
           this.customer = response;
-          this.correoOriginal=this.customer.addresses[0].email;
           this.disabled = true;
           this.consultarCostoEnvio();
         },
@@ -336,11 +331,9 @@ export class InfoPagoComponent implements OnInit {
 
     for (let k = 0; k < ciudadesEnvioGratis.length; k++) {
       if (ciudadesEnvioGratis[k] == (this.customer.addresses[0].cityName.toUpperCase() + this.customer.addresses[0].cityCode)) {
-        console.log('**************');
-        console.log(this.customer.addresses[0].cityName.toUpperCase() + this.customer.addresses[0].cityCode);
-        console.log(ciudadesEnvioGratis[k]);
-        console.log('**************');
         return true;
+      } else {
+        return false;
       }
     }
     return false;
@@ -349,7 +342,6 @@ export class InfoPagoComponent implements OnInit {
   public pagar() {
     this.valid = true;
     this.messageError = '';
-    this.cargarClienteDocumento();
     if (this.metodoEnvioSeleccionado == null || this.metodoEnvioSeleccionado.code == 0) {
       this.messageError = 'Debes seleccionar un medio de envió.';
       return;
@@ -372,8 +364,6 @@ export class InfoPagoComponent implements OnInit {
       this.valid = false;
       return;
     }
-
-
     this.procesandoP2P = true;
 
     this._itemService.validarItems(this.carrito.shoppingCart.items).subscribe(
@@ -851,48 +841,5 @@ export class InfoPagoComponent implements OnInit {
 
   public formatNumber(num: number) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  }
-
-  public cargarClienteDocumento(){
-    this._userService.cargarcliente(this.correoOriginal).subscribe(
-      response => {
-        // if (response.fiscalIdType === '31') {
-        //   this.customerOriginal.fiscalID = response.fiscalID;
-        //   this.customerOriginal.fiscalIdType = response.fiscalIdType;
-        //   this.customerOriginal.firstName = response.contacts.firstName + ' ' + (response.contacts.middleName == null ? "" : response.contacts.middleName);
-        //   this.customerOriginal.lastName1 = response.contacts.lastName1;
-        //   this.customerOriginal.lastName2 = response.contacts.lastName2 == null ? "" : response.contacts.lastName2;
-        //   this.customerOriginal.birthDate = response.birthDate;
-        //   this.customerOriginal.addresses[0].email = response.addresses[0].email;
-        //   this.customerOriginal.addresses[0].cellphone = response.addresses[0].cellphone;
-        //   this.customerOriginal.addresses[0].address = response.addresses[0].address;
-        //   this.customerOriginal.addresses[0].cityCode = response.addresses[0].cityCode;
-        //   this.customerOriginal.cardName = response.cardName;
-        //
-        // }
-          this.customer = response;
-
-
-      },
-      error => {
-        console.error(error);
-      }
-    );
-
-    this.customer.addresses[0].email = "sistema@mailtest.co";
-    this._userService.editarCliente(this.customer).subscribe(
-      response => {
-        if (response.estado == 0) {
-          //this.RegistermessageError = 'Tu usuario se editó exitosamente.';
-          console.log('actualizo');
-         return;
-        }
-      },
-      error => { console.error(error);
-        console.log('error');
-        return;
-      }
-    );
-
   }
 }

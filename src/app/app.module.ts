@@ -268,6 +268,7 @@ import { TerminosComponent } from './components/terminos/terminos.component';
         { path: 'tiendas', component: TiendasComponent, pathMatch: 'full'},
         { path: 'producto/:item', component: ProductoComponent},
         { path: 'categoria', component: CategoryComponent, pathMatch: 'full' },
+        { path: 'admin/:token', component: AdminComponent },
         //Modulos mi cuenta
         { path: 'login', component: LoginComponent },
         { path: 'mi-cuenta', component: ResumenMiCuentaComponent },
@@ -306,11 +307,7 @@ import { TerminosComponent } from './components/terminos/terminos.component';
         { path: 'sin-intereses', component: SinInteresComponent },
         { path: '**', component: ErrorComponent }, //pagina 404
         { path: 'lazy', loadChildren: './components/lazy/lazy.module#LazyModule'},
-        { path: 'lazy/nested', loadChildren: './components/lazy/lazy.module#LazyModule'},
-        { path: 'admin/:token', component: AdminComponent },
-
-
-
+        { path: 'lazy/nested', loadChildren: './components/lazy/lazy.module#LazyModule'}
 
     ]),
     FormsModule,

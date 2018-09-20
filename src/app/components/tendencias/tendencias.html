@@ -12,8 +12,8 @@
 <div class="container padding-0">
   <div class="row">
     <div class="col-xs-12">
-      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ subgroup: '003', pageSize: '10000' }">
-        <!-- [queryParams]="{keywords: 'flexo'}" -->
+      <a href="javascript:void(0)" [routerLink]="['/producto/2170001']">
+        <!-- [queryParams]="{ subgroup: '003', pageSize: '10000' }" -->
         <div class="tendencia-01">
           <div class="container">
             <div class="row">
@@ -30,7 +30,7 @@
   <div class="row">
     <!-- segundo -->
     <div class="col-sm-6 col-xs-12">
-      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ brand: '0010', group: '027', pageSize: '10000' }">
+      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ group:'002', brand: '0035', keywords: 'BRIGITTE' }">
         <div class="sub-banner">
           <img src="assets/images/tendencias/tendencias-02.jpg" class="img-responsive" alt="">
         </div>
@@ -38,8 +38,7 @@
     </div>
     <!-- tercero -->
     <div class="col-sm-6 col-xs-12">
-      <a href="javascript:void(0)" [routerLink]="['/producto/2640032']">
-        <!-- [queryParams]="{material: '66', group: '002', brand: '0001'}" -->
+      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ pageSize:'10000', orderBy: 'price', group: '002,003', material: '37' }">        
         <div class="sub-banner">
           <img src="assets/images/tendencias/tendencias-03.jpg" class="img-responsive" alt="">
         </div>

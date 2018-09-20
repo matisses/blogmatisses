@@ -176,8 +176,12 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-volver" (click)="cerrarAgregar()">Cerrar</button>
-                <button type="button" class="btn btn-guardar" *ngIf="messageAlert == null || successMessage == null" (click)="agregarDireccion()">Guardar cambios</button>
+              <!-- <div class="modal-footer"> -->
+                  <button type="button" class="btn btn-volver" (click)="cerrarAgregar()">Cerrar</button>
+                  <button type="button" class="btn btn-guardar" (click)="agregarDireccion()">Guardar cambios</button>
+              <!-- </div> -->
+                <!-- <button type="button" class="btn btn-volver" (click)="cerrarAgregar()">Cerrar</button>
+                <button type="button" class="btn btn-guardar" *ngIf="messageAlert == null || successMessage == null" (click)="agregarDireccion()">Guardar cambios</button> -->
             </div>
         </div>
     </div>

@@ -81,7 +81,6 @@ export class LoginComponent implements OnInit {
     this.otrasCiudades = new Array<City>();
     this.fileUploadRut = null;
     this.inicializarCliente();
-
   }
 
   ngOnInit() {
@@ -139,12 +138,12 @@ export class LoginComponent implements OnInit {
         this.nombreUsuario = response.nombreUsuario;
 
         if (response.esDecorador != null) {
-          console.log('entra en el if de decorador');
+
           this.decorador = response.esDecorador;
         }
 
         if (response.esPlanificador != null) {
-          console.log('entra en el if de planificador');
+
           this.planificador = response.esPlanificador;
         }
 
@@ -463,7 +462,7 @@ export class LoginComponent implements OnInit {
             this._userService.editarCliente(this.customerEdit).subscribe(
               response => {
                 if (response.estado == 0) {
-                  this.RegistermessageError = 'Tu usuario se editó exitosamente.';
+                  // this.RegistermessageError = 'Tu usuario se editó exitosamente.';
                   // $('#messageUser').modal('show');
                   return;
                 }

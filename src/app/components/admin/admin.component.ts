@@ -23,7 +23,7 @@ export class AdminComponent implements OnInit {
       this._jwt.validateToken(token).subscribe(
         response => {
           localStorage.setItem('matisses.admin-token', token);
-          this._router.navigate(['/']);
+          this._router.navigate(['tiendas']);
         }, error => {
           console.error(error);
           localStorage.removeItem('matisses.admin-token');

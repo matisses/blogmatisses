@@ -452,10 +452,6 @@ export class InfoPagoComponent implements OnInit {
 
     for (let k = 0; k < ciudadesEnvioGratis.length; k++) {
       if (ciudadesEnvioGratis[k] == (this.customer.addresses[0].cityName.toUpperCase() + this.customer.addresses[0].cityCode)) {
-        console.log('**************');
-        console.log(this.customer.addresses[0].cityName.toUpperCase() + this.customer.addresses[0].cityCode);
-        console.log(ciudadesEnvioGratis[k]);
-        console.log('**************');
         return true;
       } else {
         return false;

@@ -20,6 +20,17 @@
   margin-bottom: 20px;
 }
 
+.form-control {
+  border-radius: 0;
+  margin-bottom: 10px;
+}
+
+.input-saldoFavor {
+  height: 40px;
+  width: 50%;
+  margin-left: 25%;
+}
+
 .titulo p {
   margin: 0;
   font-weight: 700;
@@ -44,6 +55,16 @@ label {
   border: 0;
 }
 
+.btn-cancelar {
+  background-color: #D77D7D;
+  padding: 10px 0px;
+  color: #FFF;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  border: 0;
+}
+
 .arrow {
   position: absolute;
   top: 27%;
@@ -51,8 +72,12 @@ label {
   transition: 0.5s;
 }
 
-.btn-continuar:hover>.arrow {
+.btn-continuar:hover .btn-cancelar:hover>.arrow {
   margin-left: 15px;
+}
+
+.btn-cancelar:hover {
+  background-color: #AB4646;
 }
 
 .btn-continuar:hover {
@@ -85,6 +110,19 @@ label {
   background-color: #EDEDED;
   padding: 10px;
   text-align: justify;
+}
+
+.link-slf {
+  margin-top: 12px;
+}
+
+.link-slf a {
+  color: #425E63;
+  font-weight: bold;
+}
+
+.link-slf:hover {
+  color: #6D9791;
 }
 
 @media screen and (max-width: 991px) {

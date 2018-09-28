@@ -446,7 +446,8 @@ export class LoginComponent implements OnInit {
       this.crearCliente();
     }
     else {
-      this._userService.cargarcliente(this.correoOriginal).subscribe(
+      console.log('correo no consigue '+this.correoOriginal);
+      this._customerService.getCustomerData(this.customer.fiscalID).subscribe(
         response => {
           this.customerEdit = response;
 
@@ -454,6 +455,7 @@ export class LoginComponent implements OnInit {
             this.customer.addresses[0].address != this.direccionOriginal ||
             this.customer.addresses[0].cellphone != this.celularOriginal ||
             this.customer.birthDate != this.fechaOriginal) {
+            console.log('entra en el if que consigue cambios ');
             this.customerEdit.U_FechaNacimiento = this.customer.birthDate;
             this.customerEdit.BPAddresses.BPAddress[0].County = this.customer.addresses[0].email;
             this.customerEdit.BPAddresses.BPAddress[0].BuildingFloorRoom = this.customer.addresses[0].cellphone;
@@ -461,10 +463,12 @@ export class LoginComponent implements OnInit {
 
             this._userService.editarCliente(this.customerEdit).subscribe(
               response => {
+                console.log('que trae el servicio de edicion '+response.estado);
                 if (response.estado == 0) {
+                  console.log('si edito');
                   // this.RegistermessageError = 'Tu usuario se editó exitosamente.';
                   // $('#messageUser').modal('show');
-                  return;
+                  // return;
                 }
               },
               error => { console.error(error); }

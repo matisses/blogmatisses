@@ -17,6 +17,16 @@
   margin-top: 70px;
 }
 
+.m-0 {
+  margin: 0;
+}
+
+.b-t-b {
+  background-color: #292929;
+  padding: 20px 0;
+  color: #FFF;
+}
+
 @media screen and (max-width: 1024px) {}
 
 @media screen and (max-width: 991px) {

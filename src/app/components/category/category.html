@@ -6,15 +6,17 @@
     <div class="row" *ngIf="queryParams.has('group') && !queryParams.has('discount')">
       <div class="col-xs-12">
         <div class="img-category">
-          <!-- <h2>{{nombreGrupo}}</h2> -->
+          <h2>{{nombreGrupo}}</h2>
         </div>
       </div>
     </div>
     <!-- Imagen evento sale -->
     <div class="row" *ngIf="queryParams.has('discount')">
       <div class="col-xs-12">
-        <div class="img-sale">
+        <div class="img-sale hidden-xs">
         </div>
+        <div class="img-sale-mobile visible-xs">
+          </div>
       </div>
     </div>
     <!-- Imagen secciones -->

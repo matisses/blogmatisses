@@ -336,7 +336,7 @@
                 (mouseenter)="alternarSeleccionPadre(menuItem) + carrito.closeResumen()">
                 {{menuItem.name}}
               </li>
-              <li class="item-menu hot-sale cursor-pointer" (mouseenter)="carrito.closeResumen() + cerrarOverlay()" [routerLink]="['/sale']">
+              <li class="item-menu hot-sale cursor-pointer" (mouseenter)="carrito.closeResumen() + cerrarOverlay()" [routerLink]="['/categoria']" [queryParams]="{ discount: 'true' }">
                 SALE
               </li>
             </ul>

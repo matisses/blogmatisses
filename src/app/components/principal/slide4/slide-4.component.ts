@@ -7,13 +7,13 @@ import { Item } from '../../../models/item';
 declare var $: any;
 
 @Component({
-  selector: 'slide-3',
-  templateUrl: 'slide-3.html',
-  styleUrls: ['slide-3.component.css'],
+  selector: 'slide-4',
+  templateUrl: 'slide-4.html',
+  styleUrls: ['slide-4.component.css'],
   providers: [ItemService]
 })
 
-export class Slide3Component implements OnInit {
+export class Slide4Component implements OnInit {
   public items: Array<Item>;
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _itemService: ItemService) {
@@ -26,13 +26,13 @@ export class Slide3Component implements OnInit {
 
   private inicializarItems() {
     this.items = new Array<Item>();
-    this._itemService.find('2280068').subscribe(
+    this._itemService.find('2310138').subscribe(
       response => {
         this.items.push(response.result[0]);
-        this._itemService.find('2280040').subscribe(
+        this._itemService.find('2310492').subscribe(
           response => {
             this.items.push(response.result[0]);
-            this._itemService.find('2280033').subscribe(
+            this._itemService.find('2310678').subscribe(
               response => {
                 this.items.push(response.result[0]);
               }, error => { console.error(); }

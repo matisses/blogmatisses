@@ -182,6 +182,11 @@
                   </div>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-xs-10 col-xs-offset-1" *ngIf="customer.addresses[0].cityCode != null && customer.addresses[0].cityCode.length > 0">
+                  <img src="../../../assets/images/hot-sale/free-shipping.jpg" class="img-shipping" alt="">
+                </div>
+              </div>
               <br />
               <div class="row" *ngIf="metodoEnvioSeleccionado && metodoEnvioSeleccionado.code == 2">
                 <div class="col-xs-12">

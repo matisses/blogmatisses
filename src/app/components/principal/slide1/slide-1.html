@@ -10,7 +10,7 @@
         <span class="glyphicon glyphicon-menu-right"></span>
         <span class="sr-only">Next</span>
       </a>
-      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ group: '015', subgroup: '126', pageSize: '36', orderBy: 'price' }">
+      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ discount: 'true', pageSize: '36' }">
         <div class="principal-01">
           <div class="container">
             <div class="row">
@@ -27,12 +27,12 @@
   <div class="row" *ngIf="items && items.length > 0">
     <div class="col-sm-3 col-xs-6 text-center">
       <div class="recomendaciones">
-        <p class="name">FLORERO SMOOTHIE
+        <p class="name">TAPETE DE 200x300 CMS
           <br>
-          <b>ASA</b>
+          <b>MATISSES</b>
         </p>
         <a href="javascript:void(0)" [routerLink]="['/producto', items[0].shortitemcode]">
-          <img src="https://img.matisses.co/{{items[0].itemcode}}/parrilla/{{items[0].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
+          <img src="https://img.matisses.co/{{items[0].itemcode}}/images/{{items[0].itemcode}}_02.jpg" class="img-responsive cursor-pointer"
             alt="{{items[0].itemname}}">
         </a>
         <!-- <p class="precio"><b>$ {{items[0].priceaftervat | number}}</b></p> -->
@@ -46,9 +46,9 @@
     </div>
     <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 2">
       <div class="recomendaciones">
-        <p class="name">FLORERO UMBERTO
+        <p class="name">BOTELLA DECORATIVA
           <br>
-          <b>LSA</b>
+          <b>MATISSES</b>
         </p>
         <a href="javascript:void(0)" [routerLink]="['/producto', items[1].shortitemcode]">
           <img src="https://img.matisses.co/{{items[1].itemcode}}/parrilla/{{items[1].itemcode}}_01.jpg" class="img-responsive cursor-pointer"

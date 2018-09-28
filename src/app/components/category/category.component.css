@@ -24,7 +24,23 @@
 }
 
 .img-sale {
-  background: url(../../../assets/images/categorias/img-sale.jpg) no-repeat center top;
+  background: url(../../../assets/images/banner/banner-sale.jpg) no-repeat center top;
+  background-position: center top;
+  min-height: 380px;
+  width: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-left: 50px;
+}
+
+.img-sale-mobile {
+  background: url(../../../assets/images/banner/banner-sale-mobile.jpg) no-repeat center top;
   background-position: center top;
   min-height: 200px;
   width: 100%;

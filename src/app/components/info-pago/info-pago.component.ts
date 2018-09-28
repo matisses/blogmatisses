@@ -71,6 +71,7 @@ export class InfoPagoComponent implements OnInit {
   public selectMonto: string = 'SI';
   public disabledMonto: boolean = true;
   public montoSaldoFavor: number;
+  public montoTotalFactura: number;
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _customerService: CustomerService, private _cityService: CityService,
     private _shippingMethodService: ShippingMethodService, private _placetopayService: PlacetoPayService, private _shoppingCartService: ShoppingCartService,
@@ -89,6 +90,7 @@ export class InfoPagoComponent implements OnInit {
     this.obtenerMetodosEnvio();
     this.obtenerCiudades();
     this.totalEnvioFinal = (this.carrito.totalCarrito + this.totalEnvio) - this.carrito.totalDescuentos;
+    this.montoTotalFactura=this.carrito.totalCarrito-this.carrito.totalDescuentos;
     this.totalEnvioFinalFormat = this.formatNumber(this.totalEnvioFinal);
   }
 
@@ -221,7 +223,9 @@ export class InfoPagoComponent implements OnInit {
 
   public obtenerMetodosEnvio() {
     this.metodosEnvio = new Array<ShippingMethod>();
-    let baseComplementos = 150000;//TODO: monto base envios gratis para complementos y no mobiliario.
+    // let baseComplementos = 150000;//TODO: monto base envios gratis para complementos y no mobiliario.
+    //hotsale 29-09
+    let baseComplementos = 350000;//TODO: monto base envios gratis para complementos y no mobiliario.
     let baseMobiliario = 7000000;//TODO: monto base envios gratis para mobiliario. categoriaMobiliario = ["002", "003", "005", "006", "009"]
     let baseMobiliarioCiudad = 2000000; //TODO: monto base envios gratis para mobiliario en el area metropolitana y valle del aburra.
 
@@ -271,7 +275,8 @@ export class InfoPagoComponent implements OnInit {
             this.metodosEnvio.push(response[1]);//Recoger en tienda
             this.metodosEnvio.push(response[2]);//coordinadora
             this.mostrarInfoEnvio = true;
-            this.montoEnvioMinimo = '150,000';
+            // this.montoEnvioMinimo = '150,000';
+            this.montoEnvioMinimo = '350,000';
           } else if (((this.carrito.totalCarrito) - this.carrito.totalDescuentos) >= baseComplementos) {
             this.metodosEnvio.push(response[0]);//Gratis
             this.metodosEnvio.push(response[1]);//Recoger en tienda
@@ -363,29 +368,54 @@ export class InfoPagoComponent implements OnInit {
   }
 
   public consultarCostoEnvio() {
-    let datosCompra = {
-      ciudadDestino: this.customer.addresses[0].cityCode,
-      items: []
-    };
-
-    for (let j = 0; j < this.carrito.shoppingCart.items.length; j++) {
-      datosCompra.items.push(this.carrito.shoppingCart.items[j]);
-    }
-
-    this._coordinadoraService.crearCotizacionEnvio(datosCompra).subscribe(
-      response => {
-        for (let i = 0; i < this.metodosEnvio.length; i++) {
-          if (this.metodosEnvio[i].code === 3) {
-            this.costoEnvio = response.valor;
-            this.costoEnvioFormat = this.formatNumber(this.costoEnvio);
-            break;
-          }
-        }
-        this.obtenerMetodosEnvio();
-      },
-      error => { console.error(error); }
-    );
+      if(this.montoTotalFactura>0 && this.montoTotalFactura<=100000){
+        this.costoEnvio = 30000;
+        this.costoEnvioFormat = this.formatNumber(this.costoEnvio);
+      }
+      if(this.montoTotalFactura>100000 && this.montoTotalFactura<=350000){
+        this.costoEnvio = 50000;
+        this.costoEnvioFormat = this.formatNumber(this.costoEnvio);
+      }
+      this.obtenerMetodosEnvio();
+    // this._coordinadoraService.crearCotizacionEnvio(datosCompra).subscribe(
+    //   response => {
+    //     for (let i = 0; i < this.metodosEnvio.length; i++) {
+    //       if (this.metodosEnvio[i].code === 3) {
+    //         this.costoEnvio = response.valor;
+    //         this.costoEnvioFormat = this.formatNumber(this.costoEnvio);
+    //         break;
+    //       }
+    //     }
+    //     this.obtenerMetodosEnvio();
+    //   },
+    //   error => { console.error(error); }
+    // );
   }
+
+  // public consultarCostoEnvio() {
+  //   let datosCompra = {
+  //     ciudadDestino: this.customer.addresses[0].cityCode,
+  //     items: []
+  //   };
+  //
+  //   for (let j = 0; j < this.carrito.shoppingCart.items.length; j++) {
+  //     datosCompra.items.push(this.carrito.shoppingCart.items[j]);
+  //   }
+  //
+  //   this._coordinadoraService.crearCotizacionEnvio(datosCompra).subscribe(
+  //     response => {
+  //       for (let i = 0; i < this.metodosEnvio.length; i++) {
+  //         if (this.metodosEnvio[i].code === 3) {
+  //           this.costoEnvio = response.valor;
+  //           this.costoEnvioFormat = this.formatNumber(this.costoEnvio);
+  //           break;
+  //         }
+  //       }
+  //       this.obtenerMetodosEnvio();
+  //     },
+  //     error => { console.error(error); }
+  //   );
+  // }
 
   public consultarSaldoFavor(id: string) {
     this._customerService.getSaldoFavor(id).subscribe(

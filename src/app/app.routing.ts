@@ -107,6 +107,16 @@ const appRoutes: Routes = [
           }
         }
       },
+      {
+        path: 'sale',
+        component: HotSaleComponent,
+        pathMatch: 'full',
+        data: {
+          meta: {
+            title: 'Matisses - Sale',            
+          }
+        }
+      },
       { path: 'lista-de-regalos/crear-lista', component: CrearListaComponent },
       { path: 'mi-lista', component: MiListaComponent },
       { path: 'mi-lista/agregar-productos', component: AgregarProductosComponent },
@@ -143,7 +153,6 @@ const appRoutes: Routes = [
   { path: 'sin-intereses', component: SinInteresComponent },
   { path: 'compra-sin-intereses', component: CitibankComponent },
   { path: 'trabaja-con-nosotros', component: TrabajaComponent },
-  // { path: 'hot-sale', component: HotSaleComponent },
   { path: 'info', component: InfoBogotaComponent },
   { path: 'novedades', component: NovedadesComponent },
   { path: 'evento-alf', component: PromocionAlfComponent },

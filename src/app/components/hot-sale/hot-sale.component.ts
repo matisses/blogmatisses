@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Meta ,Title} from '@angular/platform-browser';
 import { ItemService } from '../../services/item.service';
 import { Item } from '../../models/item';
 
@@ -14,9 +15,10 @@ declare var $: any;
 
 export class HotSaleComponent implements OnInit {
   public items: Array<Item>;
+  public title: string;
 
-  constructor(private _route: ActivatedRoute, private _router: Router, private _itemService: ItemService) {
-
+  constructor(private _route: ActivatedRoute, private _router: Router, private _itemService: ItemService, private meta: Meta,private title1: Title) {
+    this.title1.setTitle('Sale Matisses');
   }
 
   ngOnInit() {

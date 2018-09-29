@@ -1,3 +1,10 @@
+.precio-antes {
+  color: red;
+  position: relative;
+  text-decoration: line-through;
+  top: 35px;
+}
+
 .padding-0 {
   padding-left: 0;
   padding-right: 0;
@@ -275,6 +282,9 @@
   }
   .sub-banner-footer {
     padding-top: 20px;
+  }
+  .precio-antes {
+    top: 14px;
   }
 }
 

@@ -35,8 +35,11 @@
           <img src="https://img.matisses.co/{{items[0].itemcode}}/parrilla/{{items[0].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
             alt="{{items[0].itemname}}">
         </a>
+        <p class="precio-antes">
+            <b>$ {{formatNumber(items[0].priceaftervat)}}</b>
+          </p>
         <p class="precio">
-          <b>$ {{formatNumber(items[0].priceaftervat)}}</b>
+          <b>$ {{formatNumber(items[0].priceaftervat*0.5)}}</b>
         </p>
         <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya" [routerLink]="['/producto', items[0].shortitemcode]">Ir
           a comprar</button>
@@ -52,8 +55,11 @@
           <img src="https://img.matisses.co/{{items[1].itemcode}}/parrilla/{{items[1].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
             alt="{{items[1].itemname}}">
         </a>
+        <p class="precio-antes">
+            <b>$ {{formatNumber(items[1].priceaftervat)}}</b>
+          </p>
         <p class="precio">
-          <b>$ {{formatNumber(items[1].priceaftervat)}}</b>
+          <b>$ {{formatNumber(items[1].priceaftervat*0.5)}}</b>
         </p>
         <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya" [routerLink]="['/producto', items[1].shortitemcode]">Ir
           a comprar</button>
@@ -73,7 +79,7 @@
           <div class="col-xs-12">
             <div class="sub-banner-footer">
               <p>
-                <b>TABLA PARA PIZZA </b>$ {{formatNumber(items[2].priceaftervat)}}</p>
+                <b>TABLA PARA PIZZA </b>$ {{formatNumber(items[2].priceaftervat*0.5)}}</p>
               <button type="submit" class="ir-comprar" name="comprar-ya">Ir a comprar</button>
             </div>
           </div>

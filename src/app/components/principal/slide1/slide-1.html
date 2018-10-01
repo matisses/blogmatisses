@@ -27,18 +27,15 @@
   <div class="row" *ngIf="items && items.length > 0">
     <div class="col-sm-3 col-xs-6 text-center">
       <div class="recomendaciones">
-        <p class="name">TAPETE DE 200x300 CMS
+        <p class="name">PIMENTERO FUNCTIONALS
           <br>
-          <b>MATISSES</b>
+          <b>WMF</b>
         </p>
         <a href="javascript:void(0)" [routerLink]="['/producto', items[0].shortitemcode]">
           <img src="https://img.matisses.co/{{items[0].itemcode}}/images/{{items[0].itemcode}}_02.jpg" class="img-responsive cursor-pointer"
             alt="{{items[0].itemname}}">
         </a>
         <!-- <p class="precio"><b>$ {{items[0].priceaftervat | number}}</b></p> -->
-        <p class="precio-antes">
-            <b>$ {{formatNumber(items[0].priceaftervat)}}</b>
-          </p>
         <p class="precio">
           <b>$ {{formatNumber(items[0].priceaftervat*0.6)}}</b>
         </p>
@@ -48,17 +45,14 @@
     </div>
     <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 2">
       <div class="recomendaciones">
-        <p class="name">BOTELLA DECORATIVA
+        <p class="name">CORTADOR DE PIÑA
           <br>
-          <b>MATISSES</b>
+          <b>WMF</b>
         </p>
         <a href="javascript:void(0)" [routerLink]="['/producto', items[1].shortitemcode]">
           <img src="https://img.matisses.co/{{items[1].itemcode}}/parrilla/{{items[1].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
             alt="{{items[1].itemname}}">
         </a>
-        <p class="precio-antes">
-            <b>$ {{formatNumber(items[1].priceaftervat)}}</b>
-          </p>
         <p class="precio">
           <b>$ {{formatNumber(items[1].priceaftervat*0.6)}}</b>
         </p>
@@ -69,18 +63,18 @@
 
     <div class="col-sm-6 col-xs-12" *ngIf="items && items.length >= 3">
       <div class="sub-banner text-center">
-        <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ group: '015', subgroup: '126', collection: 'Calabash' }">
+        <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ page: '1', orderBy: 'price', collection: 'Hello FUNctionals' }">
           <!-- , items[2].shortitemcode -->
           <img src="assets/images/banner/slide-1/banner-03.jpg" class="img-responsive" alt="">
         </a>
       </div>
       <div class="row">
-        <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ group: '015', subgroup: '126', collection: 'Calabash' }">
+        <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ page: '1', orderBy: 'price', collection: 'Hello FUNctionals' }">
           <!-- , items[2].shortitemcode -->
           <div class="col-xs-12">
             <div class="sub-banner-footer">
               <p>
-                <b>FLOREROS CALABASH DESDE</b> ${{formatNumber(items[2].priceaftervat*0.6)}} </p>
+                <b>Hello FUNctionals DESDE</b> ${{formatNumber(items[2].priceaftervat*0.6)}} </p>
               <button type="submit" class="ir-comprar" name="comprar-ya">Ir a comprar</button>
             </div>
           </div>

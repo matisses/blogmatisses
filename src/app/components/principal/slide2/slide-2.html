@@ -10,7 +10,7 @@
           <span class="glyphicon glyphicon-menu-right"></span>
           <span class="sr-only">Next</span>
         </a>
-        <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ brand: '0011' }">    
+        <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ pageSize: '10000', group: '002,003', brand: '0035' }">    
           <div class="principal-01">
             <div class="container">
               <div class="row">
@@ -29,30 +29,24 @@
     <div class="row" *ngIf="items && items.length > 0">
       <div class="col-sm-3 col-xs-6 text-center">
         <div class="recomendaciones">
-          <p class="name">JARRA AISLANTE<br><b>EVA SOLO</b></p>
+          <p class="name">SILLA DE INDY<br><b>CATTELAN</b></p>
           <a href="javascript:void(0)" [routerLink]="['/producto', items[0].shortitemcode]">
             <img src="https://img.matisses.co/{{items[0].itemcode}}/parrilla/{{items[0].itemcode}}_01.jpg" class="img-responsive cursor-pointer" alt="{{items[0].itemname}}">
           </a>
-          <p class="precio-antes">
-              <b>$ {{formatNumber(items[0].priceaftervat)}}</b>
-            </p>
           <p class="precio">
-            <b>$ {{formatNumber(items[0].priceaftervat*0.5)}}</b>
+            <b>$ {{formatNumber(items[0].priceaftervat)}}</b>
           </p>
           <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya" [routerLink]="['/producto', items[0].shortitemcode]">Ir a comprar</button>
         </div>
       </div>
       <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 2">
         <div class="recomendaciones">
-          <p class="name">TERMO AISLANTE<br><b>EVA SOLO</b></p>
+          <p class="name">MESA DE COMEDOR<br><b>MATISSES</b></p>
           <a href="javascript:void(0)" [routerLink]="['/producto', items[1].shortitemcode]">
             <img src="https://img.matisses.co/{{items[1].itemcode}}/parrilla/{{items[1].itemcode}}_01.jpg" class="img-responsive cursor-pointer" alt="{{items[1].itemname}}">
           </a>
-          <p class="precio-antes">
-              <b>$ {{formatNumber(items[1].priceaftervat)}}</b>
-            </p>
           <p class="precio">
-            <b>$ {{formatNumber(items[1].priceaftervat*0.5)}}</b>
+            <b>$ {{formatNumber(items[1].priceaftervat)}}</b>
           </p>
           <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya" [routerLink]="['/producto', items[1].shortitemcode]">Ir a comprar</button>
         </div>
@@ -68,7 +62,7 @@
           <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
             <div class="col-xs-12">
               <div class="sub-banner-footer">
-                <p><b>CARAFE CON AISLANTE</b> $ {{formatNumber(items[2].priceaftervat*0.5)}}</p>
+                <p><b>SILLA DE COMEDOR ANGEL</b> $ {{formatNumber(items[2].priceaftervat)}}</p>
                 <button type="submit" class="ir-comprar" name="comprar-ya">ir a comprar</button>
               </div>
             </div>

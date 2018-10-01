@@ -105,7 +105,9 @@
                 <h4>Subtotal</h4>
               </div>
               <div class="col-xs-6">
-                <h4><b>${{carrito.difTotalDescuentosFormat}}</b></h4>
+                <!-- <h4><b>${{carrito.difTotalDescuentosFormat}}</b></h4> -->
+                <h4><b>${{formatNumber(carrito.totalCarrito-carrito.totalImpuestos)}}</b></h4>
+
               </div>
             </div>
             <div class="row">

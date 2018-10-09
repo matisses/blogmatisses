@@ -446,7 +446,6 @@ export class LoginComponent implements OnInit {
       this.crearCliente();
     }
     else {
-      console.log('correo no consigue '+this.correoOriginal);
       this._customerService.getCustomerData(this.customer.fiscalID).subscribe(
         response => {
           this.customerEdit = response;

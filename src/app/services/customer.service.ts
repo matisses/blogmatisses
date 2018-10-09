@@ -40,4 +40,13 @@ export class CustomerService {
     return this._http.get(this.urlBCS + 'businesspartner/saldofavor/' + cardCode, { headers: headers })
       .map(res => res.json());
   }
+
+  findCustomerObject(fiscalId) {
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    return this._http.get(this.urlBCS + 'businesspartner/find/' + fiscalId, { headers: headers })
+      .map(res => res.json());
+  }
 }

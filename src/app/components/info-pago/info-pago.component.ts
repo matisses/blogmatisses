@@ -490,6 +490,16 @@ export class InfoPagoComponent implements OnInit {
       this.valid = false;
       return;
     }
+    const validEmailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (validEmailRegEx.test(this.customer.addresses[0].email)) {
+        // this.validEmail = true;
+          this.valid = true;
+    }else {
+      // this.validEmail = false;
+      this.messageError="Correo electronico invalido";
+      this.valid = false;
+      return;
+    }
     this.procesandoP2P = true;
 //Edicion cliente
     this._customerService.findCustomerObject(this.customer.fiscalID).subscribe(
@@ -1009,6 +1019,20 @@ export class InfoPagoComponent implements OnInit {
 
   public formatNumber(num: number) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }
+
+  public onChangeEmail(newValue) {
+    const validEmailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (validEmailRegEx.test(newValue)) {
+        // this.validEmail = true;
+          this.valid = true;
+    }else {
+      // this.validEmail = false;
+      this.messageError="Correo electronico invalido";
+      this.valid = false;
+      return;
+    }
+
   }
 
   public inicializarCliente() {

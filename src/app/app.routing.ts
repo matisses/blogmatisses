@@ -57,6 +57,7 @@ import { PromocionAlfComponent } from './components/promocion-alf/promocion-alf.
 import { LoginComponent } from './components/mi-cuenta/login/login.component';
 import { ResumenMiCuentaComponent } from './components/mi-cuenta/resumen/resumen.component';
 import { ConfirmarUsuarioComponent } from './components/mi-cuenta/login/confirmar-usuario/confirmar-usuario.component';
+import { RemarketingComponent } from './components/remarketing/remarketing.component';
 
 const appRoutes: Routes = [
   //{path: '', component: HomeComponent},
@@ -114,6 +115,16 @@ const appRoutes: Routes = [
         data: {
           meta: {
             title: 'Matisses - Sale',            
+          }
+        }
+      },
+      {
+        path: 'remarketing',
+        component: RemarketingComponent,
+        pathMatch: 'full',
+        data: {
+          meta: {
+            title: 'Matisses - remarketing',            
           }
         }
       },

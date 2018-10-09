@@ -139,6 +139,8 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ConfirmDecoComponent } from './components/confirmacion-decorador/confirmacion-decorador.component';
 import { JsonLdComponent } from './components/jsonld/jsonld.component';
 import { TerminosComponent } from './components/terminos/terminos.component';
+// Remarketing
+import { RemarketingComponent } from './components/remarketing/remarketing.component';
 
 
 
@@ -246,6 +248,9 @@ import { TerminosComponent } from './components/terminos/terminos.component';
     Seccion2Component,
     Seccion3Component,
 
+    //Remarketing
+    RemarketingComponent,
+
     // Blog
     BlogOcasionalesComponent,
     BlogFlorerosComponent,
@@ -274,6 +279,16 @@ import { TerminosComponent } from './components/terminos/terminos.component';
         data: {
           meta: {
             title: 'Matisses - Sale',
+          }
+        }
+      },
+      {
+        path: 'remarketing',
+        component: RemarketingComponent,
+        pathMatch: 'full',
+        data: {
+          meta: {
+            title: 'Matisses - remarketing',
           }
         }
       },

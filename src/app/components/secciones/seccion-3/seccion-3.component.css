@@ -37,7 +37,9 @@
 }
 
 .title {
-  height: 170px;
+  letter-spacing: 2px;
+  font-size: 18px;
+  margin-top: 25px;
 }
 
 .title-seccion {

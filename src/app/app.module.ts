@@ -139,6 +139,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ConfirmDecoComponent } from './components/confirmacion-decorador/confirmacion-decorador.component';
 import { JsonLdComponent } from './components/jsonld/jsonld.component';
 import { TerminosComponent } from './components/terminos/terminos.component';
+import { SetsComponent } from './components/sets/sets.component';
 // Remarketing
 import { RemarketingComponent } from './components/remarketing/remarketing.component';
 
@@ -263,7 +264,9 @@ import { RemarketingComponent } from './components/remarketing/remarketing.compo
     BlogPlantasComponent,
     BlogCubiertosComponent,
     BlogQuesosComponent,
-    BlogComedoresComponent
+    BlogComedoresComponent,
+    //SetsComponent
+    SetsComponent
   ],
   imports: [
     HttpModule,
@@ -332,6 +335,7 @@ import { RemarketingComponent } from './components/remarketing/remarketing.compo
       { path: 'politica-manejo-de-datos', component: PoliticaDatosComponent },
       { path: 'redirect/:previous', component: RedirectComponent },
       { path: 'sin-intereses', component: SinInteresComponent },
+      { path: 'sets', component: SetsComponent },
       { path: '**', component: ErrorComponent }, //pagina 404
       { path: 'lazy', loadChildren: './components/lazy/lazy.module#LazyModule' },
       { path: 'lazy/nested', loadChildren: './components/lazy/lazy.module#LazyModule' }

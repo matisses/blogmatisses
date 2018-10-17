@@ -159,9 +159,11 @@ h2::before {
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 425px) {
   .tendencia-01 {
-    min-height: 250px;
+    background: url(../../../../assets/images/secciones/fija/miniatura1-mobile.jpg) no-repeat center top;
+    background-size: 100%;
+    min-height: 210px;
   }
   .text {
     font-size: 15px;
@@ -187,9 +189,6 @@ h2::before {
 }
 
 @media screen and (max-width: 375px) {
-  .tendencia-01 {
-    min-height: 200px;
-  }
   .p-principal {
     font-size: 17px;
   }

@@ -189,6 +189,7 @@ h2::before {
 @media screen and (max-width: 375px) {
   .tendencia-01 {
     min-height: 200px;
+    background-size: 100%;
   }
   .p-principal {
     font-size: 17px;

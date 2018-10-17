@@ -14,13 +14,13 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-           <slide-3></slide-3>
-         </div>
-          <div class="item">
             <slide-2></slide-2>
           </div>
           <div class="item">
             <slide-1></slide-1>
+          </div>
+          <div class="item">
+            <slide-3></slide-3>
           </div>
         </div>
 
@@ -32,8 +32,7 @@
 <div class="container hidden-xs">
   <div class="row">
     <div class="col-xs-12">
-      <a href="javascript:void(0)" [routerLink]="['/producto/2090099']">
-        <!-- [queryParams]="{ pageSize: '10000', orderBy: 'price', group: '025', brand: '0014' }" -->
+      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ pageSize: '10000', orderBy: 'price', group: '002', subgroup: '003' }">
         <div class="principal-03">
         </div>
       </a>

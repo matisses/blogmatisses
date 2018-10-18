@@ -335,7 +335,7 @@ import { RemarketingComponent } from './components/remarketing/remarketing.compo
       { path: 'politica-manejo-de-datos', component: PoliticaDatosComponent },
       { path: 'redirect/:previous', component: RedirectComponent },
       { path: 'sin-intereses', component: SinInteresComponent },
-      { path: 'sets', component: SetsComponent },
+      { path: 'admin-sets', component: SetsComponent },
       { path: '**', component: ErrorComponent }, //pagina 404
       { path: 'lazy', loadChildren: './components/lazy/lazy.module#LazyModule' },
       { path: 'lazy/nested', loadChildren: './components/lazy/lazy.module#LazyModule' }

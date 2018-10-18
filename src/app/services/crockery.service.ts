@@ -16,9 +16,10 @@ export class CrockeryService {
     const headers = new Headers({
       'Content-Type': 'application/json'
     });
-
-    return this._http.post(this.url + 'crockery/', vajilla, { headers: headers })
+    return this._http.post(this.url + 'crockery/save', JSON.stringify(vajilla), { headers: headers })
       .map(res => res.json());
+    // return this._http.post(this.url + 'crockery/', vajilla, { headers: headers })
+    //   .map(res => res.json());
   }
 
   public remove(id_vajilla) {
@@ -34,7 +35,7 @@ export class CrockeryService {
     const headers = new Headers({
       'Content-Type': 'application/json'
     });
-    return this._http.post(this.url + 'crockery/edit/', JSON.stringify(vajilla), { headers: headers })
+    return this._http.post(this.url + 'crockery/edit', JSON.stringify(vajilla), { headers: headers })
       .map(res => res.json());
   }
 

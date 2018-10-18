@@ -58,6 +58,7 @@ import { LoginComponent } from './components/mi-cuenta/login/login.component';
 import { ResumenMiCuentaComponent } from './components/mi-cuenta/resumen/resumen.component';
 import { ConfirmarUsuarioComponent } from './components/mi-cuenta/login/confirmar-usuario/confirmar-usuario.component';
 import { RemarketingComponent } from './components/remarketing/remarketing.component';
+import { SetsComponent } from './components/sets/sets.component';
 
 const appRoutes: Routes = [
   //{path: '', component: HomeComponent},
@@ -114,7 +115,7 @@ const appRoutes: Routes = [
         pathMatch: 'full',
         data: {
           meta: {
-            title: 'Matisses - Sale',            
+            title: 'Matisses - Sale',
           }
         }
       },
@@ -124,7 +125,7 @@ const appRoutes: Routes = [
         pathMatch: 'full',
         data: {
           meta: {
-            title: 'Matisses - remarketing',            
+            title: 'Matisses - remarketing',
           }
         }
       },
@@ -186,6 +187,7 @@ const appRoutes: Routes = [
   { path: 'politica-manejo-de-datos', component: PoliticaDatosComponent },
   { path: 'politica-de-privacidad', component: PoliticaPrivacidadComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
+  { path: 'admin-sets', component: SetsComponent },
   { path: '**', component: ErrorComponent } //pagina 404
 ];
 

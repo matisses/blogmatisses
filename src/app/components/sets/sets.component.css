@@ -70,6 +70,7 @@
 
 .producto {
   cursor: pointer;
+  margin-top: 30px;
 }
 
 .info {
@@ -178,7 +179,8 @@
   background-color: #5B5B5B;
   color: #FFF;
   border: none;
-  padding: 5px 15px;
+  padding: 15px;
+  border-radius: 0;
   font-weight: 700;
 }
 

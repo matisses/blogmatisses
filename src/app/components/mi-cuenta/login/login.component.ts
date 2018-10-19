@@ -974,23 +974,36 @@ export class LoginComponent implements OnInit {
           if (this.registroDecorador != null) {
             formData.append('decorador', 'decorador');
             formData.append('planificador', '');
+            this._userService.subirImagen(formData).subscribe(
+              response => {
+                let respuesta = JSON.parse(JSON.stringify(response));
+              },
+              error => { console.error(error); }
+            );
           }
 
           if (this.registroPlanificador != null) {
             formData.append('planificador', 'planificador');
             formData.append('decorador', '');
+            this._userService.subirImagen(formData).subscribe(
+              response => {
+                let respuesta = JSON.parse(JSON.stringify(response));
+              },
+              error => { console.error(error); }
+            );
           }
-          if (this.customer.fiscalID == null || this.customer.fiscalID == '' || this.customer.fiscalID == 'undefined') {
-          this._userService.subirImagen(formData).subscribe(
-            response => {
-              let respuesta = JSON.parse(JSON.stringify(response));
-            },
-            error => { console.error(error); }
-          );
-          }
-          else{
-            this.RegistermessageError = 'Debe adjuntar el documento de identidad';
-          }
+          // if (this.customer.fiscalID == null || this.customer.fiscalID == '' || this.customer.fiscalID == 'undefined') {
+          //   this.RegistermessageError = 'Debe adjuntar el documento de identidad';
+          // // this._userService.subirImagen(formData).subscribe(
+          // //   response => {
+          // //     let respuesta = JSON.parse(JSON.stringify(response));
+          // //   },
+          // //   error => { console.error(error); }
+          // // );
+          // }
+          // else{
+          //
+          // }
         }
 
         // if (fileSize <= 10485760) {

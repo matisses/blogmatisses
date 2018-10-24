@@ -19,7 +19,7 @@
   padding-top: 100px;
   background-attachment: relative;
   background-position: center center;
-  min-height: 500px;
+  min-height: 300px;
   width: 100%;
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
@@ -67,14 +67,14 @@
 }
 
 .title-bancos {
-  background-color: #7C7C7C;
+  background-color: #171717;
   color: #FFF;
   padding: 5px 20px;
   margin-top: 20px;
 }
 
 .title-bancos h4 {
-  font-size: 20px;
+  font-size: 17px;
   text-align: center;
   margin: 0;
 }
@@ -127,6 +127,9 @@ iframe {
   .paso-paso {
     margin: 55px 0;
   }
+  .principal-01 {
+    min-height: 200px;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -136,14 +139,11 @@ iframe {
   .content {
     margin-top: -10px;
   }
-  .principal-01 {
-    min-height: 300px;
-  }
 }
 
 @media screen and (max-width: 769px) {
   .principal-01 {
-    min-height: 300px;
+    min-height: 160px;
   }
 }
 
@@ -151,6 +151,8 @@ iframe {
   .principal-01 {
     background: url(../../../assets/images/banner-sin-interes-mobile.jpg) no-repeat center;
     background-position: center -35px;
+    min-height: 190px;
+    background-size: 100% !important;
   }
   iframe {
     width: 100%;
@@ -163,8 +165,8 @@ iframe {
     height: 194px;
   }
   .principal-01 {
-    min-height: 270px;
-    background-position: center -75px;    
+    background-position: center;
+    min-height: 200px; 
   }
 }
 
@@ -173,6 +175,6 @@ iframe {
     height: 163px;
   }
   .principal-01 {
-    min-height: 240px;
+    min-height: 160px;
   }
 }

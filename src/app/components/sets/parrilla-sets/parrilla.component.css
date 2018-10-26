@@ -2,8 +2,8 @@
   margin-top: 125px;
 }
 
-.img-category {
-  /*background: url(../../../assets/images/categorias/img-category.jpg) no-repeat center top;*/
+.img-sets {
+  background: url(../../../../assets/images/categorias/img-category.jpg) no-repeat center top;
   background-position: center top;
   min-height: 200px;
   width: 100%;
@@ -18,54 +18,7 @@
   padding-left: 50px;
 }
 
-.img-sale {
-  background: url(../../../assets/images/banner/img-sale.jpg) no-repeat center top;
-  background-position: center top;
-  min-height: 200px;
-  width: 100%;
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  padding-left: 50px;
-}
-
-.img-sale-mobile {
-  background: url(../../../assets/images/banner/img-sale-mobile.jpg) no-repeat center top;
-  background-position: center top;
-  min-height: 200px;
-  width: 100%;
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  padding-left: 50px;
-}
-
-.img-seccion {
-  background-position: left top;
-  min-height: 200px;
-  width: 100%;
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  padding-left: 50px;
-}
-
-.img-category h2, .img-seccion h2 {
+.img-sets h2, .img-seccion h2 {
   position: absolute;
   color: #FFF;
   font-weight: bold;
@@ -73,7 +26,7 @@
   font-size: 40px;
 }
 
-.img-category h2::before {
+.img-sets h2::before {
   content: '-';
   color: transparent;
   position: absolute;
@@ -88,11 +41,7 @@
   .stuck-body {
     margin-top: 0px;
   }
-  .breadcrumb {
-    margin-top: 50px;
-    font-size: 10px;
-  }
-  .img-category h2 {
+  .img-sets h2 {
     background-color: rgba(0, 0, 0, 0.4);
     padding: 5px 15px;
     font-size: 30px;
@@ -100,18 +49,16 @@
 }
 
 @media screen and (max-width: 425px) {
-  .img-category {
+  .img-sets {
     padding: 20px;
   }
   .img-sale {
-    background: url(../../../assets/images/categorias/img-sale-mobile.jpg) no-repeat center top;
+    background: url(../../../../assets/images/categorias/img-sale-mobile.jpg) no-repeat center top;
   }
 }
 
 @media screen and (max-width: 350px) {
-  .breadcrumb {
-    font-size: 8px;
-  }
+
 }
 
 /* estilos boton filtro */

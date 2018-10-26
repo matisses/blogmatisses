@@ -1,0 +1,47 @@
+<matisses-header></matisses-header>
+<div sticky-body>
+  <div class="container padding-top">
+    <!-- Imagen categoria -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="img-sets">
+        </div>
+      </div>
+    </div>
+    <!-- Resto de contenido -->
+    <br />
+    <div class="row">
+
+      <div class="col-md-3">
+        <filtros-matisses #filtros></filtros-matisses>
+      </div>
+
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-sm-4 col-xs-6" *ngFor="let vajilla of vajillas">
+            <div class="producto">
+              <div class="row">
+                <div class="col-xs-12">
+                  <p *ngIf="validToken"><b>ID Set:</b> {{vajilla._id}}</p>
+                  <img src="https://img.matisses.co/vajillas/{{vajilla._id}}.jpg" class="img-responsive" alt="{{vajilla.name}}">
+                </div>
+              </div>
+              <div class="info">
+                <div class="row">
+                  <div class="col-xs-12 text-center">
+                    <p>{{vajilla.name}}</p>
+                    <p>${{vajilla.price | number:0}}</p>
+                    <button type="button" class="btn-coleccion" (click)="mostrarVajilla(vajilla)">Mostrar</button>              
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<newsletter></newsletter>
+<matisses-footer></matisses-footer>

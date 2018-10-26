@@ -139,7 +139,9 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ConfirmDecoComponent } from './components/confirmacion-decorador/confirmacion-decorador.component';
 import { JsonLdComponent } from './components/jsonld/jsonld.component';
 import { TerminosComponent } from './components/terminos/terminos.component';
+// SETS
 import { SetsComponent } from './components/sets/sets.component';
+import { ParrillaSetsComponent } from './components/sets/parrilla-sets/parrilla.component';
 // Remarketing
 import { RemarketingComponent } from './components/remarketing/remarketing.component';
 
@@ -266,7 +268,8 @@ import { RemarketingComponent } from './components/remarketing/remarketing.compo
     BlogQuesosComponent,
     BlogComedoresComponent,
     //SetsComponent
-    SetsComponent
+    SetsComponent,
+    ParrillaSetsComponent
   ],
   imports: [
     HttpModule,
@@ -334,11 +337,14 @@ import { RemarketingComponent } from './components/remarketing/remarketing.compo
       { path: 'novedades', component: NovedadesComponent },
       { path: 'politica-manejo-de-datos', component: PoliticaDatosComponent },
       { path: 'redirect/:previous', component: RedirectComponent },
-      { path: 'sin-intereses', component: SinInteresComponent },
+      { path: 'sin-intereses', component: SinInteresComponent },      
+      // Sets
       { path: 'admin-sets', component: SetsComponent },
+      { path: 'sets', component: ParrillaSetsComponent },
       { path: '**', component: ErrorComponent }, //pagina 404
       { path: 'lazy', loadChildren: './components/lazy/lazy.module#LazyModule' },
       { path: 'lazy/nested', loadChildren: './components/lazy/lazy.module#LazyModule' }
+
 
     ]),
     FormsModule,

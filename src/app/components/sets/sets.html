@@ -297,7 +297,7 @@
         <div class="producto">
           <div class="row">
             <div class="col-xs-12">
-              <!-- <p *ngIf="validToken">{{vajilla._id}}</p> -->
+              <p *ngIf="validToken"><b>ID Set:</b> {{vajilla._id}}</p>
               <img src="https://img.matisses.co/vajillas/{{vajilla._id}}.jpg" class="img-responsive" alt="{{vajilla.name}}">
             </div>
           </div>
@@ -325,7 +325,6 @@
     </div>
   </div>
 </div>
-
 <matisses-carrito-simple #carritoSimple></matisses-carrito-simple>
 <newsletter></newsletter>
 <matisses-footer></matisses-footer>

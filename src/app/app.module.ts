@@ -304,6 +304,7 @@ import { RemarketingComponent } from './components/remarketing/remarketing.compo
       { path: 'confirm-user/:nuser', component: ConfirmarUsuarioComponent },
       { path: 'resultado-transaccion/:idCarrito', component: ResultadoTransacciComponent },
       { path: 'envios', component: EnviosComponent },
+      { path: 'info-envios', component: InfoEnviosComponent },
       { path: 'garantias', component: GarantiasComponent },
       { path: 'quienes', component: QuienesComponent },
       { path: 'trabaja-con-nosotros', component: TrabajaComponent },

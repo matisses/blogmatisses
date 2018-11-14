@@ -10,7 +10,7 @@
         <span class="glyphicon glyphicon-menu-right"></span>
         <span class="sr-only">Next</span>
       </a>
-      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ pageSize: '10000', keywords: '2630033,2640014,2640005,2090049,2090112,2090120,2130066,2130085,2440088,2630040,2630037,2130077,2210053,2630021,2630029,2630032,2630007,2640006,2640008' }">
+      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ pageSize: '10000', group: '009', subgroup: '079' }">
         <div class="principal-01">
           <div class="container">
             <div class="row">
@@ -27,9 +27,9 @@
   <div class="row" *ngIf="items && items.length > 0">
     <div class="col-sm-3 col-xs-6 text-center">
       <div class="recomendaciones">
-        <p class="name">SILLA JACOB
+        <p class="name">BUFFET AKITA
           <br>
-          <b>CALIA</b>
+          <b>CATTELAN</b>
         </p>
         <a href="javascript:void(0)" [routerLink]="['/producto', items[0].shortitemcode]">
           <img src="https://img.matisses.co/{{items[0].itemcode}}/parrilla/{{items[0].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
@@ -44,9 +44,9 @@
     </div>
     <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 2">
       <div class="recomendaciones">
-        <p class="name">SILLA LOTO W TOO          
+        <p class="name">BUFFET EN MADERA Y MARMOL          
           <br>
-          <b>BONALDO</b>
+          <b>MATISSES</b>
         </p>
         <a href="javascript:void(0)" [routerLink]="['/producto', items[1].shortitemcode]">
           <img src="https://img.matisses.co/{{items[1].itemcode}}/parrilla/{{items[1].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
@@ -73,7 +73,7 @@
           <div class="col-xs-12">
             <div class="sub-banner-footer">
               <p>
-                <b>DESDE ITALIA MESA ATLAS  </b>$ {{formatNumber(items[2].priceaftervat)}}</p>
+                <b>APARADOR VERSILIA  </b>$ {{formatNumber(items[2].priceaftervat)}}</p>
               <button type="submit" class="ir-comprar" name="comprar-ya">Ir a comprar</button>
             </div>
           </div>

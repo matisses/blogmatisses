@@ -34,7 +34,6 @@
   color: #EDEDED;
 }
 
-
 /*.carousel-control.left {
   background-image: none;
 }
@@ -93,7 +92,6 @@
   /*line-height: 50px;*/
 }
 
-
 /*.titulo::before {
   content: '- ';
   position: absolute;
@@ -113,6 +111,23 @@
   width: 46%;
   margin-left: 27%;
   cursor: pointer;
+}
+
+.foto01 {
+  background: url(../../../assets/images/comunicado-envios.jpg) no-repeat left top;
+  background-attachment: relative;
+  background-position: left top;
+  min-height: 200px;
+  width: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 20px 0px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -175,6 +190,10 @@
   .carousel-control {
     top: 15%;
     bottom: 0;
+  }
+  .foto01 {
+    min-height: 100px;
+    padding: 0;
   }
 }
 

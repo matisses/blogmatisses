@@ -26,13 +26,13 @@ export class Slide2Component implements OnInit {
 
   private inicializarItems() {
     this.items = new Array<Item>();
-    this._itemService.find('2380092').subscribe(
+    this._itemService.find('2650001').subscribe(
       response => {
         this.items.push(response.result[0]);
-        this._itemService.find('2380095').subscribe(
+        this._itemService.find('2620004').subscribe(
           response => {
             this.items.push(response.result[0]);
-            this._itemService.find('2380303').subscribe(
+            this._itemService.find('2620004').subscribe(
               response => {
                 this.items.push(response.result[0]);
               }, error => { console.error(); }

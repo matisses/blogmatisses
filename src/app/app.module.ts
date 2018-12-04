@@ -140,6 +140,7 @@ import { JsonLdComponent } from './components/jsonld/jsonld.component';
 import { TerminosComponent } from './components/terminos/terminos.component';
 // Remarketing
 import { RemarketingComponent } from './components/remarketing/remarketing.component';
+import { PromocionVintageComponent } from './components/promo-vintage/promocion-vintage.component';
 
 
 
@@ -234,6 +235,7 @@ import { RemarketingComponent } from './components/remarketing/remarketing.compo
     JsonLdComponent,
     PromocionAlfComponent,
     TerminosComponent,
+    PromocionVintageComponent,
 
     // Banner
     HomePrincipalComponent,
@@ -327,6 +329,7 @@ import { RemarketingComponent } from './components/remarketing/remarketing.compo
       { path: 'lista-asistencia/:codigoLista/:codigoInvitado', component: AsistenciaComponent },
       { path: 'lista-de-deseos', component: WishListComponent },
       { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
+      { path: 'promo-vintage', component: PromocionVintageComponent },
       { path: 'novedades', component: NovedadesComponent },
       { path: 'politica-manejo-de-datos', component: PoliticaDatosComponent },
       { path: 'redirect/:previous', component: RedirectComponent },

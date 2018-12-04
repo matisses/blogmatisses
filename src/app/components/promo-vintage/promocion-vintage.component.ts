@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { ItemService } from '../../../services/item.service';
-import { Item } from '../../../models/item';
+import { ItemService } from '../../services/item.service';
+import { Item } from '../../models/item';
 
 //declare var jquery: any;
 declare var $: any;
 
 @Component({
-  selector: 'slide-2',
-  templateUrl: 'slide-2.html',
-  styleUrls: ['slide-2.component.css'],
+  templateUrl: 'promocion-vintage.html',
+  styleUrls: ['promocion-vintage.component.css'],
   providers: [ItemService]
 })
 
-export class Slide2Component implements OnInit {
+export class PromocionVintageComponent implements OnInit {
   public items: Array<Item>;
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _itemService: ItemService) {
@@ -26,17 +25,12 @@ export class Slide2Component implements OnInit {
 
   private inicializarItems() {
     this.items = new Array<Item>();
-    this._itemService.find('2170039').subscribe(
+    this._itemService.find('2440012').subscribe(
       response => {
         this.items.push(response.result[0]);
-        this._itemService.find('2170017').subscribe(
+        this._itemService.find('2440001').subscribe(
           response => {
             this.items.push(response.result[0]);
-            this._itemService.find('2170035').subscribe(
-              response => {
-                this.items.push(response.result[0]);
-              }, error => { console.error(); }
-            );
           }, error => { console.error(); }
         );
       }, error => { console.error(); }
@@ -47,4 +41,5 @@ export class Slide2Component implements OnInit {
 
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
+
 }

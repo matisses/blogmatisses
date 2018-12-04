@@ -58,6 +58,7 @@ import { LoginComponent } from './components/mi-cuenta/login/login.component';
 import { ResumenMiCuentaComponent } from './components/mi-cuenta/resumen/resumen.component';
 import { ConfirmarUsuarioComponent } from './components/mi-cuenta/login/confirmar-usuario/confirmar-usuario.component';
 import { RemarketingComponent } from './components/remarketing/remarketing.component';
+import { PromocionVintageComponent } from './components/promo-vintage/promocion-vintage.component';
 
 const appRoutes: Routes = [
   //{path: '', component: HomeComponent},
@@ -167,6 +168,7 @@ const appRoutes: Routes = [
   { path: 'info', component: InfoBogotaComponent },
   { path: 'novedades', component: NovedadesComponent },
   { path: 'evento-alf', component: PromocionAlfComponent },
+  { path: 'promo-vintage', component: PromocionVintageComponent },
   { path: 'transporte-matisses', component: CabifyComponent },
   { path: 'garantias', component: GarantiasComponent },
   { path: 'envios', component: EnviosComponent },

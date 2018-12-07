@@ -28,6 +28,7 @@ import { SinInteresComponent } from './components/sin-interes/sin-interes.compon
 import { CitibankComponent } from './components/citibank/citibank.component';
 import { HotSaleComponent } from './components/hot-sale/hot-sale.component';
 import { NovedadesComponent } from './components/novedades/novedades.component';
+import { NewArrivalsComponent } from './components/new-arrivals/new-arrivals.component';
 import { CabifyComponent } from './components/cabify/cabify.component';
 import { LandingDecoradoresComponent } from './components/mi-cuenta/landing-decoradores/landing-decoradores.component';
 import { LandingPlannerComponent } from './components/mi-cuenta/landing-planner/landing-planner.component';
@@ -167,6 +168,7 @@ const appRoutes: Routes = [
   { path: 'trabaja-con-nosotros', component: TrabajaComponent },
   { path: 'info', component: InfoBogotaComponent },
   { path: 'novedades', component: NovedadesComponent },
+  { path: 'new-arrivals', component: NewArrivalsComponent },
   { path: 'evento-alf', component: PromocionAlfComponent },
   { path: 'promo-vintage', component: PromocionVintageComponent },
   { path: 'transporte-matisses', component: CabifyComponent },

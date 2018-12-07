@@ -129,6 +129,7 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
 import { MigaDePanComponent } from './components/miga-de-pan/miga-de-pan.component';
 import { PreguntasFrecuentesComponent } from './components/preguntas-frecuentes/preguntas-frecuentes.component';
 import { NovedadesComponent } from './components/novedades/novedades.component';
+import { NewArrivalsComponent } from './components/new-arrivals/new-arrivals.component';
 import { PoliticaDatosComponent } from './components/politica-datos/politica-datos.component';
 import { PoliticaPrivacidadComponent } from './components/politica-privacidad/politica-privacidad.component';
 import { RedirectComponent } from './components/redirect/redirect.component';
@@ -225,6 +226,7 @@ import { PromocionVintageComponent } from './components/promo-vintage/promocion-
     MigaDePanComponent,
     PreguntasFrecuentesComponent,
     NovedadesComponent,
+    NewArrivalsComponent,
     PoliticaDatosComponent,
     PoliticaPrivacidadComponent,
     RedirectComponent,
@@ -331,6 +333,7 @@ import { PromocionVintageComponent } from './components/promo-vintage/promocion-
       { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
       { path: 'promo-vintage', component: PromocionVintageComponent },
       { path: 'novedades', component: NovedadesComponent },
+      { path: 'new-arrivals', component: NewArrivalsComponent },
       { path: 'politica-manejo-de-datos', component: PoliticaDatosComponent },
       { path: 'redirect/:previous', component: RedirectComponent },
       { path: 'sin-intereses', component: SinInteresComponent },

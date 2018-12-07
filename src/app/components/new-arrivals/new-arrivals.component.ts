@@ -1,0 +1,39 @@
+  import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ItemService } from '../../services/item.service';
+import { Item } from '../../models/item';
+
+//declare var jquery: any;
+declare var $: any;
+
+@Component({
+  templateUrl: 'new-arrivals.html',
+  styleUrls: ['new-arrivals.component.css'],
+  providers: [ItemService]
+})
+
+export class NewArrivalsComponent implements OnInit {
+  public items: Array<Item>;
+
+  constructor(private _route: ActivatedRoute, private _router: Router, private _itemService: ItemService) {
+
+  }
+
+  ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    $(document).ready(function() {
+      $("html, body").animate({scrollTop: 0}, 1000);
+    });
+    
+    $(".slide-container").slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      arrows: false,
+    });
+  }
+
+}

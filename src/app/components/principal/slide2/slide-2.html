@@ -10,7 +10,7 @@
         <span class="glyphicon glyphicon-menu-right"></span>
         <span class="sr-only">Next</span>
       </a>
-      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ keywords: 'vintage', brand: '0001' }">
+      <a href="javascript:void(0)" [routerLink]="['/producto/2130094']">
         <div class="principal-01">
           <div class="container">
             <div class="row">
@@ -29,7 +29,7 @@
   <div class="row" *ngIf="items && items.length > 0">
     <div class="col-sm-3 col-xs-6 text-center">
       <div class="recomendaciones">
-        <p class="name">MESA AUXILIAR<br><b>MATISSES</b></p>
+        <p class="name">ESQUINERO DAVE<br><b>CALIA</b></p>
         <a href="javascript:void(0)" [routerLink]="['/producto', items[0].shortitemcode]">
           <img src="https://img.matisses.co/{{items[0].itemcode}}/parrilla/{{items[0].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
             alt="{{items[0].itemname}}">
@@ -43,7 +43,7 @@
     </div>
     <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 2">
       <div class="recomendaciones">
-        <p class="name">SILLA OCASIONAL<br><b>MATISSES</b></p>
+        <p class="name">ESQUINERO SERENA<br><b>NICOLETTI</b></p>
         <a href="javascript:void(0)" [routerLink]="['/producto', items[1].shortitemcode]">
           <img src="https://img.matisses.co/{{items[1].itemcode}}/parrilla/{{items[1].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
             alt="{{items[1].itemname}}">
@@ -66,7 +66,7 @@
         <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
           <div class="col-xs-12">
             <div class="sub-banner-footer">
-              <p><b>MESA DE CENTRO EN MADERA</b> $ {{formatNumber(items[2].priceaftervat)}}</p>
+              <p><b>ESQUINERO RECLINO 6 PUESTOS EN PIEL</b> $ {{formatNumber(items[2].priceaftervat)}}</p>
               <button type="submit" class="ir-comprar" name="comprar-ya">ir a comprar</button>
             </div>
           </div>

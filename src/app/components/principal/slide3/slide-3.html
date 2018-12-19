@@ -10,7 +10,7 @@
         <span class="glyphicon glyphicon-menu-right"></span>
         <span class="sr-only">Next</span>
       </a>
-      <a href="javascript:void(0)" [routerLink]="['/new-arrivals']">
+      <a href="javascript:void(0)" [routerLink]="['/categoria']"  [queryParams]="{ group: '015', pageSize: '36' }">
         <div class="principal-01">
           <div class="container">
             <div class="row">
@@ -27,9 +27,9 @@
   <div class="row" *ngIf="items && items.length > 0">
     <div class="col-sm-3 col-xs-6 text-center">
       <div class="recomendaciones">
-        <p class="name">MESA DE COMEDOR BRIGITTE
+        <p class="name">FLORERO REDONDO CARVE
           <br>
-          <b>TOMASELLA</b>
+          <b>ASA</b>
         </p>
         <a href="javascript:void(0)" [routerLink]="['/producto', items[0].shortitemcode]">
           <img src="https://img.matisses.co/{{items[0].itemcode}}/parrilla/{{items[0].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
@@ -44,9 +44,9 @@
     </div>
     <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 2">
       <div class="recomendaciones">
-        <p class="name">MESA AUXILIAR CARUSO
+        <p class="name">FLORERO OPTICAL
           <br>
-          <b>TOMASELLA</b>
+          <b>VISTA ALEGRE</b>
         </p>
         <a href="javascript:void(0)" [routerLink]="['/producto', items[1].shortitemcode]">
           <img src="https://img.matisses.co/{{items[1].itemcode}}/parrilla/{{items[1].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
@@ -61,20 +61,17 @@
     </div>
 
     <div class="col-sm-6 col-xs-12" *ngIf="items && items.length >= 3">
-      <div class="sub-banner text-center" [routerLink]="['/new-arrivals']">
-        <!-- [queryParams]="{ pageSize: '10000', orderBy: 'price', brand: '0037' }" -->
-        <a href="javascript:void(0)">
+      <div class="sub-banner text-center">        
+        <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ group: '015', subgroup: '126', collection: 'Ball' }">
           <img src="assets/images/banner/slide-3/banner-02.jpg" class="img-responsive" alt="">
         </a>
       </div>
       <div class="row">
-        <a href="javascript:void(0)" [routerLink]="['/new-arrivals']">
-          <!-- [queryParams]="{ pageSize: '10000', orderBy: 'price', brand: '0037' }" -->
+        <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ group: '015', subgroup: '126', collection: 'Ball' }">          
           <div class="col-xs-12">
             <div class="sub-banner-footer">
               <p>
-                <b>MESAS DE CENTRO</b></p>
-                <!-- $ {{formatNumber(items[2].priceaftervat)}} -->
+                <b>COLECCIÓN BALL</b> $ {{formatNumber(items[2].priceaftervat)}}</p>                
               <button type="submit" class="ir-comprar" name="comprar-ya">VER MÁS</button>
             </div>
           </div>

@@ -127,8 +127,8 @@
                 <label for="mail">Correo*</label>
                 <!-- <input id="mail" type="email" [disabled]="disabled" class="form-control" [class.required-field]="!valid"
                   name="email" [email]="true" [(ngModel)]="customer.addresses[0].email" required> -->
-                <input id="mail" type="email" class="form-control" [class.required-field]="!valid" name="email" [email]="true"
-                  [(ngModel)]="customer.addresses[0].email" required>
+                  <input id="mail" type="email"  class="form-control" [class.required-field]="!valid"
+                    name="email" [email]="true" [(ngModel)]="customer.addresses[0].email" required >
               </div>
             </div>
             <div class="row">
@@ -136,8 +136,8 @@
                 <label for="cel">Teléfono móvil*</label>
                 <!-- <input id="cel" type="text" [disabled]="disabled" class="form-control" [class.required-field]="!valid"
                   name="phone" [(ngModel)]="customer.addresses[0].cellphone" required> -->
-                <input id="cel" type="text" class="form-control" [class.required-field]="!valid" name="phone"
-                  [(ngModel)]="customer.addresses[0].cellphone" required>
+                  <input id="cel" type="text"  class="form-control" [class.required-field]="!valid"
+                    name="phone" [(ngModel)]="customer.addresses[0].cellphone" required>
               </div>
               <div class="col-md-6">
                 <label for="city">Ciudad*</label>
@@ -152,8 +152,9 @@
                   <option [selected]="customer.addresses[0].cityCode == otra.code" *ngFor="let otra of otrasCiudades"
                     [ngValue]="otra.code">{{otra.name}}</option>
                 </select> -->
-                <select id="city" name="city" class="form-control" [class.required-field]="!valid" [(ngModel)]="customer.addresses[0].cityCode"
-                  (change)="cambiarCiudad()" *ngIf="ciudadesPrincipales" required>
+                <select id="city" name="city"  class="form-control" [class.required-field]="!valid"
+                  [(ngModel)]="customer.addresses[0].cityCode" (change)="cambiarCiudad()" *ngIf="ciudadesPrincipales"
+                  required>
                   <option style="display:none" disabled selected value>Seleccione una</option>
                   <option disabled>─ Ciudades capitales</option>
                   <option [selected]="customer.addresses[0].cityCode == principal.code" *ngFor="let principal of ciudadesPrincipales"
@@ -169,8 +170,8 @@
                 <label for="address">Dirección*</label>
                 <!-- <input id="address" type="mail" [disabled]="disabled" class="form-control" [class.required-field]="!valid"
                   name="address" [(ngModel)]="customer.addresses[0].address" required> -->
-                <input id="address" type="mail" class="form-control" [class.required-field]="!valid" name="address"
-                  [(ngModel)]="customer.addresses[0].address" required>
+                  <input id="address" type="mail" class="form-control" [class.required-field]="!valid"
+                    name="address" [(ngModel)]="customer.addresses[0].address" required >
               </div>
             </div>
             <br />
@@ -182,9 +183,6 @@
               <p>Medios de envío</p>
             </div>
             <div class="medios-envio">
-              <p class="info_recoger_item">
-                <b>Nota:</b> Por motivo de  vacaciones tu envío será programado a partir del 09 de enero de 2019. A partir de esa fecha el envío tomara de 8 a 10 días hábiles. 
-              </p>
               <p *ngIf="customer.addresses[0].cityCode == null">Debe seleccionar la ciudad para poder desplegar los
                 medios de envío.</p>
               <div class="row">
@@ -219,9 +217,9 @@
                     <br />
                     <!-- <br/>Aplica términos y condiciones. -->
                     <br />
-                    <!-- <b>Nota:</b> Nos pondremos en contacto de 1 a 3 días para acordar la entrega del producto. Espera
+                    <b>Nota:</b> Nos pondremos en contacto de 1 a 3 días para acordar la entrega del producto. Espera
                     la llamada
-                    de nuestro equipo de servicio al cliente.</p> -->
+                    de nuestro equipo de servicio al cliente.</p>
                 </div>
               </div>
               <div class="row" *ngIf="metodoEnvioSeleccionado && metodoEnvioSeleccionado.code == 1">

@@ -14,7 +14,7 @@
 }
 
 .principal-01 {
-  background: url(../../../assets/images/banner-sin-interes.jpg) no-repeat center center;
+  background: url(../../../assets/images/sin-intereses/banner_pagina.jpg) no-repeat center center;
   margin-top: 0px;
   padding-top: 100px;
   background-attachment: relative;
@@ -34,10 +34,15 @@
 }
 
 .title-tarjetas {
-  background: url(../../../assets/images/title-tarjetas.jpg) no-repeat center center;
-  min-height: 120px;
+  background-color: #5B98C4;
   width: 100%;
-  background-size: cover;
+  color: #EDEDED;
+  padding: 15px 0px;
+  text-align: center;
+}
+
+.title-tarjetas h3 {
+  margin: 0;
 }
 
 .ir-comprar {

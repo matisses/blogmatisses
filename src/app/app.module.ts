@@ -305,6 +305,7 @@ import { PromocionVintageComponent } from './components/promo-vintage/promocion-
       { path: 'planners', component: LandingPlannerComponent },
       { path: 'resumen-carrito', component: ResumenCarritoComponent },
       { path: 'info-pago', component: InfoPagoComponent },
+      { path: 'info', component: InfoBogotaComponent },
       { path: 'confirm-user/:nuser', component: ConfirmarUsuarioComponent },
       { path: 'resultado-transaccion/:idCarrito', component: ResultadoTransacciComponent },
       { path: 'envios', component: EnviosComponent },

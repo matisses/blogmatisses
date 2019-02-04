@@ -133,7 +133,7 @@ export class ProductoComponent implements OnInit, AfterViewInit {
           this.cargarInventario();
           this.obtenerRelacionados();
 
-          this.cuotaMCO = Math.round(this.item.priceaftervat / 36);
+          this.cuotaMCO = Math.round(this.item.priceaftervat / 12);
           if(this.cuotaMCO){
             this.cuotaMCOFormat=this.formatNumber(this.cuotaMCO);
           }

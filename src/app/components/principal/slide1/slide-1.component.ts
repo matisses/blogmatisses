@@ -26,15 +26,20 @@ export class Slide1Component implements OnInit {
 
   private inicializarItems() {
     this.items = new Array<Item>();
-    this._itemService.find('2640252').subscribe(
+    this._itemService.find('2270020').subscribe(
       response => {
         this.items.push(response.result[0]);
-        this._itemService.find('2640255').subscribe(
+        this._itemService.find('2290141').subscribe(
           response => {
             this.items.push(response.result[0]);
-            this._itemService.find('2640264').subscribe(
+            this._itemService.find('2260160').subscribe(
               response => {
                 this.items.push(response.result[0]);
+                this._itemService.find('2220050').subscribe(
+                  response => {
+                    this.items.push(response.result[0]);
+                  }, error => { console.error(); }
+                );
               }, error => { console.error(); }
             );
           }, error => { console.error(); }
@@ -43,9 +48,9 @@ export class Slide1Component implements OnInit {
     );
   }
 
-  public formatNumber(num:number) {
+  public formatNumber(num: number) {
 
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-}
+  }
 
 }

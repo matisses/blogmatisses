@@ -1,77 +1,123 @@
 <div class="container-fluid padding-0">
-  <div class="row">
-    <div class="col-xs-12">
-      <!-- Controls -->
-      <a class="control-slide left" href="#carousel-banner-principal" data-slide="prev">
-        <span class="glyphicon glyphicon-menu-left"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="control-slide right" href="#carousel-banner-principal" data-slide="next">
-        <span class="glyphicon glyphicon-menu-right"></span>
-        <span class="sr-only">Next</span>
-      </a>
-      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ group: '003', subgroup: '011', pageSize: '10000' }">
-        <div class="principal-01">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12">
+    <div class="row">
+      <div class="col-xs-12">
+        <!-- Controls -->
+        <a class="control-slide left" href="#carousel-banner-principal" data-slide="prev">
+          <span class="glyphicon glyphicon-menu-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="control-slide right" href="#carousel-banner-principal" data-slide="next">
+          <span class="glyphicon glyphicon-menu-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ discount: 'true', brand: '0011' }">
+          <div class="principal-01">
+            <div class="container">
+              <div class="row">
               </div>
             </div>
           </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <br />
+  
+  <div class="container">
+    <div class="row" *ngIf="items && items.length > 0">
+      <!-- Producto #0 -->
+      <div class="col-sm-3 col-xs-6 text-center">
+        <div class="recomendaciones">
+          <p class="name">COPA PARA VINO TINTO
+            <br>
+            <b>EVA SOLO</b>
+          </p>
+          <a href="javascript:void(0)" [routerLink]="['/producto', items[0].shortitemcode]">
+            <img src="https://img.matisses.co/{{items[0].itemcode}}/parrilla/{{items[0].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
+              alt="{{items[0].itemname}}">
+          </a>
+          <p class="precio-antes"><b>$ {{items[0].priceaftervat | number}}</b></p>
+          <p class="precio">
+            <b>$ {{formatNumber(items[0].priceaftervat*0.4)}}</b>
+          </p>
+          <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya" [routerLink]="['/producto', items[0].shortitemcode]">Ir
+            a comprar</button>
         </div>
-      </a>
-    </div>
-  </div>
-</div>
-<br />
-
-<div class="container">
-  <div class="row" *ngIf="items && items.length > 0">
-    <div class="col-sm-3 col-xs-6 text-center">
-      <div class="recomendaciones">
-        <p class="name">SILLA DE BAR EN PIEL<br><b>MATISSES</b></p>
-        <a href="javascript:void(0)" [routerLink]="['/producto', items[0].shortitemcode]">
-          <img src="https://img.matisses.co/{{items[0].itemcode}}/parrilla/{{items[0].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
-            alt="{{items[0].itemname}}">
-        </a>
-        <p class="precio">
-          <b>$ {{formatNumber(items[0].priceaftervat)}}</b>
-        </p>
-        <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya" [routerLink]="['/producto', items[0].shortitemcode]">Ir
-          a comprar</button>
       </div>
-    </div>
-    <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 2">
-      <div class="recomendaciones">
-        <p class="name">SILLA DE BAR EN TELA<br><b>MATISSES</b></p>
-        <a href="javascript:void(0)" [routerLink]="['/producto', items[1].shortitemcode]">
-          <img src="https://img.matisses.co/{{items[1].itemcode}}/parrilla/{{items[1].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
-            alt="{{items[1].itemname}}">
-        </a>
-        <p class="precio">
-          <b>$ {{formatNumber(items[1].priceaftervat)}}</b>
-        </p>
-        <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya" [routerLink]="['/producto', items[1].shortitemcode]">Ir
-          a comprar</button>
+      <!-- Producto #1 -->
+      <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 2">
+        <div class="recomendaciones">
+          <p class="name">JARRA AISLANTE
+            <br>
+            <b>EVA SOLO</b>
+          </p>
+          <a href="javascript:void(0)" [routerLink]="['/producto', items[1].shortitemcode]">
+            <img src="https://img.matisses.co/{{items[1].itemcode}}/parrilla/{{items[1].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
+              alt="{{items[1].itemname}}">
+          </a>
+          <p class="precio-antes"><b>$ {{items[1].priceaftervat | number}}</b></p>
+          <p class="precio">
+            <b>$ {{formatNumber(items[1].priceaftervat*0.4)}}</b>
+          </p>
+          <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya" [routerLink]="['/producto', items[1].shortitemcode]">Ir
+            a comprar</button>
+        </div>
       </div>
-    </div>
-
-    <div class="col-sm-6 col-xs-12" *ngIf="items && items.length >= 3">
-      <div class="sub-banner text-center">
-        <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
-          <img src="assets/images/banner/slide-2/banner-03.jpg" class="img-responsive" alt="">
-        </a>
+      <!-- Producto #2 -->
+      <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 3">
+        <div class="recomendaciones">
+          <p class="name">TERMO AISLANTE
+            <br>
+            <b>EVA SOLO</b>
+          </p>
+          <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
+            <img src="https://img.matisses.co/{{items[2].itemcode}}/parrilla/{{items[2].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
+              alt="{{items[2].itemname}}">
+          </a>
+          <p class="precio-antes"><b>$ {{items[2].priceaftervat | number}}</b></p>
+          <p class="precio">
+            <b>$ {{formatNumber(items[2].priceaftervat*0.4)}}</b>
+          </p>
+          <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya" [routerLink]="['/producto', items[2].shortitemcode]">Ir
+            a comprar</button>
+        </div>
       </div>
-      <div class="row">
-        <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
-          <div class="col-xs-12">
-            <div class="sub-banner-footer">
-              <p><b>SILLA VITTORIA</b> $ {{formatNumber(items[2].priceaftervat)}}</p>
-              <button type="submit" class="ir-comprar" name="comprar-ya">ir a comprar</button>
+      <!-- Producto #3 -->
+      <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 4">
+        <div class="recomendaciones">
+          <p class="name">SALPIMENTERO EN ABEDUL
+            <br>
+            <b>EVA SOLO</b>
+          </p>
+          <a href="javascript:void(0)" [routerLink]="['/producto', items[3].shortitemcode]">
+            <img src="https://img.matisses.co/{{items[3].itemcode}}/parrilla/{{items[3].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
+              alt="{{items[3].itemname}}">
+          </a>
+          <p class="precio-antes"><b>$ {{items[3].priceaftervat | number}}</b></p>
+          <p class="precio">
+            <b>$ {{formatNumber(items[3].priceaftervat*0.4)}}</b>
+          </p>
+          <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya" [routerLink]="['/producto', items[3].shortitemcode]">Ir
+            a comprar</button>
+        </div>
+      </div>
+      <!-- <div class="col-sm-6 col-xs-12" *ngIf="items && items.length >= 3">
+        <div class="sub-banner text-center">
+          <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
+            <img src="assets/images/banner/slide-2/banner-03.jpg" class="img-responsive" alt="">
+          </a>
+        </div>
+        <div class="row">
+          <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
+            <div class="col-xs-12">
+              <div class="sub-banner-footer">
+                <p>
+                  <b>SILLA CHICCO</b> ${{formatNumber(items[2].priceaftervat)}} </p>
+                <button type="submit" class="ir-comprar" name="comprar-ya">Ir a comprar</button>
+              </div>
             </div>
-          </div>
-        </a>
-      </div>
+          </a>
+        </div>
+      </div> -->
     </div>
   </div>
-</div>

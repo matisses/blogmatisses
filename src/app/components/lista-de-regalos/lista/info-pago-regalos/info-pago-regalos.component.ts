@@ -122,7 +122,7 @@ export class InfoPagoRegalosComponent implements OnInit {
   }
 
   public obtenerMetodosEnvio() {
-    let base = 400000;//TODO: monto base para envios gratis.
+    let base = 150000;//TODO: monto base para envios gratis.
     this.metodosEnvio = new Array<ShippingMethod>();
     this._shippingMethodService.listShippingMethods().subscribe(
       response => {

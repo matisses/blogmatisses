@@ -226,7 +226,7 @@ export class InfoPagoComponent implements OnInit {
 
   public obtenerMetodosEnvio() {
     this.metodosEnvio = new Array<ShippingMethod>();
-    let baseComplementos = 400000;//TODO: monto base envios gratis para complementos y no mobiliario.
+    let baseComplementos = 150000;//TODO: monto base envios gratis para complementos y no mobiliario.
     let baseMobiliario = 7000000;//TODO: monto base envios gratis para mobiliario. categoriaMobiliario = ["002", "003", "005", "006", "009"]
     let baseMobiliarioCiudad = 2000000; //TODO: monto base envios gratis para mobiliario en el area metropolitana y valle del aburra.
 
@@ -276,7 +276,7 @@ export class InfoPagoComponent implements OnInit {
             this.metodosEnvio.push(response[1]);//Recoger en tienda
             this.metodosEnvio.push(response[2]);//coordinadora
             this.mostrarInfoEnvio = true;
-            this.montoEnvioMinimo = '400,000';
+            this.montoEnvioMinimo = '150,000';
           } else if (((this.carrito.totalCarrito) - this.carrito.totalDescuentos) >= baseComplementos) {
             this.metodosEnvio.push(response[0]);//Gratis
             this.metodosEnvio.push(response[1]);//Recoger en tienda

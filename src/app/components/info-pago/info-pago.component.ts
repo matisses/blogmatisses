@@ -226,7 +226,7 @@ export class InfoPagoComponent implements OnInit {
 
   public obtenerMetodosEnvio() {
     this.metodosEnvio = new Array<ShippingMethod>();
-    let baseComplementos = 150000;//TODO: monto base envios gratis para complementos y no mobiliario.
+    let baseComplementos = 600000;//TODO: monto base envios gratis para complementos y no mobiliario.
     let baseMobiliario = 7000000;//TODO: monto base envios gratis para mobiliario. categoriaMobiliario = ["002", "003", "005", "006", "009"]
     let baseMobiliarioCiudad = 2000000; //TODO: monto base envios gratis para mobiliario en el area metropolitana y valle del aburra.
 
@@ -276,7 +276,7 @@ export class InfoPagoComponent implements OnInit {
             this.metodosEnvio.push(response[1]);//Recoger en tienda
             this.metodosEnvio.push(response[2]);//coordinadora
             this.mostrarInfoEnvio = true;
-            this.montoEnvioMinimo = '150,000';
+            this.montoEnvioMinimo = '600,000';
           } else if (((this.carrito.totalCarrito) - this.carrito.totalDescuentos) >= baseComplementos) {
             this.metodosEnvio.push(response[0]);//Gratis
             this.metodosEnvio.push(response[1]);//Recoger en tienda
@@ -382,6 +382,24 @@ export class InfoPagoComponent implements OnInit {
         for (let i = 0; i < this.metodosEnvio.length; i++) {
           if (this.metodosEnvio[i].code === 3) {
             this.costoEnvio = response.valor;
+            alert(this.costoEnvio);
+            if(this.costoEnvio<35000){
+              this.costoEnvio=35000;
+            }
+            else{
+              if(this.costoEnvio > (this.carrito.totalCarrito-this.carrito.totalDescuentos)){
+                alert('debe entrar aca'+(this.carrito.totalCarrito-this.carrito.totalDescuentos));
+                this.costoEnvio=35000;
+              }
+              else{
+                this.costoEnvio=((this.carrito.totalCarrito-this.carrito.totalDescuentos)*10)/100;
+                if(this.costoEnvio<35000){
+                   this.costoEnvio=35000;
+                }
+              }
+
+            }
+
             this.costoEnvioFormat = this.formatNumber(this.costoEnvio);
             break;
           }

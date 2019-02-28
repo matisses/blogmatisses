@@ -382,13 +382,13 @@ export class InfoPagoComponent implements OnInit {
         for (let i = 0; i < this.metodosEnvio.length; i++) {
           if (this.metodosEnvio[i].code === 3) {
             this.costoEnvio = response.valor;
-            alert(this.costoEnvio);
+
             if(this.costoEnvio<35000){
               this.costoEnvio=35000;
             }
             else{
               if(this.costoEnvio > (this.carrito.totalCarrito-this.carrito.totalDescuentos)){
-                alert('debe entrar aca'+(this.carrito.totalCarrito-this.carrito.totalDescuentos));
+              
                 this.costoEnvio=35000;
               }
               else{

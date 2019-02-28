@@ -380,27 +380,33 @@ export class InfoPagoComponent implements OnInit {
     this._coordinadoraService.crearCotizacionEnvio(datosCompra).subscribe(
       response => {
         for (let i = 0; i < this.metodosEnvio.length; i++) {
-          if (this.metodosEnvio[i].code === 3) {
-            this.costoEnvio = response.valor;
-
-            if(this.costoEnvio<35000){
-              this.costoEnvio=35000;
-            }
-            else{
-              if(this.costoEnvio > (this.carrito.totalCarrito-this.carrito.totalDescuentos)){
-              
-                this.costoEnvio=35000;
-              }
-              else{
-                this.costoEnvio=((this.carrito.totalCarrito-this.carrito.totalDescuentos)*10)/100;
-                if(this.costoEnvio<35000){
-                   this.costoEnvio=35000;
-                }
-              }
-
-            }
-
-            this.costoEnvioFormat = this.formatNumber(this.costoEnvio);
+           if (this.metodosEnvio[i].code === 3) {
+          //   this.costoEnvio = response.valor;
+          //
+          //   if(this.costoEnvio<35000){
+          //     this.costoEnvio=35000;
+          //   }
+          //   else{
+          //     if(this.costoEnvio > (this.carrito.totalCarrito-this.carrito.totalDescuentos)){
+          //
+          //       this.costoEnvio=((this.carrito.totalCarrito-this.carrito.totalDescuentos)*10)/100;
+          //     }
+          //     else{
+          //       this.costoEnvio=((this.carrito.totalCarrito-this.carrito.totalDescuentos)*10)/100;
+          //       if(this.costoEnvio<35000){
+          //          this.costoEnvio=35000;
+          //       }
+          //     }
+          //
+          //   }
+          //
+          //   this.costoEnvioFormat = this.formatNumber(this.costoEnvio);
+          //   break;
+          this.costoEnvio=((this.carrito.totalCarrito-this.carrito.totalDescuentos)*10)/100;
+          if(this.costoEnvio<35000){
+            this.costoEnvio=35000;
+           }
+         this.costoEnvioFormat = this.formatNumber(this.costoEnvio);
             break;
           }
         }

@@ -10,7 +10,7 @@
         <span class="glyphicon glyphicon-menu-right"></span>
         <span class="sr-only">Next</span>
       </a>
-      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ discount: 'true', pageSize: '36' }">
+      <a href="javascript:void(0)" [routerLink]="['/producto/2640253']"> <!-- [queryParams]="{ group: '002,003,005', pageSize: '36' }" -->
         <div class="principal-01">
           <div class="container">
             <div class="row">
@@ -25,90 +25,43 @@
 
 <div class="container">
   <div class="row" *ngIf="items && items.length > 0">
-
-    <!-- Producto #0 -->
     <div class="col-sm-3 col-xs-6 text-center">
       <div class="recomendaciones">
-        <p class="name">SERVIDOR CHIP DIPS
+        <p class="name">COMEDOR PRISMA
           <br>
-          <b>BOSKA</b>
+          <b>SEDIT</b>
         </p>
         <a href="javascript:void(0)" [routerLink]="['/producto', items[0].shortitemcode]">
-          <img src="https://img.matisses.co/{{items[0].itemcode}}/parrilla/{{items[0].itemcode}}_01.jpg"
-            class="img-responsive cursor-pointer" alt="{{items[0].itemname}}">
+          <img src="https://img.matisses.co/{{items[0].itemcode}}/parrilla/{{items[0].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
+            alt="{{items[0].itemname}}">
         </a>
-        <p class="precio-antes"><b>$ {{items[0].priceaftervat | number}}</b></p>
+        <!-- <p class="precio"><b>$ {{items[0].priceaftervat | number}}</b></p> -->
         <p class="precio">
-          <b>$ {{formatNumber(items[0].priceaftervat*0.5)}}</b>
+          <b>$ {{formatNumber(items[0].priceaftervat)}}</b>
         </p>
-        <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya"
-          [routerLink]="['/producto', items[0].shortitemcode]">Ir
+        <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya" [routerLink]="['/producto', items[0].shortitemcode]">Ir
           a comprar</button>
       </div>
     </div>
-    <!-- Producto #1 -->
     <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 2">
       <div class="recomendaciones">
-        <p class="name">VASOS OLAF
+        <p class="name">COMEDOR TABIA BIG
           <br>
-          <b>LSA</b>
+          <b>SEDIT</b>
         </p>
         <a href="javascript:void(0)" [routerLink]="['/producto', items[1].shortitemcode]">
-          <img src="https://img.matisses.co/{{items[1].itemcode}}/parrilla/{{items[1].itemcode}}_01.jpg"
-            class="img-responsive cursor-pointer" alt="{{items[1].itemname}}">
+          <img src="https://img.matisses.co/{{items[1].itemcode}}/parrilla/{{items[1].itemcode}}_01.jpg" class="img-responsive cursor-pointer"
+            alt="{{items[1].itemname}}">
         </a>
-        <p class="precio-antes"><b>$ {{items[1].priceaftervat | number}}</b></p>
         <p class="precio">
-          <b>$ {{formatNumber(items[1].priceaftervat*0.5)}}</b>
+          <b>$ {{formatNumber(items[1].priceaftervat)}}</b>
         </p>
-        <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya"
-          [routerLink]="['/producto', items[1].shortitemcode]">Ir
-          a comprar</button>
-      </div>
-    </div>
-    <!-- Producto #2 -->
-    <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 3">
-      <div class="recomendaciones">
-        <p class="name">AZUCARERA  TERRACE
-          <br>
-          <b>VISTA ALEGRE</b>
-        </p>
-        <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
-          <img src="https://img.matisses.co/{{items[2].itemcode}}/parrilla/{{items[2].itemcode}}_01.jpg"
-            class="img-responsive cursor-pointer" alt="{{items[2].itemname}}">
-        </a>
-        <p class="precio-antes"><b>$ {{items[2].priceaftervat | number}}</b></p>
-        <p class="precio">
-          <b>$ {{formatNumber(items[2].priceaftervat*0.4)}}</b>
-        </p>
-        <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya"
-          [routerLink]="['/producto', items[2].shortitemcode]">Ir
-          a comprar</button>
-      </div>
-    </div>
-    <!-- Producto #3 -->
-    <div class="col-sm-3 col-xs-6 text-center" *ngIf="items && items.length >= 4">
-      <div class="recomendaciones">
-        <p class="name">FORERO ORCA GRANDE
-          <br>
-          <b>ASA</b>
-        </p>
-        <a href="javascript:void(0)" [routerLink]="['/producto', items[3].shortitemcode]">
-          <img src="https://img.matisses.co/{{items[3].itemcode}}/parrilla/{{items[3].itemcode}}_01.jpg"
-            class="img-responsive cursor-pointer" alt="{{items[3].itemname}}">
-        </a>
-        <p class="precio-antes"><b>$ {{items[3].priceaftervat | number}}</b></p>
-        <p class="precio">
-          <b>$ {{formatNumber(items[3].priceaftervat*0.4)}}</b>
-        </p>
-        <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya"
-          [routerLink]="['/producto', items[3].shortitemcode]">Ir
+        <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya" [routerLink]="['/producto', items[1].shortitemcode]">Ir
           a comprar</button>
       </div>
     </div>
 
-
-    <!-- <div class="col-sm-6 col-xs-12" *ngIf="items && items.length >= 3">
+    <div class="col-sm-6 col-xs-12" *ngIf="items && items.length >= 3">
       <div class="sub-banner text-center">
         <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
           <img src="assets/images/banner/slide-1/banner-03.jpg" class="img-responsive" alt="">
@@ -125,6 +78,6 @@
           </div>
         </a>
       </div>
-    </div> -->
+    </div>
   </div>
 </div>

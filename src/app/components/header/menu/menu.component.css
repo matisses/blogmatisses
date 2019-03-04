@@ -305,8 +305,7 @@ a {
 }
 
 .hot-sale {
-  background-color: #b20404 !important;
-  font-weight: bold;
+  background-color: #b20404;
   color: #FFF !important;
   border-bottom: 0 !important;
 }

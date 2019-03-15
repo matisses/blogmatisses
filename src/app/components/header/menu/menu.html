@@ -336,9 +336,9 @@
                 (mouseenter)="alternarSeleccionPadre(menuItem) + carrito.closeResumen()">
                 {{menuItem.name}}
               </li>
-              <!-- <li class="item-menu hot-sale cursor-pointer" (mouseenter)="carrito.closeResumen() + cerrarOverlay()" [routerLink]="['/categoria']" [queryParams]="{ discount: 'true' }">
+              <li class="item-menu hot-sale cursor-pointer" (mouseenter)="carrito.closeResumen() + cerrarOverlay()" [routerLink]="['/categoria']" [queryParams]="{ discount: 'true' }">
                 SALE
-              </li> -->
+              </li>
             </ul>
           </div>
         </div>
@@ -401,9 +401,9 @@
       </div>
     </div>
 
-    <!-- <div [routerLink]="['/categoria']" [queryParams]="{discount: 'true'}">
-      <button [routerLink]="['/categoria']" [queryParams]="{discount: 'true'}" class="accordion hot-sale">CHRISTMAS SALE</button>
-    </div> -->
+    <div [routerLink]="['/categoria']" [queryParams]="{discount: 'true'}">
+      <button [routerLink]="['/categoria']" [queryParams]="{discount: 'true'}" class="accordion hot-sale">SALE</button>
+    </div>
 
     <div class="row">
       <div class="col-xs-12">

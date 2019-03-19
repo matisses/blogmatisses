@@ -52,7 +52,7 @@
         </a>
         <!-- <p class="precio-antes"><b>$ {{items[1].priceaftervat | number}}</b></p> -->
         <p class="precio">
-          <b>$ {{formatNumber(items[1].priceaftervat*0.4)}}</b>
+          <b>$ {{formatNumber(items[1].priceaftervat)}}</b>
         </p>
         <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya"
           [routerLink]="['/producto', items[1].shortitemcode]">Ir

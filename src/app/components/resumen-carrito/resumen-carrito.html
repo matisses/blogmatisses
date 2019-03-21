@@ -75,7 +75,7 @@
                         <p>Total</p>
                         <div class="price-full"
                           *ngIf="!item.priceafterdiscount || item.priceafterdiscount === 0 || item.priceafterdiscount === item.pricebeforediscount || !carrito.validarItem(item.itemcode)">
-                          <p><b>$ {{formatNumber(item.priceaftervat)}}</b></p>
+                          <p><b>$ {{formatNumber(item.priceaftervat*item.selectedQuantity)}}</b></p>
                         </div>
                         <div class="price-discount"
                           *ngIf="item.priceafterdiscount && item.priceafterdiscount > 0 && carrito.validarItem(item.itemcode)">

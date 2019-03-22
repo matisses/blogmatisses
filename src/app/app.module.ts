@@ -332,7 +332,7 @@ import { PromocionVintageComponent } from './components/promo-vintage/promocion-
       { path: 'lista-asistencia/:codigoLista/:codigoInvitado', component: AsistenciaComponent },
       { path: 'lista-de-deseos', component: WishListComponent },
       { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
-      { path: 'promo-vintage', component: PromocionVintageComponent },
+      { path: 'promo-sedit', component: PromocionVintageComponent },
       { path: 'novedades', component: NovedadesComponent },
       { path: 'new-arrivals', component: NewArrivalsComponent },
       { path: 'politica-manejo-de-datos', component: PoliticaDatosComponent },

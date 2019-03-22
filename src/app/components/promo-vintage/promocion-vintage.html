@@ -1,51 +1,75 @@
 <matisses-header></matisses-header>
 
 <div sticky-body>
-  <div class="container">
-    <div class="contenedor">
-      <div class="row">
-        <div class="col-xs-12">
-          <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ keywords: 'vintage', brand: '0001' }">
-            <div class="principal-01">
-              <div class="container">
-                <div class="row">
-                  <div class="col-xs-12">
+  <div class="container-fluid padding-0">
+    <div class="row">
+      <div class="col-xs-12">
+        <a href="javascript:void(0)" [routerLink]="['/categoria']"
+          [queryParams]="{ keywords: 'vintage', brand: '0001' }">
+          <div class="principal-01">
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12">
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="container">
+          <div class="contenedor">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="box">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <img src="../../../assets/images/banner/slide-3/banner-02.jpg" class="img-responsive" alt="">
+                    </div>
+                    <div class="col-md-6">
+                      <p class="text-promo text-justify">
+                        <b>Términos y condiciones</b>
+                      </p>
+                      <ul>
+                        <li>Actividad válida hasta el 25 de marzo.</li>
+                        <li> No acumulable con otras promociones.</li>
+                        <li>Los artículos mencionados en este evento no aplican para compras sin intereses
+                          (MercadoLibre).</li>
+                        <li>Los artículos comprados en este evento no aplican para cambios ni devoluciones.</li>
+                        <li>Los tiempos y costos de entrega permanecen iguales según la política de envíos.</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </a>
-          <br>
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-xs-10 col-xs-offset-1">
-          <p class="text-justify">A partir del 03 de diciembre de 2018 y hasta nueva orden o agotar existencias se tendrán en evento
-            promocional los artículos de los proveedores 216, 217 y 256.
-            <br>
-            <b>Mecánica:</b>
-            Por la compra de 2 artículos de los proveedores 216, 217 o 256 se dará descuento del 50% a la unidad de menor o
-            igual valor.
-            <br>
-            La actividad funciona con pares, para acceder al descuento del 50% de un artículo se debe comprar siempre
-            otro de mayor o igual valor de estos proveedores.
-            La Facturación se debe hacer por promoción aplicada.
-            <br>
-            <b>Ejemplo:</b>
-            Si se compra 6 sillas iguales de estos proveedores 3 sillas tendrán un descuento del 50%
-            Si se comprara una séptima silla esta no tendría descuento pues no está asociada a un producto de mayor o
-            igual valor.
-            <br>
-            <b>Términos y condiciones</b>
-            Actividad válida hasta el 21 de diciembre o hasta agotar existencias
-            No acumula con otras promociones.
-            Los artículos comprados con esta promoción no aplican para cambio o devolución.
-            Los tiempos y costos de entrega permanecen iguales según las políticas actuales.</p>
+            <div class="row">
+              <div class="item-img">
+                <div class="col-md-4 col-xs-8 col-xs-offset-2 col-md-offset-0">
+                  <a href="javascript:void(0)" [routerLink]="['/producto/2640256']">
+                    <img src="../../../assets/images/banner/mesas-promo/1.jpg" class="img-responsive" alt="">
+                  </a>
+                </div>
+                <div class="col-md-4 col-xs-8 col-xs-offset-2 col-md-offset-0">
+                  <a href="javascript:void(0)" [routerLink]="['/producto/2640251']">
+                    <img src="../../../assets/images/banner/mesas-promo/2.jpg" class="img-responsive" alt="">
+                  </a>
+                </div>
+                <div class="col-md-4 col-xs-8 col-xs-offset-2 col-md-offset-0">
+                  <a href="javascript:void(0)" [routerLink]="['/producto/2640254']">
+                    <img src="../../../assets/images/banner/mesas-promo/3.jpg" class="img-responsive" alt="">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <recommended></recommended>
 </div>
 <newsletter></newsletter>
 <matisses-footer></matisses-footer>

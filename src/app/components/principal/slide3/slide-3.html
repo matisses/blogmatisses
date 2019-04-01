@@ -10,7 +10,8 @@
         <span class="glyphicon glyphicon-menu-right"></span>
         <span class="sr-only">Next</span>
       </a>
-      <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ pageSize: '10000', brand: '0039' }">
+      <a href="javascript:void(0)" [routerLink]="['/producto/2810020']">
+        <!-- [queryParams]="{ material: '35', pageSize: '10000' }"> -->
         <div class="principal-01">
           <div class="container">
             <div class="row">
@@ -27,7 +28,7 @@
   <div class="row" *ngIf="items && items.length > 0">
     <div class="col-sm-3 col-xs-6 text-center">
       <div class="recomendaciones">
-        <p class="name">SOFÁ ELISIR EN TELA
+        <p class="name">SOFÁ NIOBE EN TELA
           <br>
           <b>CALIA</b>
         </p>
@@ -66,21 +67,19 @@
 
     <div class="col-sm-6 col-xs-12" *ngIf="items && items.length >= 3">
       <div class="sub-banner text-center">
-        <a href="javascript:void(0)" [routerLink]="['/promo-sedit']">
-          <!-- <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]"> -->
-            <img src="assets/images/banner/slide-3/banner-02.jpg" class="img-responsive" alt="">
-          </a>
+        <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
+          <img src="assets/images/banner/slide-3/banner-02.jpg" class="img-responsive" alt="">
+        </a>
       </div>
       <div class="row">
-        <a href="javascript:void(0)" [routerLink]="['/promo-sedit']">
-          <!-- <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]"> -->
-            <div class="col-xs-12">
-              <div class="sub-banner-footer">
-                <p><b>MESA DE COMEDOR CONCRETE 30% OFF $ {{formatNumber(items[2].priceaftervat*0.7)}}</b></p>
-                <button type="submit" class="ir-comprar" name="comprar-ya">CONOCE COMO</button>
-              </div>
+        <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
+          <div class="col-xs-12">
+            <div class="sub-banner-footer">
+              <p><b>MESA DE COMEDOR CONCRETE $ {{formatNumber(items[2].priceaftervat)}}</b></p>
+              <button type="submit" class="ir-comprar" name="comprar-ya">CONOCE COMO</button>
             </div>
-          </a>
+          </div>
+        </a>
       </div>
     </div>
   </div>

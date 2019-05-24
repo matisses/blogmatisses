@@ -30,7 +30,9 @@ export class Slide2Component implements OnInit {
       this._itemService.find('2220905').subscribe(
       response => {
         this.items.push(response.result[0]);
-        this._itemService.find('1051887').subscribe(
+
+        //this._itemService.find('1051887').subscribe(
+        this._itemService.find('2260223').subscribe(
           response => {
             this.items.push(response.result[0]);
             this._itemService.find('2630034').subscribe(

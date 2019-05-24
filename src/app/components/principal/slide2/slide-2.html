@@ -69,7 +69,8 @@
         </a>
       </div>
       <div class="row">
-        <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
+        <!--<a href="https://www.matisses.co/categoria?group=029" [routerLink]="['/producto', items[2].shortitemcode]">-->
+          <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ page: '1', group: '029'}">
           <!-- [queryParams]="{ discount: 'true', keywords: 'cobre', pageSize: '10000', brand: '0011' }"> -->
           <div class="col-xs-12">
             <div class="sub-banner-footer">

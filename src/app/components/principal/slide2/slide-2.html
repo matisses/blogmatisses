@@ -39,6 +39,10 @@
         <p class="precio">
           <b>$ {{formatNumber(items[0].priceaftervat)}}</b>
         </p>
+        <div class="precio-discount" *ngIf="items[0].priceafterdiscount && items[0].priceafterdiscount > 0">
+          <h5>$ {{formatNumber(items[0].priceaftervat)}}</h5>
+          <h4>$ {{formatNumber(items[0].priceafterdiscount)}}</h4>
+        </div>
         <button type="submit" class="ir-comprar pull-bottom" name="comprar-ya"
           [routerLink]="['/producto', items[0].shortitemcode]">Ir
           a comprar</button>
@@ -63,7 +67,8 @@
 
     <div class="col-sm-6 col-xs-12" *ngIf="items && items.length >= 3">
       <div class="sub-banner text-center">
-        <a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">
+        <a href="javascript:void(0)" [routerLink]="['/categoria']" [queryParams]="{ page: '1', group: '029'}">
+        <!--<a href="javascript:void(0)" [routerLink]="['/producto', items[2].shortitemcode]">-->
           <!-- [queryParams]="{ discount: 'true', keywords: 'cobre', pageSize: '10000', brand: '0011' }"> -->
           <img src="assets/images/banner/slide-2/banner-03.jpg" class="img-responsive" alt="">
         </a>

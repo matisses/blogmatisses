@@ -29,7 +29,7 @@ export class Slide3Component implements OnInit {
     this._itemService.find('2090138').subscribe(
       response => {
         this.items.push(response.result[0]);
-        this._itemService.find('2160038').subscribe(
+        this._itemService.find('1051348').subscribe(
           response => {
             this.items.push(response.result[0]);
             this._itemService.find('2640257').subscribe(

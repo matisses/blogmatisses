@@ -16,7 +16,9 @@ export let GLOBAL = {
   //urlBCS: 'http://192.168.5.23:8080/BCS/res/',
   recaptchaSiteKey: '6LekJy0UAAAAANoeggt1-X3VqaROvs97RZI8g3Co',
   toMail: 'info@matisses.co',
-  urlTransactionResult: 'http://localhost:4200/resultado-transaccion/',
-  urlTransactionResultList: 'http://localhost:4200/resultado-transaccion-regalos/',
+  urlTransactionResult: 'https://www.matisses.co/resultado-transaccion/',
+  urlTransactionResultList: 'https://www.matisses.co/resultado-transaccion-regalos/',
+  //urlTransactionResult: 'http://localhost:4200/resultado-transaccion/',
+  //urlTransactionResultList: 'http://localhost:4200/resultado-transaccion-regalos/',
   urlShared: 'https://360.matisses.co:8443/shared/lista-regalos/'
 };
